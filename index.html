@@ -1087,13 +1087,19 @@
         </div>
         <div class="contact-form fade-right">
           <h3>Send us a message</h3>
-          <div class="form-row">
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-          </div>
-          <input type="text" placeholder="Subject">
-          <textarea placeholder="Your Message"></textarea>
-          <button type="button" class="btn-primary" style="width:100%;justify-content:center;">Send Message <i class="ri-send-plane-line"></i></button>
+          <form action="https://formsubmit.co/info@mantralayagroup.com" method="POST">
+            <input type="hidden" name="_subject" value="New enquiry from mantralayagroup.com">
+            <input type="hidden" name="_next" value="https://mantralayagroup.com/#contact">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Your Name" required>
+              <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Send Message <i class="ri-send-plane-line"></i></button>
+          </form>
         </div>
       </div>
     </div>
