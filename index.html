@@ -547,6 +547,19 @@
       .hexagon .hx-core span { font-size: 7.5px; letter-spacing: 0.4px; }
     }
 
+
+    /* ===== HEX FLIP (photo front / label back) ===== */
+    .hexagon .flip-inner { position: relative; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(.4,0,.2,1); aspect-ratio: 0.9; }
+    .hexagon:hover .flip-inner, .hexagon.flipped .flip-inner, .hexagon:focus-visible .flip-inner { transform: rotateY(180deg); }
+    .hexagon .hx-front, .hexagon .hx-back { position: absolute; inset: 0; clip-path: var(--hex); backface-visibility: hidden; -webkit-backface-visibility: hidden; aspect-ratio: auto; }
+    .hexagon .hx-front { padding: 0; }
+    .hexagon .hx-front img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hexagon .hx-back { transform: rotateY(180deg); }
+    .hexagon.no-img .flip-inner { transform: none !important; transition: none; }
+    .hexagon.no-img .hx-front { display: none; }
+    .hexagon.no-img .hx-back { transform: none; }
+    @media (prefers-reduced-motion: reduce) { .hexagon .flip-inner { transition: none; } }
+
     /* ===== ABOUT — Split Layout ===== */
     .about-wrap {
       padding: 120px 0; background: var(--white); position: relative;
@@ -1392,17 +1405,17 @@
       </div>
       <div class="hex-rows fade-up">
         <div class="hex-row">
-          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-palette-line" aria-hidden="true"></i><span>Coloured Granules &amp; Masterbatches</span></div></div></div></div>
-          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-contrast-drop-line" aria-hidden="true"></i><span>Pigments</span></div></div></div></div>
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="flip-inner"><div class="hx-core hx-front"><img src="products/coloured-granules.jpg" alt="Coloured Granules & Masterbatches" loading="lazy" onerror="this.closest('.hexagon').classList.add('no-img')"></div><div class="hx-core hx-back"><i class="ri-palette-line" aria-hidden="true"></i><span>Coloured Granules &amp; Masterbatches</span></div></div></div></div></div>
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="flip-inner"><div class="hx-core hx-front"><img src="products/pigments.jpg" alt="Pigments" loading="lazy" onerror="this.closest('.hexagon').classList.add('no-img')"></div><div class="hx-core hx-back"><i class="ri-contrast-drop-line" aria-hidden="true"></i><span>Pigments</span></div></div></div></div></div>
         </div>
         <div class="hex-row">
-          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-bubble-chart-line" aria-hidden="true"></i><span>Natural Polymer Granules</span></div></div></div></div>
-          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-flask-line" aria-hidden="true"></i><span>Polymer Powders</span></div></div></div></div>
-          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-links-line" aria-hidden="true"></i><span>Plastic Sutli &amp; Twine</span></div></div></div></div>
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="flip-inner"><div class="hx-core hx-front"><img src="products/natural-granules.jpg" alt="Natural Polymer Granules" loading="lazy" onerror="this.closest('.hexagon').classList.add('no-img')"></div><div class="hx-core hx-back"><i class="ri-bubble-chart-line" aria-hidden="true"></i><span>Natural Polymer Granules</span></div></div></div></div></div>
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="flip-inner"><div class="hx-core hx-front"><img src="products/polymer-powders.jpg" alt="Polymer Powders" loading="lazy" onerror="this.closest('.hexagon').classList.add('no-img')"></div><div class="hx-core hx-back"><i class="ri-flask-line" aria-hidden="true"></i><span>Polymer Powders</span></div></div></div></div></div>
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="flip-inner"><div class="hx-core hx-front"><img src="products/plastic-sutli.jpg" alt="Plastic Sutli & Twine" loading="lazy" onerror="this.closest('.hexagon').classList.add('no-img')"></div><div class="hx-core hx-back"><i class="ri-links-line" aria-hidden="true"></i><span>Plastic Sutli &amp; Twine</span></div></div></div></div></div>
         </div>
         <div class="hex-row">
-          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-recycle-line" aria-hidden="true"></i><span>Recycled Granules</span></div></div></div></div>
-          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-lifebuoy-line" aria-hidden="true"></i><span>Ropes</span></div></div></div></div>
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="flip-inner"><div class="hx-core hx-front"><img src="products/recycled-granules.jpg" alt="Recycled Granules" loading="lazy" onerror="this.closest('.hexagon').classList.add('no-img')"></div><div class="hx-core hx-back"><i class="ri-recycle-line" aria-hidden="true"></i><span>Recycled Granules</span></div></div></div></div></div>
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="flip-inner"><div class="hx-core hx-front"><img src="products/ropes.jpg" alt="Ropes" loading="lazy" onerror="this.closest('.hexagon').classList.add('no-img')"></div><div class="hx-core hx-back"><i class="ri-lifebuoy-line" aria-hidden="true"></i><span>Ropes</span></div></div></div></div></div>
         </div>
       </div>
     </div>
@@ -1835,6 +1848,15 @@
       }, { threshold: 0.3 });
       els.forEach(el => obs.observe(el));
     })();
+
+
+    // HEX FLIP — tap toggles on touch devices, keyboard accessible
+    document.querySelectorAll('.hexagon').forEach(h => {
+      if (!h.querySelector('.flip-inner')) return;
+      h.setAttribute('tabindex','0');
+      h.addEventListener('click', () => h.classList.toggle('flipped'));
+      h.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); h.classList.toggle('flipped'); } });
+    });
 
     // COMPANY MODAL
     const companyData = {
