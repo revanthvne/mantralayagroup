@@ -524,6 +524,29 @@
       box-shadow: 0 4px 16px rgba(232,115,26,0.4);
     }
 
+    /* ===== HEX PRODUCT SHOWCASE ===== */
+    .hex-wrap { padding: 108px 0; background: var(--off-white); position: relative; }
+    .hex-rows { display: flex; flex-direction: column; align-items: center; gap: 0; margin-top: 56px; }
+    .hex-row { display: flex; justify-content: center; gap: 30px; }
+    .hex-row + .hex-row { margin-top: -34px; }
+    .hexagon { --hex: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); width: 186px; }
+    .hexagon .hx-outer { clip-path: var(--hex); background: var(--gunmetal); padding: 7px; transition: transform 0.4s cubic-bezier(.4,0,.2,1); }
+    .hexagon:hover .hx-outer { transform: translateY(-6px); }
+    .hexagon .hx-ring { clip-path: var(--hex); background: var(--orange); padding: 5px; }
+    .hexagon .hx-core { clip-path: var(--hex); background: var(--white); aspect-ratio: 0.9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 22px 16px; }
+    .hexagon .hx-core i { font-size: 34px; color: var(--orange); }
+    .hexagon .hx-core span { font-size: 11.5px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--gunmetal); text-align: center; line-height: 1.45; }
+    @media (max-width: 900px) {
+      .hex-row { gap: 14px; }
+      .hex-row + .hex-row { margin-top: -14px; }
+      .hexagon { width: 100px; }
+      .hexagon .hx-outer { padding: 4px; }
+      .hexagon .hx-ring { padding: 3px; }
+      .hexagon .hx-core { gap: 5px; padding: 12px 8px; }
+      .hexagon .hx-core i { font-size: 18px; }
+      .hexagon .hx-core span { font-size: 7.5px; letter-spacing: 0.4px; }
+    }
+
     /* ===== ABOUT — Split Layout ===== */
     .about-wrap {
       padding: 120px 0; background: var(--white); position: relative;
@@ -1159,10 +1182,10 @@
           <p>Traders of all kinds of plastic raw materials, domestic and imported polymer granules. Leading trader in Andhra Pradesh &amp; Telangana.</p>
           <span class="learn-link">Read More <i class="ri-arrow-right-line"></i></span>
         </div>
-        <div class="company-card fade-up" onclick="openCompanyModal('srp')">
-          <div class="cc-icon"><i class="ri-settings-3-line"></i></div>
-          <h3>Sree Raviteja Polymers</h3>
-          <p>Industry-leading quality plastic packaging solutions &mdash; PP bags, PE bags, rolls, and packing models with latest technology and machinery.</p>
+        <div class="company-card fade-up" onclick="openCompanyModal('srpl')">
+          <div class="cc-icon"><i class="ri-plant-line"></i></div>
+          <h3>Sree Raviteja Polymers Limited</h3>
+          <p>Specialized polymer trading and distribution company, expanding our reach across domestic and international markets with quality raw materials.</p>
           <span class="learn-link">Read More <i class="ri-arrow-right-line"></i></span>
         </div>
         <div class="company-card fade-up" onclick="openCompanyModal('ssa')">
@@ -1183,10 +1206,10 @@
           <p>Your one-stop shop for all polymer material needs &mdash; high-quality Metallocene, PVC, PET, EVA, masterbatches, additives &amp; pigments.</p>
           <span class="learn-link">Read More <i class="ri-arrow-right-line"></i></span>
         </div>
-        <div class="company-card fade-up" onclick="openCompanyModal('srpl')">
-          <div class="cc-icon"><i class="ri-plant-line"></i></div>
-          <h3>Sree Raviteja Polymers Limited</h3>
-          <p>Specialized polymer trading and distribution company, expanding our reach across domestic and international markets with quality raw materials.</p>
+        <div class="company-card fade-up" onclick="openCompanyModal('srp')">
+          <div class="cc-icon"><i class="ri-settings-3-line"></i></div>
+          <h3>Sree Raviteja Polymers</h3>
+          <p>Industry-leading quality plastic packaging solutions &mdash; PP bags, PE bags, treated rolls, and packaging films with latest technology and machinery.</p>
           <span class="learn-link">Read More <i class="ri-arrow-right-line"></i></span>
         </div>
         <div class="company-card fade-up" style="background:linear-gradient(135deg, rgba(232,115,26,0.04), rgba(232,115,26,0.01)); border-color:rgba(232,115,26,0.12);">
@@ -1355,6 +1378,32 @@
         <span class="p-badge">Polystyrene</span>
         <span class="p-badge">Biodegradable Plastic (PBAT)</span>
         <span class="p-badge">Masterbatches &amp; Compounding</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SHOWCASE -->
+  <section class="hex-wrap" id="showcase">
+    <div class="container">
+      <div class="section-header center fade-up">
+        <div class="section-label">Product Showcase</div>
+        <h2 class="section-title">From Granules to Finished Products</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="hex-rows fade-up">
+        <div class="hex-row">
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-palette-line" aria-hidden="true"></i><span>Coloured Granules &amp; Masterbatches</span></div></div></div></div>
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-contrast-drop-line" aria-hidden="true"></i><span>Pigments</span></div></div></div></div>
+        </div>
+        <div class="hex-row">
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-bubble-chart-line" aria-hidden="true"></i><span>Natural Polymer Granules</span></div></div></div></div>
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-flask-line" aria-hidden="true"></i><span>Polymer Powders</span></div></div></div></div>
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-links-line" aria-hidden="true"></i><span>Plastic Sutli &amp; Twine</span></div></div></div></div>
+        </div>
+        <div class="hex-row">
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-recycle-line" aria-hidden="true"></i><span>Recycled Granules</span></div></div></div></div>
+          <div class="hexagon"><div class="hx-outer"><div class="hx-ring"><div class="hx-core"><i class="ri-lifebuoy-line" aria-hidden="true"></i><span>Ropes</span></div></div></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -1532,11 +1581,11 @@
           <h4>Companies</h4>
           <ul>
             <li><a href="#companies" onclick="openCompanyModal('smp')">Sree Mantralaya Petrochem</a></li>
-            <li><a href="#companies" onclick="openCompanyModal('srp')">Sree Raviteja Polymers</a></li>
+            <li><a href="#companies" onclick="openCompanyModal('srpl')">Sree Raviteja Polymers Limited</a></li>
             <li><a href="#companies" onclick="openCompanyModal('ssa')">Sree Sai Ambica Marketing Agencies</a></li>
             <li><a href="#companies" onclick="openCompanyModal('bgp')">Bala Ganesha Polymers</a></li>
             <li><a href="#companies" onclick="openCompanyModal('spe')">Sree Padmavathi Enterprises</a></li>
-            <li><a href="#companies" onclick="openCompanyModal('srpl')">Sree Raviteja Polymers Limited</a></li>
+            <li><a href="#companies" onclick="openCompanyModal('srp')">Sree Raviteja Polymers</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1803,9 +1852,9 @@
         title: 'Sree Raviteja Polymers',
         subtitle: 'Industry best in offering quality plastic packaging solutions with latest technology, machinery, and a fully equipped team.',
         products: [
-          { name: 'Packaging Products', items: ['Polypropylene (PP) bags','Polyethylene (PE) bags','Trusted rolls & packing models','PP & PE varieties','Custom packaging solutions'] },
+          { name: 'Packaging Products', items: ['Polypropylene (PP) bags','Polyethylene (PE) bags','Treated rolls and packaging films','PP & PE varieties','BOPP bags — garment & jewellery packing','Non-woven bags — printed and plain','Custom packaging solutions'] },
           { name: 'Capabilities', items: ['Latest technology & machinery','Fully equipped production team','Customized packaging solutions','Streamlined brand protection','Quality-focused manufacturing'] },
-          { name: 'Industries Served', items: ['Food & agriculture packaging','Industrial component wrapping','Retail & consumer packaging','Construction material packaging','Export-grade packaging solutions'] }
+          { name: 'Industries Served', items: ['Food & agriculture packaging','Industrial component wrapping','Retail & consumer packaging','Garment & jewellery packaging','Construction material packaging','Export-grade packaging solutions'] }
         ]
       },
       ssa: {
@@ -1822,7 +1871,7 @@
         subtitle: 'A futuristic plastic recycling company dedicated to transforming waste into valuable resources.',
         products: [
           { name: 'Recycling', items: ['Industrial plastic waste processing','High-quality recycled materials','Recycled plastic granules','Eco-friendly product range','Responsible consumption promotion'] },
-          { name: 'Manufacturing', items: ['Plastic products under multiple brands','Various qualities & price ranges','Stringent industry standards','Innovative packaging solutions','Diverse industry applications'] },
+          { name: 'Manufacturing', items: ['Plastic sutli and various products under multiple brands','Various qualities & price ranges','Stringent industry standards','Innovative packaging solutions','Diverse industry applications'] },
           { name: 'Sustainability', items: ['Environmental sustainability focus','Cutting-edge recycling technology','Waste-to-value transformation','Cleaner & greener future','Reducing plastic waste'] }
         ]
       },
