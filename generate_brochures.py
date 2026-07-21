@@ -375,7 +375,7 @@ companies = [
         'subtitle': (
             'Sree Mantralaya Petrochem (SMP) is the leading trader of all kinds of plastic raw materials '
             'and imported granules for domestic and imported polymers in Andhra Pradesh and Telangana. '
-            'We are dealers and distributors of BCPL, GAIL, Haldia, HMEL, HPCL, Indian Oil, MRPL, '
+            'We are traders of BCPL, GAIL, Haldia, HMEL, HPCL, Indian Oil, MRPL, '
             'Nayara, OPAL and Reliance for Polypropylene and Polyethylene. We also trade Metallocene, '
             'PVC, PET, EVA, Polystyrene and Biodegradable Plastic (PBAT). With 35+ years of industry '
             'experience, SMP is the flagship company of the Mantralaya Group.'
@@ -413,7 +413,7 @@ companies = [
             ]},
         ],
         'strengths': [
-            {'title': 'Dealer & Distributor', 'desc': 'Dealers and distributors of BCPL, GAIL, Haldia, HMEL, HPCL, Indian Oil, MRPL, Nayara, OPAL & Reliance'},
+            {'title': 'Multi-Brand Trader', 'desc': 'Traders of BCPL, GAIL, Haldia, HMEL, HPCL, Indian Oil, MRPL, Nayara, OPAL & Reliance'},
             {'title': '35+ Years Experience', 'desc': 'Over three decades of deep expertise in polymer trading and distribution'},
             {'title': 'Complete Product Range', 'desc': 'PP, PE, Metallocene, PVC, PS, PET, EVA & Polystyrene under one roof'},
             {'title': 'Domestic & Imported', 'desc': 'Both Indian and imported polymer granules and raw materials available'},
@@ -472,7 +472,7 @@ companies = [
             'network of manufacturers and a large, loyal client pool, we provide reliable raw material '
             'sourcing, virgin and recycled polymer resins, and commodity and engineering plastics. '
             'Our consistent thrust on quality and competitive pricing has made us a preferred partner '
-            'for retailers, distributors, and industrial users alike.'
+            'for retailers, wholesalers, and industrial users alike.'
         ),
         'products': [
             {'name': 'Trading & Sourcing', 'items': [
@@ -483,7 +483,7 @@ companies = [
                 'Commodity & engineering plastics'
             ]},
             {'name': 'Distribution', 'items': [
-                'Retailers & distributors served',
+                'Retail & wholesale customers served',
                 'Industrial user supply',
                 'Customized solutions for specific needs',
                 'Speedy deliveries across the region',
