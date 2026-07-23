@@ -17,9 +17,9 @@ NEW = {
    subtitle=('Sree Mantralaya Petrochem (SMP) is the leading trader of all kinds of plastic raw materials '
      'for domestic and imported polymers in Andhra Pradesh and Telangana. We deal the domestic products of '
      'GAIL, BCPL, HMEL, Haldia, OPAL, MRPL, HPCL, Reliance and Nayara for Polypropylene and '
-     'Polyethylene granules, and imported granules of ' + IMP + ' We also trade Metallocene, PVC, PET, EVA, '
-     'Polystyrene and Biodegradable Plastic (PBAT). With 35+ years of industry experience, SMP is the '
-     'flagship company of the Mantralaya Group.'),
+     'Polyethylene granules, and imported granules of ' + IMP + ' We also trade Metallocene, PVC, PS, PET, EVA, '
+     'Polystyrene and Biodegradable Plastic (PBAT). With 35+ years of industry experience, SMP is a '
+     'proud member of the Mantralaya Group.'),
    products=[
      {'name': 'Homopolymer (PP)', 'items': ['Textile wraps, garment bags, snack food packing','Extrusion coating, fibre & filament','Multifilament yarn, woven sacks, and non-woven fabric','Rigid packing, thin wall containers, multicavity moulding','Injection moulding & compounding applications']},
      {'name': 'Random Co-Polymer (PP)', 'items': ['High clarity bottles, containers, sheets','Clarified random co-polymer rigid containers','House wares & consumer products','Transparent & translucent packaging']},

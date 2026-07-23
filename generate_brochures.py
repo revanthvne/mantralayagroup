@@ -378,8 +378,8 @@ companies = [
             'and imported granules for domestic and imported polymers in Andhra Pradesh and Telangana. '
             'We are traders of GAIL, BCPL, HMEL, Haldia, OPAL, MRPL, '
             'HPCL, Reliance and Nayara for Polypropylene and Polyethylene. We also trade Metallocene, '
-            'PVC, PET, EVA, Polystyrene and Biodegradable Plastic (PBAT). With 35+ years of industry '
-            'experience, SMP is the flagship company of the Mantralaya Group.'
+            'PVC, PS, PET, EVA, Polystyrene and Biodegradable Plastic (PBAT). With 35+ years of industry '
+            'experience, SMP is a proud member of the Mantralaya Group.'
         ),
         'products': [
             {'name': 'Homopolymer (PP)', 'items': [
@@ -586,7 +586,7 @@ companies = [
         ],
         'strengths': [
             {'title': 'One-Stop Shop', 'desc': 'Complete range of specialty resins, additives, masterbatches, and pigments'},
-            {'title': 'Specialty Focus', 'desc': 'Expert knowledge in Metallocene, PVC, PET, EVA, and PS products'},
+            {'title': 'Specialty Focus', 'desc': 'Expert knowledge in Metallocene, PVC, PS, PET, EVA, and Polystyrene products'},
             {'title': 'Quality Promise', 'desc': 'Absolutely no compromise on material quality and consistency'},
             {'title': 'Expert Guidance', 'desc': 'Procurement guidance from specialists who understand your applications'},
             {'title': 'Wide Selection', 'desc': 'Masterbatches, stabilizers, pigments, and processing aids in stock'},
