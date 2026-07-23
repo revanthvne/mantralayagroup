@@ -72,6 +72,56 @@ NEW = {
    branches=[('Hyderabad','8977020177, 8977020176'),('Nellore','8886668921')]),
 }
 
+# ---- ABOUT text: 100% verbatim from uploaded docx (only spelling typos corrected) ----
+DOC_ABOUT = {
+ 'SMP-Brochure.pdf': ('Sree Mantralaya Petrochem (SMP) is the leading trader of all kinds of plastic raw materials '
+   'for domestic and imported polymers in Andhra Pradesh and Telangana. We are dealing the domestic companies '
+   'products of GAIL, BCPL, HMEL, Haldia, OPAL, MRPL, HPCL, Reliance and Nayara for Polypropylene and Polyethylene '
+   'Granules and for imported granules of Aramco, Borouge, CABOT, Celanese, Chevron Phillips, Exxon Mobil, Formosa, '
+   'GC Marketing, Gulf Polymers, INEOS (Inovyn), LG Chem, Lyondell Basell, Mitsubishi Corporation, OQ (LUBAN), '
+   'Sabic, SCGC, Westlake, etc. We also trade Metallocene, PVC, PS, PET, EVA and Polystyrene & Biodegradable '
+   'Plastic (PBAT).'),
+ 'SRP-Brochure.pdf': ('Sree Raviteja Polymers is the industry best in offering quality plastic packaging solutions '
+   'with the latest technology, state-of-the-art machinery, and a fully equipped production team. We manufacture '
+   'Polypropylene bags, Polyethylene bags, treated rolls and custom packing models for a wide range of industries '
+   'including food, agriculture, retail, construction, export packaging. We also manufacturing BOPP-Garment bags '
+   'and Non Woven customize Shopping bags. A Proud member of the Mantralaya Group with 35+ years of collective '
+   'industry experience.'),
+ 'SSAMA-Brochure.pdf': ('Sree Sai Ambica Marketing Agencies is the trusted leader in the world of plastic products, '
+   'spanning across various industries with a wide variety of end products. With an extensive network of '
+   'manufacturers and a large, loyal client pool. As the leading trading company, we specialize both in sourcing '
+   'and supplying a range of plastic raw materials, additives, pigments, master batches and moisture powder to '
+   'churn out a wide variety of end products. Our consistent thrust on quality and competitive pricing has made us '
+   'a preferred partner for retailers, distributors, and industrial users alike.'),
+ 'BGP-Brochure.pdf': ('Bala Ganesha Polymers is a futuristic plastic recycling company dedicated to transforming '
+   'waste into valuable resources. We process industrial plastic waste and also different kind of plastic waste '
+   'into high-quality recycled materials and granules, manufacturing plastic products of Sutli under multiple '
+   'brands with various qualities and price ranges. Our commitment to environmental sustainability, cutting-edge '
+   'recycling technology, and responsible consumption promotion drives us toward a cleaner, greener future for the '
+   'polymer industry.'),
+ 'SPE-Brochure.pdf': ('Sree Padmavathi Enterprises is your one-stop shop for all polymer material needs with '
+   'unparalleled customer service. We specialize in Metallocene PE & PP, PVC (suspension & emulsion), PET, EVA, '
+   'Polystyrene and Biodegradable PBAT. Our extensive range also includes master batches (white, black & colour), '
+   'UV stabilizers, antioxidants, slip & anti-block agents, processing aids, nucleators, and organic & inorganic '
+   'pigments, moisture powders, moisture dana and reprocessing granules. We serve a diverse clientele with expert '
+   'procurement guidance and no compromise on quality.'),
+ 'SRPL-Brochure.pdf': ('Sree Raviteja Polymers Ltd (SRPL) has established itself as a trusted name in the polymer '
+   'industry. With over three decades of expertise, the company has built a reputation for delivering on its '
+   'promises, ensuring consistent supply, quality, and maintaining strong ethical business practices.<br/><br/>'
+   'SRPL has earned the trust of the market through its unwavering commitment to reliability and customer '
+   'satisfaction. Over the years, the company has nurtured long-standing relationships with Raw Material Giants, '
+   'including leading petrochemical corporations, ensuring uninterrupted supply and competitive advantage. This '
+   'strong supplier network has been a cornerstone of SRPL\u2019s ability to serve its customers effectively.<br/><br/>'
+   'Equally important is the loyal customer base that SRPL has cultivated. By consistently meeting commitments and '
+   'providing dependable service, the company has gained the support of clients across diverse industries. This '
+   'mutual trust and respect form the foundation of SRPL\u2019s sustained growth and success in both Andhra Pradesh '
+   'and Telangana.<br/><br/>'
+   'Today, SRPL stands as a symbol of integrity, reliability, and excellence in the polymer sector, continuing to '
+   'expand its footprint while staying true to its core values.'),
+}
+for _k, _v in DOC_ABOUT.items():
+    NEW[_k]['subtitle'] = _v
+
 GALLERY = [
  ('packaging-products','Packaging Products'),('pp-bags','Polypropylene (PP) Bags'),('pe-bags','Polyethylene (PE) Bags'),
  ('plastic-sutli','Plastic Sutli & Twine'),('garment-bags','Garment Bags'),('non-woven-bags','Non-Woven Bags - Printed & Plain'),
