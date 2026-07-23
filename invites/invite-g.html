@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; height:1350px; font-family:'Montserrat',sans-serif; background:#150B07; overflow:hidden; position:relative; color:#fff; }
+.hexbg { position:absolute; inset:-80px; opacity:0.14;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='121' viewBox='0 0 140 121'%3E%3Cpath d='M35 0 L105 0 L140 60.5 L105 121 L35 121 L0 60.5 Z' fill='none' stroke='%23F07800' stroke-width='2'/%3E%3C/svg%3E");
+  background-size:140px 121px; }
+.glow { position:absolute; width:800px; height:800px; border-radius:50%; background:radial-gradient(circle, rgba(216,60,0,0.22), transparent 65%); top:-220px; left:50%; transform:translateX(-50%); filter:blur(50px); }
+.inner { position:relative; z-index:2; display:flex; flex-direction:column; height:100%; padding:52px 64px 0; }
+.logos { display:flex; align-items:center; justify-content:space-between; }
+.logos img { height:74px; }
+.divider { width:2px; height:62px; background:rgba(255,255,255,0.15); }
+.invite-line { margin-top:34px; text-align:center; font-size:24px; font-weight:800; letter-spacing:10px; color:rgba(255,255,255,0.7); }
+.headline { margin-top:24px; text-align:center; font-size:48px; font-weight:900; line-height:1.25; }
+.headline .amp { background:linear-gradient(100deg,#D83000,#F07800); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.promise { margin-top:14px; text-align:center; font-family:'Inter',sans-serif; font-style:italic; font-size:31px; font-weight:600; color:#F6921E; }
+.spacer { flex:1; }
+.hex-stall { display:flex; justify-content:center; align-items:center; gap:44px; }
+.bighex { --h:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); width:360px; }
+.bighex .o { clip-path:var(--h); background:linear-gradient(115deg,#A80B0B,#D83000 46%,#F07800); padding:7px; filter:drop-shadow(0 14px 40px rgba(216,60,0,0.4)); }
+.bighex .c { clip-path:var(--h); background:#1C0F09; aspect-ratio:0.94; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:30px; text-align:center; }
+.bighex .t { font-size:21px; font-weight:800; letter-spacing:2px; line-height:1.45; color:rgba(255,255,255,0.85); }
+.bighex .v { font-size:44px; font-weight:900; background:linear-gradient(100deg,#F07800,#FFB25C); -webkit-background-clip:text; background-clip:text; color:transparent; white-space:nowrap; }
+.bighex .s { font-size:15px; font-weight:800; letter-spacing:5px; color:rgba(255,255,255,0.5); }
+.side { display:flex; flex-direction:column; gap:22px; }
+.side .k { background:rgba(255,255,255,0.06); border:1px solid rgba(240,120,0,0.3); border-radius:16px; padding:18px 26px; font-family:'Inter',sans-serif; font-size:22px; font-weight:600; display:flex; align-items:center; gap:14px; }
+.side .k b { color:#F6921E; font-weight:800; }
+.hiplex { margin-top:26px; text-align:center; }
+.hiplex .word { font-size:54px; font-weight:900; letter-spacing:5px; line-height:1; }
+.hiplex .word span:nth-child(1){color:#E8731A}.hiplex .word span:nth-child(2){color:#4FC3F7}.hiplex .word span:nth-child(3){color:#F9D14C}.hiplex .word span:nth-child(4){color:#EF6AA2}.hiplex .word span:nth-child(5){color:#7ED47E}.hiplex .word span:nth-child(6){color:#E8731A}
+.hiplex .sub { margin-top:8px; font-size:18px; font-weight:800; letter-spacing:6px; color:#F6921E; }
+.footer { margin-top:auto; background:linear-gradient(90deg,#A80B0B,#D83000 46%,#F07800); margin-left:-64px; margin-right:-64px; padding:26px 64px; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:22px; font-weight:700; }
+</style></head>
+<body>
+  <div class="hexbg"></div><div class="glow"></div>
+  <div class="inner">
+    <div class="logos">
+      <img src="../mg-logo-dark.png" alt="Mantralaya Group">
+      <div class="divider"></div>
+      <img src="../srpl-logo-dark.png" alt="SRPL" style="height:86px;">
+    </div>
+    <div class="invite-line">WE CORDIALLY INVITE YOU</div>
+    <div class="headline">MANTRALAYA GROUP<br><span class="amp">&amp;</span> SREE RAVITEJA POLYMERS LIMITED</div>
+    <div class="promise">&ldquo;We deliver what we promise.&rdquo;</div>
+    <div class="spacer"></div>
+    <div class="hex-stall">
+      <div class="bighex"><div class="o"><div class="c">
+        <div class="t">MANTRALAYA GROUP<br>&amp; SRPL</div>
+        <div class="v">C 05 &amp; C 06</div>
+        <div class="s">STALLS &middot; HALL 4</div>
+      </div></div></div>
+      <div class="side">
+        <div class="k"><b>07 &ndash; 10</b>&nbsp;August 2026</div>
+        <div class="k">Hitex Exhibition Centre,<br>Hyderabad</div>
+        <div class="k">Hall&nbsp;<b>4</b>&nbsp;&middot;&nbsp;Stalls&nbsp;<b>C 05 &amp; C 06</b></div>
+      </div>
+    </div>
+    <div class="hiplex">
+      <div class="word"><span>H</span><span>I</span><span>P</span><span>L</span><span>E</span><span>X</span></div>
+      <div class="sub">INTERNATIONAL PLASTICS EXPO &mdash; 2026</div>
+    </div>
+    <div class="footer">
+      <span>+91 7095 303 303</span>
+      <span>www.mantralayagroup.com</span>
+      <span>www.sreeravitejapolymersltd.com</span>
+    </div>
+  </div>
+</body></html>

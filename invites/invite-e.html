@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; height:1350px; font-family:'Inter',sans-serif; background:#FBF4EB; overflow:hidden; position:relative; color:#10141B; display:flex; flex-direction:column; }
+.arc-top { position:absolute; top:-330px; left:50%; transform:translateX(-50%); width:1500px; height:600px; border-radius:50%; border:10px solid transparent; border-bottom-color:#D83000; opacity:0.35; }
+.inner { position:relative; z-index:2; display:flex; flex-direction:column; height:100%; padding:56px 72px 0; }
+.logos { display:flex; align-items:center; justify-content:space-between; }
+.logos img { height:70px; }
+.divider { width:1px; height:60px; background:rgba(16,20,27,0.12); }
+.eyebrow { margin:52px auto 0; border:2px solid rgba(216,60,0,0.4); color:#B31212; background:rgba(216,60,0,0.05); font-size:20px; font-weight:800; letter-spacing:7px; padding:14px 38px; border-radius:100px; font-family:'Montserrat',sans-serif; }
+.headline { margin-top:30px; text-align:center; font-family:'Playfair Display',serif; font-size:58px; line-height:1.2; }
+.headline em { background:linear-gradient(100deg,#A80B0B,#D83000 50%,#F07800); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:italic; }
+.promise { margin-top:18px; text-align:center; font-family:'Playfair Display',serif; font-style:italic; font-size:34px; background:linear-gradient(100deg,#A80B0B,#F07800); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.spacer { flex:1; }
+.hiplex { text-align:center; }
+.hiplex .word { font-family:'Montserrat',sans-serif; font-size:54px; font-weight:900; letter-spacing:5px; line-height:1; }
+.hiplex .word span:nth-child(1){color:#E8731A}.hiplex .word span:nth-child(2){color:#4FC3F7}.hiplex .word span:nth-child(3){color:#F9D14C}.hiplex .word span:nth-child(4){color:#EF6AA2}.hiplex .word span:nth-child(5){color:#7ED47E}.hiplex .word span:nth-child(6){color:#E8731A}
+.hiplex .sub { margin-top:9px; font-family:'Montserrat',sans-serif; font-size:18px; font-weight:800; letter-spacing:6px; color:#C43D00; }
+.stall-card { margin:40px auto 0; width:100%; background:#fff; border-radius:24px; padding:38px 48px; text-align:center; box-shadow:0 18px 60px rgba(168,11,11,0.12); position:relative; overflow:hidden; }
+.stall-card::before { content:''; position:absolute; top:0; left:0; right:0; height:7px; background:linear-gradient(90deg,#A80B0B,#D83000,#F07800); }
+.stall-card .co { font-family:'Montserrat',sans-serif; font-size:29px; font-weight:800; }
+.stall-card .num { margin-top:14px; font-family:'Montserrat',sans-serif; font-size:74px; font-weight:900; background:linear-gradient(100deg,#A80B0B,#D83000 50%,#F07800); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1; }
+.stall-card .lbl { margin-top:12px; font-size:17px; font-weight:700; letter-spacing:5px; color:#5A6472; }
+.details { margin-top:28px; display:flex; justify-content:center; gap:44px; font-size:25px; font-weight:600; color:#1A2029; }
+.details .item { display:flex; align-items:center; gap:12px; }
+.details .dot { width:11px; height:11px; border-radius:50%; background:linear-gradient(135deg,#A80B0B,#F07800); }
+.footer { margin:46px -72px 0; background:#150B07; padding:26px 72px; display:flex; justify-content:space-between; align-items:center; font-size:21px; font-weight:600; color:rgba(255,255,255,0.85); }
+.footer b { color:#F6921E; }
+</style></head>
+<body>
+  <div class="arc-top"></div>
+  <div class="inner">
+    <div class="logos">
+      <img src="../mg-logo.png" alt="Mantralaya Group">
+      <div class="divider"></div>
+      <img src="../srpl-logo-light.png" alt="SRPL" style="height:82px;">
+    </div>
+    <div style="text-align:center;"><span class="eyebrow" style="display:inline-block;">YOU ARE INVITED</span></div>
+    <div class="headline">Mantralaya Group &amp;<br><em>Sree Raviteja Polymers Limited</em></div>
+    <div class="promise">&ldquo;We deliver what we promise.&rdquo;</div>
+    <div class="spacer"></div>
+    <div class="hiplex">
+      <div class="word"><span>H</span><span>I</span><span>P</span><span>L</span><span>E</span><span>X</span></div>
+      <div class="sub">INTERNATIONAL PLASTICS EXPO &mdash; 2026</div>
+    </div>
+    <div class="stall-card">
+      <div class="co">Mantralaya Group &amp; Sree Raviteja Polymers Limited</div>
+      <div class="num">C 05 &amp; C 06</div>
+      <div class="lbl">STALLS &nbsp;&middot;&nbsp; HALL 4 &nbsp;&middot;&nbsp; HITEX</div>
+    </div>
+    <div class="details">
+      <div class="item"><div class="dot"></div>07 &ndash; 10 August 2026</div>
+      <div class="item"><div class="dot"></div>Hitex Exhibition Centre, Hyderabad</div>
+    </div>
+    <div class="footer">
+      <span><b>+91 7095 303 303</b></span>
+      <span>www.mantralayagroup.com</span>
+      <span>www.sreeravitejapolymersltd.com</span>
+    </div>
+  </div>
+</body></html>
