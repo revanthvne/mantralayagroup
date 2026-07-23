@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; height:1350px; font-family:'Montserrat',sans-serif; overflow:hidden; position:relative; color:#fff; background:#0D0D0D; }
+.bg { position:absolute; inset:0; }
+.bg img { width:100%; height:100%; object-fit:cover; object-position:center 30%; }
+.bg::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.45) 34%, rgba(13,13,13,0.28) 55%, rgba(13,13,13,0.94) 82%, #0D0D0D 100%); }
+.inner { position:relative; z-index:2; height:100%; display:flex; flex-direction:column; padding:52px 64px 0; }
+
+.logos { display:flex; align-items:center; justify-content:space-between; }
+.logos img { height:70px; filter:drop-shadow(0 2px 12px rgba(0,0,0,0.6)); }
+.logos .divider { width:2px; height:58px; background:rgba(255,255,255,0.25); }
+
+.invite-line { margin-top:40px; text-align:center; font-size:22px; font-weight:700; letter-spacing:8px; color:rgba(255,255,255,0.8); text-shadow:0 2px 10px rgba(0,0,0,0.6); }
+.headline { margin-top:20px; text-align:center; font-family:'Playfair Display',serif; font-size:58px; line-height:1.15; text-shadow:0 4px 24px rgba(0,0,0,0.65); }
+.headline em { color:#F59E4A; }
+.promise { margin-top:16px; text-align:center; font-family:'Playfair Display',serif; font-style:italic; font-size:36px; color:#F59E4A; text-shadow:0 3px 14px rgba(0,0,0,0.7); }
+
+.spacer { flex:1; }
+
+.hiplex { text-align:center; }
+.hiplex .word { font-size:58px; font-weight:900; letter-spacing:4px; line-height:1; text-shadow:0 4px 18px rgba(0,0,0,0.7); }
+.hiplex .word span:nth-child(1){color:#E8731A}.hiplex .word span:nth-child(2){color:#4FC3F7}.hiplex .word span:nth-child(3){color:#F9D14C}.hiplex .word span:nth-child(4){color:#EF6AA2}.hiplex .word span:nth-child(5){color:#7ED47E}.hiplex .word span:nth-child(6){color:#E8731A}
+.hiplex .sub { margin-top:8px; font-size:19px; font-weight:800; letter-spacing:6px; color:#F59E4A; text-shadow:0 2px 10px rgba(0,0,0,0.7); }
+
+.hex-chips { margin-top:44px; display:flex; justify-content:center; gap:26px; }
+.hchip { --h:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); width:196px; }
+.hchip .o { clip-path:var(--h); background:#E8731A; padding:5px; filter:drop-shadow(0 10px 26px rgba(0,0,0,0.5)); }
+.hchip .c { clip-path:var(--h); background:rgba(13,13,13,0.92); aspect-ratio:0.92; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:18px 12px; }
+.hchip .t { font-size:16px; font-weight:800; letter-spacing:2px; color:rgba(255,255,255,0.65); text-align:center; line-height:1.3; }
+.hchip .v { font-size:44px; font-weight:900; color:#F59E4A; }
+.hchip.dark .o { background:#fff; }
+.hchip.dark .c { background:#E8731A; }
+.hchip.dark .t { color:rgba(255,255,255,0.85); }
+.hchip.dark .v { color:#fff; }
+
+.when { margin-top:42px; display:flex; justify-content:center; gap:52px; font-family:'Inter',sans-serif; }
+.when .item { display:flex; align-items:center; gap:13px; font-size:25px; font-weight:600; color:rgba(255,255,255,0.95); text-shadow:0 2px 8px rgba(0,0,0,0.6); }
+.when .dot { width:12px; height:12px; background:#E8731A; border-radius:50%; box-shadow:0 0 14px rgba(232,115,26,0.9); }
+
+.tagline { margin-top:30px; text-align:center; font-family:'Inter',sans-serif; font-size:24px; font-weight:500; color:rgba(255,255,255,0.75); font-style:italic; }
+
+.footer { margin:38px -64px 0; background:linear-gradient(90deg,#E8731A,#C75E10); padding:24px 64px; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:21px; font-weight:700; }
+</style></head>
+<body>
+  <div class="bg"><img src="charminar.jpg"></div>
+  <div class="inner">
+    <div class="logos">
+      <img src="../mg-logo-dark.png" alt="Mantralaya Group">
+      <div class="divider"></div>
+      <img src="../srpl-logo-dark.png" alt="Sree Raviteja Polymers Limited" style="height:80px;">
+    </div>
+
+    <div class="invite-line">YOU ARE INVITED</div>
+    <div class="headline">Mantralaya Group &amp;<br>Sree Raviteja Polymers Limited<br><em>cordially invite you.</em></div>
+    <div class="promise">&ldquo;We deliver what we promise.&rdquo;</div>
+
+    <div class="spacer"></div>
+
+    <div class="hiplex">
+      <div class="word"><span>H</span><span>I</span><span>P</span><span>L</span><span>E</span><span>X</span></div>
+      <div class="sub">INTERNATIONAL PLASTICS EXPO &mdash; 2026</div>
+    </div>
+
+    <div class="hex-chips">
+      <div class="hchip dark"><div class="o"><div class="c"><div class="t">HALL</div><div class="v">4</div></div></div></div>
+      <div class="hchip" style="width:240px;"><div class="o"><div class="c"><div class="t">MANTRALAYA GROUP<br>&amp; SRPL</div><div class="v" style="font-size:32px;white-space:nowrap;">C 05 &amp; C 06</div><div class="t" style="letter-spacing:4px;">STALLS</div></div></div></div>
+    </div>
+
+    <div class="when">
+      <div class="item"><div class="dot"></div>07 &ndash; 10 August 2026</div>
+      <div class="item"><div class="dot"></div>Hitex Exhibition Centre, Hyderabad</div>
+    </div>
+
+    <div class="tagline">We look forward to welcoming you at our stalls &mdash; C 05 &amp; C 06, Hall 4.</div>
+
+    <div class="footer">
+      <span>+91 7095 303 303</span>
+      <span>www.mantralayagroup.com</span>
+      <span>www.sreeravitejapolymersltd.com</span>
+    </div>
+  </div>
+</body></html>

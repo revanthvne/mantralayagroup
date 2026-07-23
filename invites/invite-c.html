@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; height:1350px; font-family:'Montserrat',sans-serif; background:#F6F7F8; overflow:hidden; position:relative; color:#10141B; display:flex; flex-direction:column; }
+.top-band { background:#0D0D0D; padding:32px 64px; display:flex; align-items:center; justify-content:space-between; }
+.top-band img { height:64px; }
+.top-band .divider { width:2px; height:56px; background:rgba(255,255,255,0.18); }
+.orange-line { height:6px; background:linear-gradient(90deg,#E8731A,#F59E4A); }
+
+.hero { padding:38px 64px 0; text-align:center; }
+.eyebrow { display:inline-block; border:2px solid rgba(232,115,26,0.45); background:rgba(232,115,26,0.07); color:#C75E10; font-size:21px; font-weight:800; letter-spacing:6px; padding:14px 34px; border-radius:10px; }
+h1 { font-family:'Playfair Display',serif; font-size:58px; line-height:1.12; margin-top:28px; letter-spacing:-1px; }
+h1 em { color:#E8731A; }
+.promise { margin-top:16px; font-family:'Playfair Display',serif; font-style:italic; font-size:36px; color:#E8731A; }
+.subtitle { margin-top:20px; font-family:'Inter',sans-serif; font-size:27px; font-weight:500; color:#5A6472; line-height:1.55; }
+
+.hiplex { margin-top:26px; }
+.hiplex .word { font-size:52px; font-weight:900; letter-spacing:5px; line-height:1; }
+.hiplex .word span:nth-child(1){color:#E8731A}.hiplex .word span:nth-child(2){color:#4FC3F7}.hiplex .word span:nth-child(3){color:#F9D14C}.hiplex .word span:nth-child(4){color:#EF6AA2}.hiplex .word span:nth-child(5){color:#7ED47E}.hiplex .word span:nth-child(6){color:#E8731A}
+.hiplex .sub { margin-top:8px; font-size:18px; font-weight:800; letter-spacing:5px; color:#C75E10; }
+
+.stall-cards { margin-top:34px; padding:0 64px; display:flex; gap:26px; }
+.card { flex:1; background:#fff; border:1px solid rgba(16,20,27,0.08); border-radius:20px; padding:26px 30px; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,0.06); position:relative; overflow:hidden; }
+.card::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background:linear-gradient(90deg,#E8731A,#F59E4A); }
+.card .co { font-size:26px; font-weight:800; letter-spacing:0.5px; line-height:1.35; min-height:64px; display:flex; align-items:center; justify-content:center; }
+.card .stall { margin-top:12px; font-size:66px; font-weight:900; color:#E8731A; line-height:1; }
+.card .lbl { margin-top:10px; font-size:17px; font-weight:700; letter-spacing:4px; color:#5A6472; }
+.hall-pill { margin:0 auto; margin-top:-18px; position:relative; z-index:2; width:330px; background:#0D0D0D; color:#fff; border-radius:100px; padding:20px 0; text-align:center; font-size:29px; font-weight:800; letter-spacing:3px; box-shadow:0 12px 34px rgba(0,0,0,0.25); }
+.hall-pill b { color:#F59E4A; }
+
+.details { margin-top:30px; padding:0 64px; display:flex; justify-content:center; gap:20px; }
+.d-item { flex:1; background:#fff; border:1px solid rgba(16,20,27,0.08); border-radius:16px; padding:25px 20px; display:flex; align-items:center; gap:16px; justify-content:center; font-family:'Inter',sans-serif; font-size:26px; font-weight:600; }
+.d-item .ic { width:52px; height:52px; border-radius:14px; background:linear-gradient(135deg,#E8731A,#C75E10); display:flex; align-items:center; justify-content:center; color:#fff; font-size:24px; font-weight:900; flex-shrink:0; }
+
+.strip { margin-top:auto; display:flex; flex:0 0 auto; }
+.strip img { width:16.6667%; height:130px; object-fit:cover; }
+
+.footer { background:#0D0D0D; padding:28px 64px; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:23px; font-weight:600; color:rgba(255,255,255,0.85); }
+.footer b { color:#F59E4A; }
+</style></head>
+<body>
+  <div class="top-band">
+    <img src="../mg-logo-dark.png" alt="Mantralaya Group">
+    <div class="divider"></div>
+    <img src="../srpl-logo-dark.png" alt="Sree Raviteja Polymers Limited" style="height:86px;">
+  </div>
+  <div class="orange-line"></div>
+
+  <div class="hero">
+    <div class="eyebrow">YOU ARE INVITED</div>
+    <h1>Mantralaya Group &amp;<br>Sree Raviteja Polymers Limited</h1>
+    <div class="promise">&ldquo;We deliver what we promise.&rdquo;</div>
+    <div class="subtitle">Cordially inviting you to visit us at Stalls C 05 &amp; C 06, Hall 4.</div>
+    <div class="hiplex">
+      <div class="word"><span>H</span><span>I</span><span>P</span><span>L</span><span>E</span><span>X</span></div>
+      <div class="sub">INTERNATIONAL PLASTICS EXPO &mdash; 2026</div>
+    </div>
+  </div>
+
+  <div class="stall-cards">
+    <div class="card">
+      <div class="co">Mantralaya Group &amp; Sree Raviteja Polymers Limited</div>
+      <div class="stall">C 05 &amp; C 06</div>
+      <div class="lbl">STALLS</div>
+    </div>
+  </div>
+  <div class="hall-pill">HALL &nbsp;<b>No. 4</b></div>
+
+  <div class="details">
+    <div class="d-item"><div class="ic">07</div>07 &ndash; 10 August 2026</div>
+    <div class="d-item"><div class="ic">&#9906;</div>Hitex Exhibition Centre, Hyderabad</div>
+  </div>
+
+  <div class="strip">
+    <img src="../products/coloured-granules.jpg">
+    <img src="../products/natural-granules.jpg">
+    <img src="../products/plastic-sutli.jpg">
+    <img src="../products/pp-bags.jpg">
+    <img src="../products/pigments.jpg">
+    <img src="../products/ropes.jpg">
+  </div>
+
+  <div class="footer">
+    <span><b>+91 7095 303 303</b></span>
+    <span>info@mantralayagroup.com</span>
+    <span><b>35+ Years</b> in Polymers</span>
+  </div>
+</body></html>

@@ -184,6 +184,10 @@ def make(filename):
     main, allnums, loc = PHONES[filename]
     gb.PHONE, gb.LOCATION = main, loc
     gb.build_cover_page(story, styles, c['name'], subtitle)
+    if filename == 'SRPL-Brochure.pdf':
+        # SRPL logo at top of cover (replaces the opening spacer)
+        logo = RLImage('srpl-logo-light.png', width=58*mm, height=28*mm, mask='auto')
+        story[0:1] = [Spacer(1, 6*mm), logo, Spacer(1, 5*mm)]
     gb.build_products_page(story, styles, products)
     if filename=='SRPL-Brochure.pdf': build_gallery(story, styles)
     story.append(PageBreak())
