@@ -191,7 +191,7 @@ def make(filename):
     build_branches(story, styles, new['branches'])
     gb.PHONE = allnums
     gb.build_contact_page(story, styles)
-    gb.PHONE, gb.LOCATION = main, loc
+    gb.PHONE, gb.LOCATION = (main, loc) if filename == 'SMP-Brochure.pdf' else ('7095 303 303', 'Hyderabad, India')
     doc.build(story, onFirstPage=gb.add_header_footer, onLaterPages=gb.add_header_footer)
     print('Created', filename)
 
