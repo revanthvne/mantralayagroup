@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; height:1350px; font-family:'Montserrat',sans-serif; background:#140B08; overflow:hidden; position:relative; color:#fff; display:flex; flex-direction:column; }
+/* sweeping diagonal ribbon */
+.ribbon { position:absolute; width:1900px; height:340px; background:linear-gradient(100deg,#A80B0B,#D83000 46%,#F07800); transform:rotate(-14deg); top:445px; left:-380px; box-shadow:0 30px 80px rgba(216,60,0,0.35); }
+.ribbon::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,0.14), transparent 40%); }
+.ribbon2 { position:absolute; width:1900px; height:14px; background:rgba(240,120,0,0.5); transform:rotate(-14deg); top:815px; left:-380px; }
+.ribbon3 { position:absolute; width:1900px; height:6px; background:rgba(240,120,0,0.25); transform:rotate(-14deg); top:850px; left:-380px; }
+.grain { position:absolute; inset:0; background:radial-gradient(ellipse 75% 50% at 50% 0%, rgba(216,60,0,0.14), transparent 65%); }
+.inner { position:relative; z-index:2; display:flex; flex-direction:column; height:100%; padding:50px 64px 0; }
+.logos { display:flex; align-items:center; justify-content:space-between; }
+.logos img { height:74px; }
+.divider { width:2px; height:62px; background:rgba(255,255,255,0.16); }
+.eyebrow { margin-top:44px; text-align:center; font-size:20px; font-weight:800; letter-spacing:10px; color:#F6921E; }
+.caption { margin-top:20px; text-align:center; font-family:'Playfair Display',serif; font-size:74px; font-weight:800; line-height:1.12; letter-spacing:-1px; }
+.caption .grad { background:linear-gradient(100deg,#FF7A1E,#FFC46B); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:italic; }
+.sub { margin-top:20px; text-align:center; font-family:'Inter',sans-serif; font-size:26px; font-weight:500; color:rgba(255,255,255,0.75); line-height:1.6; }
+.sub b { color:#fff; font-weight:700; }
+/* content sitting ON the ribbon */
+.on-ribbon { margin-top:104px; text-align:center; }
+.on-ribbon .come { font-size:30px; font-weight:800; letter-spacing:2px; text-shadow:0 3px 12px rgba(0,0,0,0.3); }
+.on-ribbon .stalls { margin-top:10px; font-size:76px; font-weight:900; line-height:1; text-shadow:0 6px 24px rgba(0,0,0,0.35); letter-spacing:1px; }
+.on-ribbon .hall { margin-top:10px; font-size:24px; font-weight:800; letter-spacing:6px; color:rgba(255,255,255,0.92); }
+.spacer { flex:1; }
+.hiplex { text-align:center; }
+.hiplex .word { font-size:52px; font-weight:900; letter-spacing:5px; line-height:1; }
+.hiplex .word span:nth-child(1){color:#E8731A}.hiplex .word span:nth-child(2){color:#4FC3F7}.hiplex .word span:nth-child(3){color:#F9D14C}.hiplex .word span:nth-child(4){color:#EF6AA2}.hiplex .word span:nth-child(5){color:#7ED47E}.hiplex .word span:nth-child(6){color:#E8731A}
+.hiplex .sub2 { margin-top:8px; font-size:18px; font-weight:800; letter-spacing:6px; color:#F6921E; }
+.when { margin-top:26px; display:flex; justify-content:center; gap:18px; font-family:'Inter',sans-serif; }
+.when .pill { background:rgba(255,255,255,0.07); border:1px solid rgba(240,120,0,0.35); border-radius:100px; padding:16px 30px; font-size:23px; font-weight:600; }
+.when .pill b { color:#F6921E; }
+.footer { margin-top:38px; background:#0C0605; margin-left:-64px; margin-right:-64px; padding:24px 64px; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:20px; font-weight:600; color:rgba(255,255,255,0.85); border-top:1px solid rgba(240,120,0,0.3); }
+.footer b { color:#F6921E; }
+</style></head>
+<body>
+  <div class="grain"></div>
+  <div class="ribbon"></div><div class="ribbon2"></div><div class="ribbon3"></div>
+  <div class="inner">
+    <div class="logos">
+      <img src="../mg-logo-dark.png" alt="Mantralaya Group">
+      <div class="divider"></div>
+      <img src="../srpl-logo-dark.png" alt="SRPL" style="height:86px;">
+    </div>
+    <div class="eyebrow">HIPLEX 2026 &middot; HYDERABAD</div>
+    <div class="caption">35+ years of promises.<br><span class="grad">Delivered.</span></div>
+    <div class="sub"><b>Mantralaya Group &amp; Sree Raviteja Polymers Limited</b><br>invite you to experience the polymer universe &mdash; under one roof.</div>
+    <div class="on-ribbon">
+      <div class="come">COME MEET US AT</div>
+      <div class="stalls">STALLS C 05 &amp; C 06</div>
+      <div class="hall">HALL 4 &middot; HITEX EXHIBITION CENTRE</div>
+    </div>
+    <div class="spacer"></div>
+    <div class="hiplex">
+      <div class="word"><span>H</span><span>I</span><span>P</span><span>L</span><span>E</span><span>X</span></div>
+      <div class="sub2">INTERNATIONAL PLASTICS EXPO &mdash; 2026</div>
+    </div>
+    <div class="when">
+      <div class="pill"><b>07 &ndash; 10</b> August 2026</div>
+      <div class="pill">Hitex Exhibition Centre, <b>Hyderabad</b></div>
+    </div>
+    <div class="footer">
+      <span><b>+91 7095 303 303</b></span>
+      <span>www.mantralayagroup.com</span>
+      <span>www.sreeravitejapolymersltd.com</span>
+    </div>
+  </div>
+</body></html>

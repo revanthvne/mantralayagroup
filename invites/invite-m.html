@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; height:1350px; font-family:'Inter',sans-serif; background:#FBF4EB; overflow:hidden; position:relative; color:#10141B; display:flex; flex-direction:column; }
+/* dynamic skewed photo band */
+.speed { position:absolute; top:565px; left:-60px; right:-60px; height:290px; transform:rotate(-4deg); display:flex; box-shadow:0 30px 70px rgba(168,11,11,0.18); }
+.speed img { flex:1; object-fit:cover; min-width:0; }
+.speed::after { content:''; position:absolute; inset:0; background:linear-gradient(100deg, rgba(168,11,11,0.30), rgba(240,120,0,0.16)); }
+.speed-edge-t { position:absolute; top:551px; left:-60px; right:-60px; height:8px; background:linear-gradient(90deg,#A80B0B,#F07800); transform:rotate(-4deg); }
+.speed-edge-b { position:absolute; top:861px; left:-60px; right:-60px; height:8px; background:linear-gradient(90deg,#A80B0B,#F07800); transform:rotate(-4deg); }
+.inner { position:relative; z-index:2; display:flex; flex-direction:column; height:100%; padding:52px 68px 0; }
+.logos { display:flex; align-items:center; justify-content:space-between; }
+.logos img { height:72px; }
+.divider { width:1px; height:60px; background:rgba(16,20,27,0.14); }
+.eyebrow { margin-top:44px; text-align:center; }
+.eyebrow span { display:inline-block; background:linear-gradient(115deg,#A80B0B,#D83000 46%,#F07800); color:#fff; font-family:'Montserrat',sans-serif; font-size:19px; font-weight:800; letter-spacing:7px; padding:14px 36px; border-radius:100px; box-shadow:0 10px 30px rgba(216,60,0,0.3); }
+.caption { margin-top:26px; text-align:center; font-family:'Playfair Display',serif; font-size:72px; font-weight:800; line-height:1.12; letter-spacing:-1px; }
+.caption em { background:linear-gradient(100deg,#A80B0B,#D83000 45%,#F07800); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.who { margin-top:18px; text-align:center; font-size:25px; font-weight:600; color:#3A4250; line-height:1.6; }
+.who b { color:#10141B; font-weight:800; }
+.gap { height:330px; }
+.stall-row { margin-top:34px; display:flex; justify-content:center; align-items:stretch; gap:22px; }
+.stall-main { background:#10141B; color:#fff; border-radius:20px; padding:26px 44px; text-align:center; box-shadow:0 16px 44px rgba(16,20,27,0.25); }
+.stall-main .k { font-family:'Montserrat',sans-serif; font-size:17px; font-weight:800; letter-spacing:5px; color:rgba(255,255,255,0.65); }
+.stall-main .v { margin-top:6px; font-family:'Montserrat',sans-serif; font-size:54px; font-weight:900; background:linear-gradient(100deg,#FF7A1E,#FFC46B); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1.05; white-space:nowrap; }
+.stall-side { display:flex; flex-direction:column; gap:14px; justify-content:center; }
+.stall-side .p { background:#fff; border:1px solid rgba(16,20,27,0.08); border-radius:14px; padding:15px 26px; font-size:22px; font-weight:600; box-shadow:0 8px 26px rgba(0,0,0,0.05); }
+.stall-side .p b { color:#C43D00; font-weight:800; }
+.hiplex { margin-top:30px; text-align:center; }
+.hiplex .word { font-family:'Montserrat',sans-serif; font-size:48px; font-weight:900; letter-spacing:5px; line-height:1; }
+.hiplex .word span:nth-child(1){color:#E8731A}.hiplex .word span:nth-child(2){color:#4FC3F7}.hiplex .word span:nth-child(3){color:#F9D14C}.hiplex .word span:nth-child(4){color:#EF6AA2}.hiplex .word span:nth-child(5){color:#7ED47E}.hiplex .word span:nth-child(6){color:#E8731A}
+.hiplex .sub { margin-top:7px; font-family:'Montserrat',sans-serif; font-size:16px; font-weight:800; letter-spacing:6px; color:#C43D00; }
+.footer { margin-top:auto; background:#150B07; margin-left:-68px; margin-right:-68px; padding:25px 68px; display:flex; justify-content:space-between; align-items:center; font-size:20px; font-weight:600; color:rgba(255,255,255,0.85); }
+.footer b { color:#F6921E; }
+</style></head>
+<body>
+  <div class="speed-edge-t"></div>
+  <div class="speed">
+    <img src="../products/coloured-granules.jpg"><img src="../products/plastic-sutli.jpg"><img src="../products/pp-bags.jpg"><img src="../products/pigments.jpg"><img src="../products/ropes.jpg"><img src="../products/non-woven-bags.jpg">
+  </div>
+  <div class="speed-edge-b"></div>
+  <div class="inner">
+    <div class="logos">
+      <img src="../mg-logo.png" alt="Mantralaya Group">
+      <div class="divider"></div>
+      <img src="../srpl-logo-light.png" alt="SRPL" style="height:82px;">
+    </div>
+    <div class="eyebrow"><span>YOU ARE INVITED</span></div>
+    <div class="caption">The polymer universe,<br><em>under one roof.</em></div>
+    <div class="who"><b>Mantralaya Group &amp; Sree Raviteja Polymers Limited</b> &middot; &ldquo;We deliver what we promise.&rdquo;</div>
+    <div class="gap"></div>
+    <div class="stall-row">
+      <div class="stall-main">
+        <div class="k">MEET US AT STALLS</div>
+        <div class="v">C 05 &amp; C 06</div>
+      </div>
+      <div class="stall-side">
+        <div class="p">Hall <b>4</b> &middot; Hitex Exhibition Centre</div>
+        <div class="p"><b>07 &ndash; 10</b> August 2026 &middot; Hyderabad</div>
+      </div>
+    </div>
+    <div class="hiplex">
+      <div class="word"><span>H</span><span>I</span><span>P</span><span>L</span><span>E</span><span>X</span></div>
+      <div class="sub">INTERNATIONAL PLASTICS EXPO &mdash; 2026</div>
+    </div>
+    <div class="footer">
+      <span><b>+91 7095 303 303</b></span>
+      <span>www.mantralayagroup.com</span>
+      <span>www.sreeravitejapolymersltd.com</span>
+    </div>
+  </div>
+</body></html>

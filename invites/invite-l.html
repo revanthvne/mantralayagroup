@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; height:1350px; font-family:'Montserrat',sans-serif; background:#120A07; overflow:hidden; position:relative; color:#fff; display:flex; flex-direction:column; }
+.arcs { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.glow { position:absolute; width:760px; height:760px; border-radius:50%; background:radial-gradient(circle, rgba(216,60,0,0.20), transparent 62%); top:230px; left:50%; transform:translateX(-50%); filter:blur(50px); }
+.orb { position:absolute; border-radius:50%; overflow:hidden; border:5px solid; box-shadow:0 14px 40px rgba(0,0,0,0.5); }
+.orb img { width:100%; height:100%; object-fit:cover; display:block; }
+.o1 { width:160px; height:160px; top:370px; left:60px; border-color:#D83000; }
+.o2 { width:120px; height:120px; top:255px; right:88px; border-color:#F07800; }
+.o3 { width:140px; height:140px; top:640px; right:78px; border-color:#A80B0B; }
+.o4 { width:150px; height:150px; top:660px; left:70px; border-color:#F6921E; }
+.inner { position:relative; z-index:2; display:flex; flex-direction:column; height:100%; padding:50px 64px 0; }
+.logos { display:flex; align-items:center; justify-content:space-between; }
+.logos img { height:72px; }
+.divider { width:2px; height:60px; background:rgba(255,255,255,0.16); }
+.eyebrow { margin-top:52px; text-align:center; font-size:20px; font-weight:800; letter-spacing:11px; color:rgba(255,255,255,0.65); }
+.caption { margin-top:22px; text-align:center; font-family:'Playfair Display',serif; font-size:84px; font-weight:800; line-height:1.08; letter-spacing:-1px; }
+.caption .l2 { background:linear-gradient(100deg,#FF6A2B,#F6921E 55%,#FFC46B); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:italic; }
+.who { margin-top:26px; text-align:center; font-family:'Inter',sans-serif; font-size:27px; font-weight:600; color:rgba(255,255,255,0.85); line-height:1.55; }
+.who b { color:#fff; font-weight:800; }
+.spacer { flex:1; }
+.stage { position:relative; text-align:center; }
+.stage .band { display:inline-block; background:linear-gradient(115deg,#A80B0B,#D83000 46%,#F07800); border-radius:100px; padding:26px 66px; box-shadow:0 18px 50px rgba(216,60,0,0.4); }
+.stage .band .s1 { font-size:22px; font-weight:800; letter-spacing:5px; color:rgba(255,255,255,0.9); }
+.stage .band .s2 { margin-top:6px; font-size:56px; font-weight:900; line-height:1; text-shadow:0 4px 16px rgba(0,0,0,0.3); white-space:nowrap; }
+.stage .band .s3 { margin-top:8px; font-size:19px; font-weight:800; letter-spacing:5px; color:rgba(255,255,255,0.92); }
+.hiplex { margin-top:40px; text-align:center; }
+.hiplex .word { font-size:50px; font-weight:900; letter-spacing:5px; line-height:1; }
+.hiplex .word span:nth-child(1){color:#E8731A}.hiplex .word span:nth-child(2){color:#4FC3F7}.hiplex .word span:nth-child(3){color:#F9D14C}.hiplex .word span:nth-child(4){color:#EF6AA2}.hiplex .word span:nth-child(5){color:#7ED47E}.hiplex .word span:nth-child(6){color:#E8731A}
+.hiplex .sub { margin-top:8px; font-size:17px; font-weight:800; letter-spacing:6px; color:#F6921E; }
+.when { margin-top:26px; display:flex; justify-content:center; gap:48px; font-family:'Inter',sans-serif; font-size:24px; font-weight:600; color:rgba(255,255,255,0.9); }
+.when .item { display:flex; align-items:center; gap:12px; }
+.when .dot { width:11px; height:11px; background:#F07800; border-radius:50%; box-shadow:0 0 14px rgba(240,120,0,0.9); }
+.footer { margin-top:0; background:linear-gradient(90deg,#A80B0B,#D83000 46%,#F07800); margin-left:-64px; margin-right:-64px; padding:25px 64px; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:21px; font-weight:700; }
+</style></head>
+<body>
+  <svg class="arcs" viewBox="0 0 1080 1350" fill="none" preserveAspectRatio="xMidYMid slice">
+    <defs><linearGradient id="ag" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#A80B0B"/><stop offset="0.5" stop-color="#D83000"/><stop offset="1" stop-color="#F07800"/>
+    </linearGradient></defs>
+    <path d="M -60 560 Q 540 300 1140 540" stroke="url(#ag)" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+    <path d="M -60 700 Q 540 960 1140 680" stroke="url(#ag)" stroke-width="6" stroke-linecap="round" opacity="0.35"/>
+  </svg>
+  <div class="glow"></div>
+  <div class="orb o1"><img src="../products/coloured-granules.jpg"></div>
+  <div class="orb o2"><img src="../products/plastic-sutli.jpg"></div>
+  <div class="orb o3"><img src="../products/pigments.jpg"></div>
+  <div class="orb o4"><img src="../products/pp-bags.jpg"></div>
+  <div class="inner">
+    <div class="logos">
+      <img src="../mg-logo-dark.png" alt="Mantralaya Group">
+      <div class="divider"></div>
+      <img src="../srpl-logo-dark.png" alt="SRPL" style="height:84px;">
+    </div>
+    <div class="eyebrow">YOU ARE INVITED &middot; HIPLEX 2026</div>
+    <div class="caption">Two names.<br><span class="l2">One promise.</span></div>
+    <div class="who"><b>Mantralaya Group &amp; Sree Raviteja Polymers Limited</b><br>&ldquo;We deliver what we promise.&rdquo;</div>
+    <div class="spacer"></div>
+    <div class="stage">
+      <div class="band">
+        <div class="s1">MEET US AT</div>
+        <div class="s2">STALLS C 05 &amp; C 06</div>
+        <div class="s3">HALL 4 &middot; HITEX</div>
+      </div>
+    </div>
+    <div class="hiplex">
+      <div class="word"><span>H</span><span>I</span><span>P</span><span>L</span><span>E</span><span>X</span></div>
+      <div class="sub">INTERNATIONAL PLASTICS EXPO &mdash; 2026</div>
+    </div>
+    <div class="when">
+      <div class="item"><div class="dot"></div>07 &ndash; 10 August 2026</div>
+      <div class="item"><div class="dot"></div>Hitex Exhibition Centre, Hyderabad</div>
+    </div>
+    <div class="spacer"></div>
+    <div class="footer">
+      <span>+91 7095 303 303</span>
+      <span>www.mantralayagroup.com</span>
+      <span>www.sreeravitejapolymersltd.com</span>
+    </div>
+  </div>
+</body></html>
