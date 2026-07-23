@@ -16,15 +16,15 @@ NEW = {
  'SMP-Brochure.pdf': dict(
    subtitle=('Sree Mantralaya Petrochem (SMP) is the leading trader of all kinds of plastic raw materials '
      'for domestic and imported polymers in Andhra Pradesh and Telangana. We deal the domestic products of '
-     'BCPL, GAIL, Haldia, HMEL, HPCL, Indian Oil, MRPL, Nayara, OPAL and Reliance for Polypropylene and '
+     'GAIL, BCPL, HMEL, Haldia, OPAL, MRPL, HPCL, Reliance and Nayara for Polypropylene and '
      'Polyethylene granules, and imported granules of ' + IMP + ' We also trade Metallocene, PVC, PET, EVA, '
      'Polystyrene and Biodegradable Plastic (PBAT). With 35+ years of industry experience, SMP is the '
      'flagship company of the Mantralaya Group.'),
    products=[
-     {'name': 'Homopolymer (PP)', 'items': ['Textile over wraps, garment bags, snack food packaging','Woven sacks and monofilaments','Extrusion coating, fibre & filament','Fine fibre yarn, non-woven fabric','Injection moulding - rigid packaging, furniture, housewares, industrial mouldings','Thin wall containers - multi-cavity moulding, syringes','Injection moulding & compounding applications']},
-     {'name': 'Random Co-Polymer (PP)', 'items': ['Extrusion & blow moulding','High clarity bottles, containers, sheets','Clarified random co-polymer rigid containers','Housewares, ISBM bottles, syringes']},
-     {'name': 'Impact Co-Polymer (PP)', 'items': ['Extrusion & blow moulding','Sheets, blow moulded containers','Housewares & general products','Furniture, industrial products','Caps & closures','Paint pans, luggage, industrial components','Appliances, automotive compounding','Batteries and automotive applications']},
-     {'name': 'Polyethylene (PE)', 'items': ['Woven sacks for fertilizers, food grains','Blown film / blow moulding (lamitube)','Blow moulding up to 100 litres','Medium blow moulding containers, corrugated pipe etc.','Drip lateral application','Rotomoulding and other rigid application purposes','Overhead & loft tanks, bins etc.','Extrusion coating with/without slip','Heavy duty bags, canal lining, greenhouse films','Adhesive lamination and foam film','Imported granules & masterbatches']},
+     {'name': 'Homopolymer (PP)', 'items': ['Textile wraps, garment bags, snack food packing','Extrusion coating, fibre & filament','Multifilament yarn, woven sacks, and non-woven fabric','Rigid packing, thin wall containers, multicavity moulding','Injection moulding & compounding applications']},
+     {'name': 'Random Co-Polymer (PP)', 'items': ['High clarity bottles, containers, sheets','Clarified random co-polymer rigid containers','House wares & consumer products','Transparent & translucent packaging']},
+     {'name': 'Impact Co-Polymer (PP)', 'items': ['Furniture, caps and closures','Sheets, blow moulded containers','House wares, general products moulding','Paint pans, luggage, industrial components','Appliances, automotive compounding','Batteries, automotive applications']},
+     {'name': 'Polyethylene (PE)', 'items': ['Woven sacks for fertilizers, food grains','Blown film / blow moulding (lamitube)','Blow moulding up to 100 litres','Drip lateral, overhead tanks','Heavy duty bags, greenhouse films, canal lining','Extrusion coating with/without slip','Imported granules & master batches','Adhesive lamination and foam film']},
    ],
    branches=[('Hyderabad','8977020177, 8977020175'),('Guntur','8886668998'),('Z. Medapadu (Near Rajahmundry)','9381579829'),('Visakhapatnam','8977020179')]),
  'SRP-Brochure.pdf': dict(
@@ -59,6 +59,10 @@ NEW = {
      'guidance and no compromise on quality.'),
    branches=[('Hyderabad','8977020177, 8977020175, 8977020170')]),
  'SRPL-Brochure.pdf': dict(
+   products=[
+     {'name': 'Trading', 'items': ['Domestic polymer raw materials','Imported polymer granules','PP & PE granules for all applications','Specialty & engineering plastics','Bulk & retail supply']},
+     {'name': 'Distribution', 'items': ['Pan-India distribution network','Timely & reliable delivery','Competitive pricing','Quality-assured materials','Custom order fulfillment']},
+   ],
    subtitle=('Sree Raviteja Polymers Ltd (SRPL) has established itself as a trusted name in the polymer industry. '
      'With over three decades of expertise, the company has built a reputation for delivering on its promises, '
      'ensuring consistent supply and quality, and maintaining strong ethical business practices. Long-standing '
