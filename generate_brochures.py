@@ -26,6 +26,7 @@ ACCENT_GREEN = HexColor('#27AE60')
 
 # ── Contact Info ──
 PHONE = '7095 303 303'
+LOCATION = 'Hyderabad, India'
 EMAIL = 'info@mantralayagroup.com'
 WEBSITE = 'www.mantralayagroup.com'
 ADDRESS = 'DBS House, 1-7-43-46, SP Road, Paradise, Opp. to Metro Station, Secunderabad - 500 003'
@@ -172,7 +173,7 @@ def build_cover_page(story, styles, company_name, subtitle):
     # Quick facts table
     facts_data = [
         ['Experience', 'Location', 'Contact'],
-        ['35+ Years', 'Hyderabad, India', f'+91 {PHONE}'],
+        ['35+ Years', LOCATION, f'+91 {PHONE}'],
     ]
     facts_table = Table(facts_data, colWidths=[(WIDTH-50*mm)/3]*3)
     facts_table.setStyle(TableStyle([

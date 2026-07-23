@@ -113,6 +113,15 @@ def build_gallery(story, styles):
     t.setStyle(TableStyle([('ALIGN',(0,0),(-1,-1),'CENTER'),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('TOPPADDING',(0,0),(-1,-1),5),('BOTTOMPADDING',(0,0),(-1,-1),5)]))
     story.append(t)
 
+PHONES = {
+ 'SMP-Brochure.pdf':   ('8977020177', '8977020177, 8977020175', 'Hyderabad, India'),
+ 'SRP-Brochure.pdf':   ('8886668921', '8886668921, 8886668915, 8886668912', 'Tenali, India'),
+ 'SSAMA-Brochure.pdf': ('8977020178', '8977020178, 8886668920', 'Tenali, India'),
+ 'BGP-Brochure.pdf':   ('8886668915', '8886668915, 8886668912', 'Tenali (AP), India'),
+ 'SPE-Brochure.pdf':   ('8977020177', '8977020177, 8977020175, 8977020170', 'Hyderabad, India'),
+ 'SRPL-Brochure.pdf':  ('8977020177', '8977020177, 8977020176', 'Hyderabad, India'),
+}
+
 def make(filename):
     c = next(x for x in gb.companies if x['filename']==filename)
     new = NEW[filename]
@@ -122,13 +131,17 @@ def make(filename):
         leftMargin=25*mm, rightMargin=25*mm, title=f"{c['name']} - Company Brochure", author=gb.GROUP_NAME,
         subject='Company Brochure & Product Overview')
     styles = gb.get_styles(); story=[]
+    main, allnums, loc = PHONES[filename]
+    gb.PHONE, gb.LOCATION = main, loc
     gb.build_cover_page(story, styles, c['name'], subtitle)
     gb.build_products_page(story, styles, products)
     if filename=='SRPL-Brochure.pdf': build_gallery(story, styles)
     story.append(PageBreak())
     gb.build_why_choose_page(story, styles, c['name'], c['strengths'])
     build_branches(story, styles, new['branches'])
+    gb.PHONE = allnums
     gb.build_contact_page(story, styles)
+    gb.PHONE, gb.LOCATION = '7095 303 303', 'Hyderabad, India'
     doc.build(story, onFirstPage=gb.add_header_footer, onLaterPages=gb.add_header_footer)
     print('Created', filename)
 
