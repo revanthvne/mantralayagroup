@@ -4,27 +4,35 @@
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { width:1080px; height:1350px; font-family:'Montserrat',sans-serif; background:#0D0D0D; overflow:hidden; position:relative; color:#fff; display:flex; flex-direction:column; }
-.grid-bg { position:absolute; inset:0; background:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size:72px 72px; -webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 45%, #000 30%, transparent 80%); }
-.glow { position:absolute; width:900px; height:600px; border-radius:50%; background:radial-gradient(circle, rgba(216,60,0,0.28), transparent 65%); top:44%; left:50%; transform:translate(-50%,-50%); filter:blur(60px); }
-.inner { position:relative; z-index:2; display:flex; flex-direction:column; height:100%; padding:52px 64px 0; }
+.grid-bg { position:absolute; inset:0; background:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size:72px 72px; -webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 40%, #000 30%, transparent 80%); }
+.glow { position:absolute; width:900px; height:600px; border-radius:50%; background:radial-gradient(circle, rgba(216,60,0,0.26), transparent 65%); top:30%; left:50%; transform:translate(-50%,-50%); filter:blur(60px); }
+.inner { position:relative; z-index:2; display:flex; flex-direction:column; height:100%; padding:50px 64px 0; }
 .logos { display:flex; align-items:center; justify-content:space-between; }
 .logos img { height:72px; }
 .divider { width:2px; height:60px; background:rgba(255,255,255,0.15); }
-.invite-line { margin-top:60px; text-align:center; font-size:23px; font-weight:800; letter-spacing:10px; color:rgba(255,255,255,0.65); }
-.co { margin-top:20px; text-align:center; font-size:44px; font-weight:900; line-height:1.35; }
-.co .amp { background:linear-gradient(100deg,#D83000,#F07800); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.promise { margin-top:14px; text-align:center; font-family:'Inter',sans-serif; font-style:italic; font-size:29px; font-weight:600; color:#F6921E; }
-.spacer { flex:1; }
-.mega { text-align:center; }
-.mega .lbl { font-size:24px; font-weight:800; letter-spacing:12px; color:rgba(255,255,255,0.6); }
-.mega .num { margin-top:6px; font-size:150px; font-weight:900; line-height:1.02; background:linear-gradient(100deg,#A80B0B 0%,#D83000 40%,#F07800 75%,#FFB25C 100%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 10px 40px rgba(216,60,0,0.4)); white-space:nowrap; }
-.mega .hall { margin-top:14px; font-size:30px; font-weight:800; letter-spacing:4px; color:rgba(255,255,255,0.9); }
+.invite-line { margin-top:44px; text-align:center; font-size:22px; font-weight:800; letter-spacing:10px; color:rgba(255,255,255,0.65); }
+.mega { margin-top:26px; text-align:center; }
+.mega .lbl { font-size:23px; font-weight:800; letter-spacing:11px; color:rgba(255,255,255,0.6); }
+.mega .num { margin-top:6px; font-size:142px; font-weight:900; line-height:1.02; background:linear-gradient(100deg,#A80B0B 0%,#D83000 40%,#F07800 75%,#FFB25C 100%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 10px 40px rgba(216,60,0,0.4)); white-space:nowrap; }
+.mega .hall { margin-top:12px; font-size:28px; font-weight:800; letter-spacing:4px; color:rgba(255,255,255,0.9); }
 .mega .hall b { color:#F6921E; }
-.hiplex { margin-top:52px; text-align:center; }
+.spacer { flex:1; }
+.co-block { text-align:center; }
+.co-rule { margin:0 auto 26px; width:300px; height:2px; background:linear-gradient(90deg, transparent, #F07800, transparent); }
+.co { font-size:46px; font-weight:900; line-height:1.35; }
+.co .amp { background:linear-gradient(100deg,#D83000,#F07800); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.promise { margin-top:14px; font-family:'Inter',sans-serif; font-style:italic; font-size:29px; font-weight:600; color:#F6921E; }
+.co-rule2 { margin:26px auto 0; width:300px; height:2px; background:linear-gradient(90deg, transparent, #F07800, transparent); }
+.prod-row { margin-top:44px; display:flex; justify-content:center; gap:26px; }
+.prod { width:142px; height:142px; border-radius:50%; overflow:hidden; border:4px solid; box-shadow:0 12px 34px rgba(0,0,0,0.5); }
+.prod img { width:100%; height:100%; object-fit:cover; display:block; }
+.p1 { border-color:#A80B0B; } .p2 { border-color:#D83000; } .p3 { border-color:#F07800; }
+.p4 { border-color:#F6921E; } .p5 { border-color:#D83000; } .p6 { border-color:#A80B0B; }
+.hiplex { margin-top:42px; text-align:center; }
 .hiplex .word { font-size:50px; font-weight:900; letter-spacing:5px; line-height:1; }
 .hiplex .word span:nth-child(1){color:#E8731A}.hiplex .word span:nth-child(2){color:#4FC3F7}.hiplex .word span:nth-child(3){color:#F9D14C}.hiplex .word span:nth-child(4){color:#EF6AA2}.hiplex .word span:nth-child(5){color:#7ED47E}.hiplex .word span:nth-child(6){color:#E8731A}
 .hiplex .sub { margin-top:8px; font-size:17px; font-weight:800; letter-spacing:6px; color:#F6921E; }
-.when { margin-top:34px; display:flex; justify-content:center; gap:52px; font-family:'Inter',sans-serif; font-size:25px; font-weight:600; }
+.when { margin-top:28px; display:flex; justify-content:center; gap:52px; font-family:'Inter',sans-serif; font-size:25px; font-weight:600; }
 .when .item { display:flex; align-items:center; gap:13px; }
 .when .dot { width:12px; height:12px; background:#F07800; border-radius:50%; box-shadow:0 0 14px rgba(240,120,0,0.9); }
 .footer { margin-top:auto; background:linear-gradient(90deg,#A80B0B,#D83000 46%,#F07800); margin-left:-64px; margin-right:-64px; padding:26px 64px; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:22px; font-weight:700; }
@@ -38,14 +46,27 @@ body { width:1080px; height:1350px; font-family:'Montserrat',sans-serif; backgro
       <img src="../srpl-logo-dark.png" alt="SRPL" style="height:84px;">
     </div>
     <div class="invite-line">YOU ARE INVITED &middot; HIPLEX 2026</div>
-    <div class="co">MANTRALAYA GROUP <span class="amp">&amp;</span><br>SREE RAVITEJA POLYMERS LIMITED</div>
-    <div class="promise">&ldquo;We deliver what we promise.&rdquo;</div>
-    <div class="spacer"></div>
     <div class="mega">
       <div class="lbl">VISIT US AT STALLS</div>
       <div class="num">C 05 &amp; C 06</div>
       <div class="hall">HALL <b>4</b> &nbsp;&middot;&nbsp; HITEX EXHIBITION CENTRE</div>
     </div>
+    <div class="spacer"></div>
+    <div class="co-block">
+      <div class="co-rule"></div>
+      <div class="co">MANTRALAYA GROUP <span class="amp">&amp;</span><br>SREE RAVITEJA POLYMERS LIMITED</div>
+      <div class="promise">&ldquo;We deliver what we promise.&rdquo;</div>
+      <div class="co-rule2"></div>
+    </div>
+    <div class="prod-row">
+      <div class="prod p1"><img src="../products/coloured-granules.jpg"></div>
+      <div class="prod p2"><img src="../products/plastic-sutli.jpg"></div>
+      <div class="prod p3"><img src="../products/pp-bags.jpg"></div>
+      <div class="prod p4"><img src="../products/pigments.jpg"></div>
+      <div class="prod p5"><img src="../products/ropes.jpg"></div>
+      <div class="prod p6"><img src="../products/milk-pouches.jpg"></div>
+    </div>
+    <div class="spacer"></div>
     <div class="hiplex">
       <div class="word"><span>H</span><span>I</span><span>P</span><span>L</span><span>E</span><span>X</span></div>
       <div class="sub">INTERNATIONAL PLASTICS EXPO &mdash; 2026</div>
