@@ -294,7 +294,6 @@ def build_contact_page(story, styles):
 
     # Contact details in a box
     contact_items = [
-        ('Office Address', ADDRESS),
         ('Phone', f'+91 {PHONE}'),
         ('Email', EMAIL),
         ('Website', WEBSITE),
