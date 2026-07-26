@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@500;600&family=Playfair+Display:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0}body{width:1920px;height:1080px;background:#150B07;overflow:hidden;font-family:Montserrat,sans-serif;color:#fff;display:flex;align-items:center;justify-content:center}
+.glow{position:absolute;width:1300px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(216,60,0,0.22),transparent 65%);filter:blur(70px)}
+.wrap{text-align:center;position:relative;z-index:2;width:1500px}
+.stats{display:flex;gap:40px;justify-content:center;opacity:0;animation:fu 1s 0.3s forwards}
+.st{flex:1;border:1px solid rgba(240,120,0,0.4);border-radius:22px;padding:34px}
+.st .v{font-size:88px;font-weight:900;background:linear-gradient(100deg,#FF6A2B,#F6921E 60%,#FFC46B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.st .l{margin-top:8px;font-size:22px;font-weight:700;letter-spacing:4px;color:rgba(255,255,255,0.7)}
+.promise{margin-top:70px;font-family:'Playfair Display',serif;font-size:96px;font-weight:800;opacity:0;animation:fu 1.2s 2.2s forwards}
+.promise em{background:linear-gradient(100deg,#FF6A2B,#F6921E 60%,#FFC46B);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
+.stall{margin-top:60px;display:inline-block;background:linear-gradient(115deg,#A80B0B,#D83000 46%,#F07800);border-radius:100px;padding:30px 80px;font-size:44px;font-weight:900;letter-spacing:2px;opacity:0;animation:fu 1s 4.4s forwards;box-shadow:0 20px 60px rgba(216,60,0,0.5)}
+.sites{margin-top:36px;font-family:Inter,sans-serif;font-size:28px;font-weight:600;color:rgba(255,255,255,0.75);opacity:0;animation:fu 1s 5.4s forwards}
+@keyframes fu{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+body::after{content:'';position:fixed;inset:0;background:#000;opacity:0;animation:out 0.6s 9.2s forwards}
+@keyframes out{to{opacity:1}}
+</style></head><body><div class="glow"></div>
+<div class="wrap">
+<div class="stats">
+<div class="st"><div class="v" id="a">0</div><div class="l">YEARS IN POLYMERS</div></div>
+<div class="st"><div class="v" id="b">0</div><div class="l">CLIENTS SERVED</div></div>
+<div class="st"><div class="v" id="c">0</div><div class="l">GROUP COMPANIES</div></div>
+</div>
+<div class="promise">&ldquo;We deliver <em>what we promise.&rdquo;</em></div>
+<div class="stall">HIPLEX 2026 · HALL 4 · STALLS C 05 &amp; C 06</div>
+<div class="sites">www.mantralayagroup.com &nbsp;·&nbsp; www.sreeravitejapolymersltd.com</div>
+</div>
+<script>
+function cnt(id,to,suf,dur){const el=document.getElementById(id);const t0=performance.now();
+function f(t){const p=Math.min(1,(t-t0)/dur);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+setTimeout(()=>{cnt('a',35,'+',1600);cnt('b',2300,'+',2000);cnt('c',6,'',1200)},500);
+</script></body></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0}body{width:1920px;height:1080px;background:#150B07;overflow:hidden;font-family:Montserrat,sans-serif;color:#fff;display:flex;align-items:center;justify-content:center}
+.glow{position:absolute;width:1200px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(216,60,0,0.25),transparent 65%);filter:blur(70px);animation:pulse 6s ease-in-out}
+@keyframes pulse{0%{opacity:0}30%{opacity:1}100%{opacity:0.85}}
+.wrap{text-align:center;position:relative;z-index:2}
+.logos{display:flex;gap:70px;align-items:center;justify-content:center;opacity:0;animation:fadeup 1.2s 0.3s forwards}
+.logos img{height:110px}.logos .d{width:2px;height:90px;background:rgba(255,255,255,0.2)}
+.title{margin-top:60px;font-family:'Playfair Display',serif;font-size:110px;font-weight:800;line-height:1.1;opacity:0;animation:fadeup 1.2s 1.4s forwards}
+.title em{background:linear-gradient(100deg,#FF6A2B,#F6921E 60%,#FFC46B);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
+.sub{margin-top:30px;font-size:30px;font-weight:800;letter-spacing:10px;color:rgba(255,255,255,0.65);opacity:0;animation:fadeup 1s 2.6s forwards}
+@keyframes fadeup{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+body::after{content:'';position:fixed;inset:0;background:#000;opacity:0;animation:out 0.5s 5.5s forwards}
+@keyframes out{to{opacity:1}}
+</style></head><body><div class="glow"></div>
+<div class="wrap">
+<div class="logos"><img src="../mg-logo-dark.png"><div class="d"></div><img src="../srpl-logo-dark.png" style="height:130px;"></div>
+<div class="title">From granule<br><em>to godown.</em></div>
+<div class="sub">THE MANTRALAYA JOURNEY</div>
+</div></body></html>
