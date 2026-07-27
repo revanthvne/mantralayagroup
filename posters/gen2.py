@@ -189,14 +189,13 @@ def jkplogo(dark, h=150):
     return f'<img src="../../jkp-logo.png" style="height:{h}px;display:block;margin:0 auto;">'
 
 def dealerblock(dark, center=True, size=23):
-    lab = '#F6921E' if dark else '#C43D00'
-    fg = '#fff' if dark else '#10141B'
+    lab = 'rgba(255,255,255,0.65)' if dark else '#5A6472'
+    gt = GT_W if dark else GT_D
     al = 'center' if center else 'left'
-    mg = '0 auto' if center else '0'
     return f"""<div style="text-align:{al};">
-<div style="width:220px;height:2px;margin:{'26px auto 18px' if center else '26px 0 18px'};background:linear-gradient(90deg,{'transparent' if center else '#F07800'},#F07800,transparent);"></div>
-<div style="font-size:17px;font-weight:800;letter-spacing:6px;color:{lab};">AUTHORISED DEALERS</div>
-<div style="margin-top:12px;font-size:{size}px;font-weight:900;letter-spacing:0.5px;color:{fg};line-height:1.6;">SREE SAI AMBICA MARKETING AGENCIES<br>SREE PADMAVATHI ENTERPRISES</div>
+<div style="width:220px;height:2px;margin:{'26px auto 16px' if center else '26px 0 16px'};background:linear-gradient(90deg,{'transparent' if center else '#F07800'},#F07800,transparent);"></div>
+<div style="font-size:16px;font-weight:800;letter-spacing:6px;color:{lab};">AUTHORISED DEALERS</div>
+<div style="margin-top:12px;font-size:{int(size*1.18)}px;font-weight:900;letter-spacing:0.5px;line-height:1.55;"><span style="{gt}">SREE SAI AMBICA MARKETING AGENCIES</span><br><span style="{gt}">SREE PADMAVATHI ENTERPRISES</span></div>
 </div>"""
 
 def jkp1(w,h,dark):
@@ -208,7 +207,7 @@ def jkp1(w,h,dark):
 .cap2 em{{{GT_W if dark else GT_D}font-style:italic}}
 .sub{{margin-top:12px;font-family:'Inter',sans-serif;font-size:19px;font-weight:500;color:{sub};line-height:1.5}}
 .card{{margin-top:22px;width:100%;background:#fff;border-radius:20px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.7)' if dark else '#D83000'};box-shadow:0 14px 38px rgba(0,0,0,{'0.45' if dark else '0.12'})}}
-.card img{{width:100%;height:238px;object-fit:cover;object-position:center 62%;background:#fff;display:block}}
+.card img{{width:100%;height:218px;object-fit:cover;object-position:center 62%;background:#fff;display:block}}
 </style>{hdr(dark)}
 <div class="wrap">
 {jkplogo(dark,132)}
@@ -216,7 +215,7 @@ def jkp1(w,h,dark):
 <div class="cap cap2">Dream the shade.<br><em>We shall make it.</em></div>
 <div class="sub">Colour, white, black &amp; additive masterbatches<br>for every polymer application.</div>
 <div class="card"><img src="{P('jkp-granule-jars-wide')}"></div>
-{dealerblock(dark)}
+{dealerblock(dark, size=21)}
 </div>{FOOT}"""
 
 def jkp2(w,h,dark):
@@ -227,8 +226,8 @@ def jkp2(w,h,dark):
     borders=['#A80B0B','#D83000','#F07800','#F6921E','#F6921E','#F07800','#D83000','#A80B0B']
     tiles=''.join(f'<div class="aw"><div class="ac" style="border-color:{borders[i]};"><img src="{P(p)}"></div><div class="al">{l}</div></div>' for i,(p,l) in enumerate(apps))
     return base(w,h,dark)+f"""<style>
-.wrap{{flex:1;display:flex;gap:44px;align-items:center;padding:20px 48px 14px;position:relative;z-index:4}}
-.lt{{width:430px;flex:none}}
+.wrap{{flex:1;display:flex;gap:36px;align-items:center;padding:20px 48px 14px;position:relative;z-index:4}}
+.lt{{width:475px;flex:none}}
 .cap2{{font-size:44px;margin-top:10px;color:{fg}}}
 .cap2 em{{{GT_W if dark else GT_D}font-style:italic}}
 .sub{{margin-top:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:500;color:{sub};line-height:1.5}}
