@@ -85,6 +85,7 @@ def appsposter(w,h,dark,label,cap,cols_data,bgphoto):
 <div class="wrap z"><div class="label">{label}</div><div class="cap cap2">{cap}</div><div class="cols">{cols}</div></div>{FOOT}"""
 
 def duoposter(w,h,dark,label,cap,sub,photos,bgphoto,co='MANTRALAYA GROUP',cohero=None):
+    tcls = 'tiles three' if len(photos)==3 else 'tiles'
     hero = ''
     if cohero:
         hero = f'<div class="cohero">{cohero}</div><div class="cotag">A MANTRALAYA GROUP COMPANY</div>'
@@ -100,8 +101,10 @@ def duoposter(w,h,dark,label,cap,sub,photos,bgphoto,co='MANTRALAYA GROUP',cohero
 .tiles{{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}}
 .tile{{border-radius:16px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.7)' if dark else '#D83000'};aspect-ratio:1.25;box-shadow:0 12px 30px rgba(0,0,0,{'0.4' if dark else '0.12'})}}
 .tile img{{width:100%;height:100%;object-fit:cover}}
+.tiles.three .tile{{aspect-ratio:1.5}}
+.tiles.three .tile:nth-child(3){{grid-column:span 2;aspect-ratio:3.8}}
 </style>{bgimg(bgphoto)}{hdr(dark,co)}
-<div class="wrap z"><div class="lt">{hero}<div class="label">{label}</div><div class="cap cap2">{cap}</div><div class="sub">{sub}</div></div><div class="tiles">{ph}</div></div>{FOOT}"""
+<div class="wrap z"><div class="lt">{hero}<div class="label">{label}</div><div class="cap cap2">{cap}</div><div class="sub">{sub}</div></div><div class="{tcls}">{ph}</div></div>{FOOT}"""
 
 def collageposter(w,h,dark,label,cap,sub,url,photos):
     ph = ''.join(f'<img src="{P(p)}">' for p in photos)
@@ -200,7 +203,7 @@ def build(dark):
        ('Moulding',['Blow moulding up to 100 litres','Overhead tanks','Drip laterals']),
        ('Specialty',['Extrusion coating','Imported granules &amp; master batches','Adhesive lamination &amp; foam film'])],'greenhouse-films'))
     v['poster-08-sutli-ropes'] = (1500,600, duoposter(1500,600,dark,'END PRODUCTS',f"Sutli, ropes &amp; twine — {em('every budget.')}",
-      'Manufactured under multiple brands with various qualities and price ranges.',['plastic-sutli','rope-yellow'],'ropes',cohero='BALA GANESHA POLYMERS'))
+      'Sutli under multiple brands · Reprocessed plastic granules from recycled waste.',['plastic-sutli','rope-yellow','recycled-granules'],'ropes',cohero='BALA GANESHA POLYMERS'))
     v['poster-09-bags'] = (1500,600, duoposter(1500,600,dark,'END PRODUCTS',f"Bags for {em('every business.')}",
       'PP &amp; PE bags · BOPP bags · Non-woven bags · Garment &amp; jewellery packing',['pp-bags','non-woven-bags','garment-bags','bopp-bags'],'non-woven-bags'))
     v['poster-10-films'] = (1000,1000, photoposter(1000,1000,dark,'POLY FILMS','Films that protect what you make.','Treated rolls · Stretch film · Packaging films','treated-rolls'))
