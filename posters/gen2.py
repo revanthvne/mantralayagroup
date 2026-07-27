@@ -192,7 +192,7 @@ def build(dark):
       f"Sourced from the world's finest. {em('Delivered here.')}",
       ['ARAMCO','BOROUGE','CABOT','CELANESE','CHEVRON PHILLIPS','EXXON MOBIL','FORMOSA','GC MARKETING','GULF POLYMERS','INEOS (INOVYN)','LG CHEM','LYONDELL BASELL','MITSUBISHI CORP.','OQ (LUBAN)','SABIC','SCGC','WESTLAKE','&amp; MORE'],6,'coloured-granules',circles=['natural-granules','coloured-granules','pigments']))
     v['poster-03-pigments'] = (700,1000, photoposter(700,1000,dark,'PIGMENTS','Colour, mastered.','Organic &amp; inorganic pigments for every application.','pigments'))
-    v['poster-04-moisture'] = (800,1000, photoposter(800,1000,dark,'MOISTURE POWDER &amp; DANA','Dry. Consistent. Reliable.','Moisture powder &amp; moisture dana — quality you can measure.','natural-granules'))
+    v['poster-04-moisture'] = (800,1000, photoposter(800,1000,dark,'MOISTURE POWDER','Dry. Consistent. Reliable.','Moisture powder &amp; moisture dana — quality you can measure.','moisture-powder-full'))
     v['poster-05-masterbatch'] = (700,1000, photoposter(700,1000,dark,'MASTER BATCHES','The right shade. Every batch.','White, black &amp; colour master batches.','coloured-granules'))
     v['poster-06-pp-apps'] = (1500,600, appsposter(1500,600,dark,'POLYPROPYLENE (PP)',f"One granule. {em('A thousand products.')}",
       [('Homopolymer',['Textile wraps &amp; garment bags','Woven sacks &amp; non-woven fabric','Thin-wall containers &amp; moulding']),
