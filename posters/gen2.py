@@ -457,6 +457,37 @@ def loc_map_p(w,h,dark):
 <div class="up2">{upcomingpill(dark,15)}</div>
 </div>{FOOT}"""
 
+def promiseposter(w,h,dark):
+    """Poster 19 — promise quote + SRPL highlight + stats + granules & plant photos."""
+    gt = GT_W if dark else GT_D
+    fg = '#fff' if dark else '#10141B'
+    box = 'border:1px solid rgba(240,120,0,0.4)' if dark else 'background:#fff;border:1px solid rgba(168,11,11,0.15);box-shadow:0 8px 24px rgba(168,11,11,0.07)'
+    lab = 'rgba(255,255,255,0.7)' if dark else '#5A6472'
+    def cell(v,l):
+        return f'<div style="flex:1;{box};border-radius:18px;padding:20px 24px;text-align:center;"><div style="font-size:52px;font-weight:900;{gt}">{v}</div><div style="margin-top:5px;font-size:15px;font-weight:700;letter-spacing:2.5px;color:{lab};">{l}</div></div>'
+    stats = '<div style="margin-top:30px;display:flex;gap:22px;max-width:640px;">'+cell('35+','YEARS IN POLYMERS')+cell('2300+','CLIENTS SERVED EVERY YEAR')+'</div>'
+    return base(w,h,dark)+f"""<style>
+.side{{position:absolute;top:0;right:0;bottom:0;width:40%;z-index:1;display:flex;flex-direction:column}}
+.side .im{{flex:1;position:relative;overflow:hidden}}
+.side .im img{{width:100%;height:100%;object-fit:cover;display:block}}
+.side::after{{content:'';position:absolute;inset:0;background:linear-gradient(90deg,{'#150B07' if dark else '#FBF4EB'} 0%,{'rgba(21,11,7,0.45)' if dark else 'rgba(251,244,235,0.4)'} 34%,{'rgba(21,11,7,0.05)' if dark else 'rgba(251,244,235,0.05)'} 100%)}}
+.wrap{{flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px 60px;position:relative;z-index:4;max-width:64%}}
+.who1{{font-size:19px;font-weight:800;letter-spacing:6px;color:{'rgba(255,255,255,0.65)' if dark else '#5A6472'}}}
+.who2{{margin-top:8px;font-size:33px;font-weight:900;letter-spacing:0.5px;{gt}}}
+.cap2{{font-size:72px;margin-top:18px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.sub{{margin-top:16px;font-family:'Inter',sans-serif;font-size:26px;font-weight:500;color:{'rgba(255,255,255,0.82)' if dark else '#3A4250'};line-height:1.5}}
+</style>
+<div class="side"><div class="im"><img src="{P('natural-granules')}"></div><div class="im"><img src="{P('polymer-plant')}"></div></div>
+{hdr(dark)}
+<div class="wrap">
+<div class="who1">MANTRALAYA GROUP</div>
+<div class="who2">SREE RAVITEJA POLYMERS LIMITED</div>
+<div class="cap cap2">&ldquo;We deliver <em>what we promise.&rdquo;</em></div>
+<div class="sub">35+ years of consistent supply, honest pricing and relationships that last.</div>
+{stats}
+</div>{FOOT}"""
+
 def build(dark):
     v = {}
     em = lambda t: f"<em>{t}</em>"
@@ -494,8 +525,7 @@ def build(dark):
       'Scan to browse the complete catalogue at productsandstores.com.',
       extra='<div class="extra"><img src="../qr-ps.png" style="width:190px;height:190px;border-radius:14px;border:5px solid #D83000;"></div>',capsize=52))
     v['poster-14-trust'] = (1650,750, message(1650,750,dark,'THE MANTRALAYA GROUP',f"Trust, {em('measured.')}",'',capsize=72,extra=statextra(dark)))
-    v['poster-19-promise'] = (1500,750, message(1500,750,dark,'MANTRALAYA GROUP &amp; SREE RAVITEJA POLYMERS LIMITED',
-      f"&ldquo;We deliver {em('what we promise.&rdquo;')}",'35+ years of consistent supply, honest pricing and relationships that last.',capsize=76,sidephoto='plastic-sutli'))
+    v['poster-19-promise'] = (1500,750, promiseposter(1500,750,dark))
     v['poster-20-branches'] = (1650,750, message(1650,750,dark,'OUR NETWORK',f"Wherever you build, {em('we&rsquo;re nearby.')}",'',extra=branchextra(dark)))
     v['poster-locations-a'] = (1500,900, loc_a(1500,900,dark))
     v['poster-locations-b'] = (1650,750, loc_b(1650,750,dark))
