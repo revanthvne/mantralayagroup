@@ -187,10 +187,10 @@ def build(dark):
     em = lambda t: f"<em>{t}</em>"
     v['poster-01-raw-domestic'] = (1500,900, brandgrid(1500,900,dark,'RAW MATERIALS · DOMESTIC POLYMERS',
       f"India's biggest polymer names. {em('One trusted trader.')}",
-      ['GAIL','BCPL','HMEL','HALDIA','OPAL','MRPL','HPCL','RELIANCE','NAYARA'],3,'natural-granules',circles=['natural-granules','coloured-granules']))
+      ['GAIL','BCPL','HMEL','HALDIA','OPAL','MRPL','HPCL','RELIANCE','NAYARA'],3,'natural-granules',circles=['natural-granules','coloured-granules','pigments']))
     v['poster-02-raw-imported'] = (1650,900, brandgrid(1650,900,dark,'RAW MATERIALS · IMPORTED POLYMERS',
       f"Sourced from the world's finest. {em('Delivered here.')}",
-      ['ARAMCO','BOROUGE','CABOT','CELANESE','CHEVRON PHILLIPS','EXXON MOBIL','FORMOSA','GC MARKETING','GULF POLYMERS','INEOS (INOVYN)','LG CHEM','LYONDELL BASELL','MITSUBISHI CORP.','OQ (LUBAN)','SABIC','SCGC','WESTLAKE','&amp; MORE'],6,'coloured-granules',circles=['coloured-granules','pigments']))
+      ['ARAMCO','BOROUGE','CABOT','CELANESE','CHEVRON PHILLIPS','EXXON MOBIL','FORMOSA','GC MARKETING','GULF POLYMERS','INEOS (INOVYN)','LG CHEM','LYONDELL BASELL','MITSUBISHI CORP.','OQ (LUBAN)','SABIC','SCGC','WESTLAKE','&amp; MORE'],6,'coloured-granules',circles=['natural-granules','coloured-granules','pigments']))
     v['poster-03-pigments'] = (700,1000, photoposter(700,1000,dark,'PIGMENTS','Colour, mastered.','Organic &amp; inorganic pigments for every application.','pigments'))
     v['poster-04-moisture'] = (800,1000, photoposter(800,1000,dark,'MOISTURE POWDER &amp; DANA','Dry. Consistent. Reliable.','Moisture powder &amp; moisture dana — quality you can measure.','natural-granules'))
     v['poster-05-masterbatch'] = (700,1000, photoposter(700,1000,dark,'MASTER BATCHES','The right shade. Every batch.','White, black &amp; colour master batches.','coloured-granules'))
