@@ -84,7 +84,10 @@ def appsposter(w,h,dark,label,cap,cols_data,bgphoto):
 </style>{bgimg(bgphoto)}{hdr(dark)}
 <div class="wrap z"><div class="label">{label}</div><div class="cap cap2">{cap}</div><div class="cols">{cols}</div></div>{FOOT}"""
 
-def duoposter(w,h,dark,label,cap,sub,photos,bgphoto,co='MANTRALAYA GROUP'):
+def duoposter(w,h,dark,label,cap,sub,photos,bgphoto,co='MANTRALAYA GROUP',cohero=None):
+    hero = ''
+    if cohero:
+        hero = f'<div class="cohero">{cohero}</div><div class="cotag">A MANTRALAYA GROUP COMPANY</div>'
     ph = ''.join(f'<div class="tile"><img src="{P(p)}"></div>' for p in photos)
     return base(w,h,dark)+f"""<style>
 .wrap{{padding:30px 48px 26px;flex:1;display:flex;gap:40px;align-items:center}}
@@ -92,11 +95,13 @@ def duoposter(w,h,dark,label,cap,sub,photos,bgphoto,co='MANTRALAYA GROUP'):
 .cap2{{font-size:47px;margin-top:12px}}
 .cap2 em{{{GT_W if dark else GT_D}font-style:italic}}
 .sub{{margin-top:16px;font-family:'Inter',sans-serif;font-size:21px;font-weight:500;color:{'rgba(255,255,255,0.78)' if dark else '#3A4250'};line-height:1.55}}
+.cohero{{font-size:42px;font-weight:900;letter-spacing:1px;{GT_W if dark else GT_D}}}
+.cotag{{margin-top:8px;margin-bottom:24px;font-size:15px;font-weight:800;letter-spacing:5px;color:{'rgba(255,255,255,0.6)' if dark else '#8A93A0'}}}
 .tiles{{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}}
 .tile{{border-radius:16px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.7)' if dark else '#D83000'};aspect-ratio:1.25;box-shadow:0 12px 30px rgba(0,0,0,{'0.4' if dark else '0.12'})}}
 .tile img{{width:100%;height:100%;object-fit:cover}}
 </style>{bgimg(bgphoto)}{hdr(dark,co)}
-<div class="wrap z"><div class="lt"><div class="label">{label}</div><div class="cap cap2">{cap}</div><div class="sub">{sub}</div></div><div class="tiles">{ph}</div></div>{FOOT}"""
+<div class="wrap z"><div class="lt">{hero}<div class="label">{label}</div><div class="cap cap2">{cap}</div><div class="sub">{sub}</div></div><div class="tiles">{ph}</div></div>{FOOT}"""
 
 def collageposter(w,h,dark,label,cap,sub,url,photos):
     ph = ''.join(f'<img src="{P(p)}">' for p in photos)
@@ -195,7 +200,7 @@ def build(dark):
        ('Moulding',['Blow moulding up to 100 litres','Overhead tanks','Drip laterals']),
        ('Specialty',['Extrusion coating','Imported granules &amp; master batches','Adhesive lamination &amp; foam film'])],'greenhouse-films'))
     v['poster-08-sutli-ropes'] = (1500,600, duoposter(1500,600,dark,'END PRODUCTS',f"Sutli, ropes &amp; twine — {em('every budget.')}",
-      'Manufactured under multiple brands with various qualities and price ranges.',['plastic-sutli','rope-yellow'],'ropes',co='BALA GANESHA POLYMERS'))
+      'Manufactured under multiple brands with various qualities and price ranges.',['plastic-sutli','rope-yellow'],'ropes',cohero='BALA GANESHA POLYMERS'))
     v['poster-09-bags'] = (1500,600, duoposter(1500,600,dark,'END PRODUCTS',f"Bags for {em('every business.')}",
       'PP &amp; PE bags · BOPP bags · Non-woven bags · Garment &amp; jewellery packing',['pp-bags','non-woven-bags','garment-bags','bopp-bags'],'non-woven-bags'))
     v['poster-10-films'] = (1000,1000, photoposter(1000,1000,dark,'POLY FILMS','Films that protect what you make.','Treated rolls · Stretch film · Packaging films','treated-rolls'))
