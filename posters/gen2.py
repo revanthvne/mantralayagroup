@@ -562,10 +562,10 @@ def build(dark):
     v['poster-locations-map-800x1000'] = (800,1000, loc_map_p(800,1000,dark))
     v['poster-spe-2200x800'] = (1650,600, duoposter(1650,600,dark,'POLYMER MATERIALS',f"One-stop shop for {em('every polymer need.')}",
       'Metallocene PE &amp; PP · PVC · PET · EVA · Polystyrene · Biodegradable PBAT · UV stabilizers &amp; additives',
-      ['jkp-fan','jkp-granules','moisture-powder-full','recycled-granules'],'pigments',cohero='SREE PADMAVATHI ENTERPRISES',tile_ar=2.05,cohero_size=33))
+      ['gen-pigment-burst','gen-granule-gradient','gen-dana-pearls','gen-eco-granules'],'pigments',cohero='SREE PADMAVATHI ENTERPRISES',tile_ar=2.05,cohero_size=33))
     v['poster-ssama-1000x1000'] = (1000,1000, compco_sq(1000,1000,dark,'SREE SAI AMBICA MARKETING AGENCIES',
       f"Raw materials to {em('end products.')}",
-      [('pigments','PIGMENTS'),('jkp-granule-jars','MASTER BATCHES'),('moisture-powder','MOISTURE POWDER'),('treated-rolls','POLY FILMS')],
+      [('gen-pigment-scoops','PIGMENTS'),('gen-mb-beakers','MASTER BATCHES'),('gen-powder-pour','MOISTURE POWDER'),('gen-film-macro','POLY FILMS')],
       'Plastic raw materials · Additives · Pigments · Master batches · Moisture powder'))
     return v
 
