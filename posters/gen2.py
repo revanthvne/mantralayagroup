@@ -465,7 +465,9 @@ def promiseposter(w,h,dark):
     lab = 'rgba(255,255,255,0.7)' if dark else '#5A6472'
     def cell(v,l):
         return f'<div style="flex:1;{box};border-radius:18px;padding:20px 24px;text-align:center;"><div style="font-size:52px;font-weight:900;{gt}">{v}</div><div style="margin-top:5px;font-size:15px;font-weight:700;letter-spacing:2.5px;color:{lab};">{l}</div></div>'
-    stats = '<div style="margin-top:30px;display:flex;gap:22px;max-width:640px;">'+cell('35+','YEARS IN POLYMERS')+cell('2300+','CLIENTS SERVED EVERY YEAR')+'</div>'
+    def cell2(top,v,l):
+        return f'<div style="flex:1;{box};border-radius:18px;padding:16px 24px 20px;text-align:center;"><div style="font-size:15px;font-weight:700;letter-spacing:2.5px;color:{lab};">{top}</div><div style="margin-top:2px;font-size:52px;font-weight:900;{gt}">{v}</div><div style="margin-top:4px;font-size:15px;font-weight:700;letter-spacing:2.5px;color:{lab};">{l}</div></div>'
+    stats = '<div style="margin-top:30px;display:flex;gap:22px;max-width:660px;align-items:stretch;">'+cell('35+','YEARS IN POLYMERS')+cell2('SERVING','2300+','CLIENTS EVERY YEAR')+'</div>'
     return base(w,h,dark)+f"""<style>
 .side{{position:absolute;top:0;right:0;bottom:0;width:40%;z-index:1;display:flex;flex-direction:column}}
 .side .im{{flex:1;position:relative;overflow:hidden}}
