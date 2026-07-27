@@ -516,6 +516,39 @@ def compco_sq(w,h,dark,cohero,cap,tiles,subline):
 <div class="sub">{subline}</div>
 </div>{FOOT}"""
 
+def pands2(w,h,dark):
+    """Products & Stores 1000x1500 — store product collage, info bottom, QR bottom-right."""
+    gt = GT_W if dark else GT_D
+    fg = '#fff' if dark else '#10141B'
+    photos=[('ps-snack-pouches','ZIP-LOCK POUCHES'),('ps-foil-pouches','FOIL POUCHES'),('ps-food-containers','CONTAINERS'),
+            ('ps-disposables','DISPOSABLES'),('ps-cups','CUPS &amp; LIDS'),('ps-grow-bags','GROW BAGS')]
+    tiles=''.join(f'<div class="cw"><img src="{P(p)}"><div class="cl">{l}</div></div>' for p,l in photos)
+    ov = 'linear-gradient(180deg, rgba(13,8,6,0) 55%, rgba(13,8,6,0.55) 78%, #0D0806 100%)' if dark else 'linear-gradient(180deg, rgba(251,244,235,0) 55%, rgba(251,244,235,0.55) 78%, #FBF4EB 100%)'
+    return base(w,h,dark)+f"""<style>
+.coll{{position:relative;margin:22px 40px 0;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:300px;gap:14px;z-index:4}}
+.cw{{position:relative;border-radius:16px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.65)' if dark else '#D83000'};box-shadow:0 12px 28px rgba(0,0,0,{'0.4' if dark else '0.12'})}}
+.cw img{{width:100%;height:100%;object-fit:cover;display:block}}
+.cl{{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 9px;text-align:center;font-size:13.5px;font-weight:800;letter-spacing:2px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.62))}}
+.bt{{flex:1;display:flex;align-items:flex-end;gap:26px;padding:20px 40px 20px;position:relative;z-index:4}}
+.bl{{flex:1}}
+.cap2{{font-size:46px;margin-top:8px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.sub{{margin-top:10px;font-family:'Inter',sans-serif;font-size:18px;font-weight:500;color:{'rgba(255,255,255,0.82)' if dark else '#3A4250'};line-height:1.5}}
+.url{{display:inline-block;margin-top:14px;background:{GRAD};color:#fff;border-radius:100px;padding:12px 30px;font-size:19px;font-weight:800;letter-spacing:0.5px;box-shadow:0 10px 28px rgba(216,60,0,0.45)}}
+.qr{{flex:none;text-align:center}}
+.qr img{{width:172px;height:172px;border-radius:14px;border:5px solid #D83000;background:#fff;display:block}}
+.qr .t{{margin-top:8px;font-size:13px;font-weight:800;letter-spacing:2px;color:{'#F6921E' if dark else '#C43D00'}}}
+</style>{hdr(dark)}
+<div class="coll">{tiles}</div>
+<div class="bt"><div class="bl">
+<div class="label">PRODUCTS &amp; STORES</div>
+<div class="cap cap2">Everything plastic.<br><em>Off the shelf.</em></div>
+<div class="sub">Zip-lock &amp; foil pouches · Containers &amp; disposables · Cups · Grow bags — retail &amp; bulk.</div>
+<div class="url">productsandstores.com</div>
+</div>
+<div class="qr"><img src="../qr-ps.png"><div class="t">SCAN TO SHOP</div></div>
+</div>{FOOT}"""
+
 def build(dark):
     v = {}
     em = lambda t: f"<em>{t}</em>"
@@ -542,8 +575,7 @@ def build(dark):
     v['poster-09-bags'] = (1500,600, duoposter(1500,600,dark,'END PRODUCTS',f"Bags for {em('every business.')}",
       'PP &amp; PE bags · BOPP bags · Non-woven bags · Garment &amp; jewellery packing',['pp-bags','non-woven-bags','garment-bags','bopp-bags'],'non-woven-bags',cohero='SREE RAVITEJA POLYMERS',tile_ar=1.8,cohero_size=33))
     v['poster-10-films'] = (1000,1000, photoposter(1000,1000,dark,'POLY FILMS','Films that protect what you make.','Treated rolls · Stretch film · Packaging films','treated-rolls'))
-    v['poster-11-pands'] = (1000,1500, collageposter(1000,1500,dark,'PRODUCTS &amp; STORES',f"Everything plastic.<br>{em('Off the shelf.')}",
-      'Retail &amp; bulk — explore the full catalogue.','productsandstores.com',['coloured-granules','plastic-sutli','pp-bags','pigments','ropes','non-woven-bags']))
+    v['poster-11-pands'] = (1000,1500, pands2(1000,1500,dark))
     v['poster-12-totem'] = (600,2133, totem(600,2133,dark))
     v['poster-13-credit-1'] = (1500,750, message(1500,750,dark,'CREDIT FACILITY',f"Your growth. {em('Our credit.')}",
       'Flexible credit facilities for trusted trade partners — built on 35+ years of relationships. Talk to our team today.',sidephoto='coloured-granules'))
