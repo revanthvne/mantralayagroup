@@ -490,6 +490,32 @@ def promiseposter(w,h,dark):
 {stats}
 </div>{FOOT}"""
 
+def compco_sq(w,h,dark,cohero,cap,tiles,subline):
+    """Square company poster — cohero + 2x2 labeled tiles + product line."""
+    gt = GT_W if dark else GT_D
+    fg = '#fff' if dark else '#10141B'
+    tags = 'rgba(255,255,255,0.6)' if dark else '#8A93A0'
+    tl = ''.join(f'<div class="tw"><div class="tile"><img src="{P(p)}"></div><div class="tlb">{l}</div></div>' for p,l in tiles)
+    return base(w,h,dark)+f"""<style>
+.wrap{{flex:1;display:flex;flex-direction:column;padding:24px 48px 16px;position:relative;z-index:4;text-align:center}}
+.cohero{{font-size:36px;font-weight:900;letter-spacing:0.5px;{gt}}}
+.cotag{{margin-top:6px;font-size:14px;font-weight:800;letter-spacing:5px;color:{tags}}}
+.cap2{{font-size:41px;margin-top:14px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.tgrid{{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;flex:1;align-content:center}}
+.tile{{border-radius:16px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.7)' if dark else '#D83000'};aspect-ratio:2.1;box-shadow:0 12px 30px rgba(0,0,0,{'0.4' if dark else '0.12'})}}
+.tile img{{width:100%;height:100%;object-fit:cover;display:block}}
+.tlb{{margin-top:8px;font-size:14.5px;font-weight:800;letter-spacing:2px;color:{'rgba(255,255,255,0.85)' if dark else '#3A4250'}}}
+.sub{{margin-top:18px;font-family:'Inter',sans-serif;font-size:15.5px;font-weight:600;color:{'rgba(255,255,255,0.72)' if dark else '#5A6472'};line-height:1.6}}
+</style>{bgimg('pigments')}{hdr(dark)}
+<div class="wrap">
+<div class="cohero">{cohero}</div>
+<div class="cotag">A MANTRALAYA GROUP COMPANY</div>
+<div class="cap cap2">{cap}</div>
+<div class="tgrid">{tl}</div>
+<div class="sub">{subline}</div>
+</div>{FOOT}"""
+
 def build(dark):
     v = {}
     em = lambda t: f"<em>{t}</em>"
@@ -534,6 +560,13 @@ def build(dark):
     v['poster-locations-c'] = (1000,1500, loc_c(1000,1500,dark))
     v['poster-locations-d-map'] = (1650,750, loc_map(1650,750,dark))
     v['poster-locations-map-800x1000'] = (800,1000, loc_map_p(800,1000,dark))
+    v['poster-ssama-2000x800'] = (1500,600, duoposter(1500,600,dark,'TRADING &amp; SOURCING',f"Raw materials to {em('end products.')}",
+      'Plastic raw materials · Additives · Pigments · Master batches · Moisture powder',
+      ['pigments','coloured-granules','moisture-powder','treated-rolls'],'pigments',cohero='SREE SAI AMBICA MARKETING AGENCIES',tile_ar=1.8,cohero_size=29))
+    v['poster-spe-1000x1000'] = (1000,1000, compco_sq(1000,1000,dark,'SREE PADMAVATHI ENTERPRISES',
+      f"One-stop shop for {em('every polymer need.')}",
+      [('coloured-granules','MASTER BATCHES'),('pigments','PIGMENTS'),('moisture-powder','MOISTURE POWDER &amp; DANA'),('treated-rolls','POLY FILMS')],
+      'Metallocene PE &amp; PP · PVC · PET · EVA · Polystyrene · Biodegradable PBAT · UV stabilizers &amp; additives · Reprocessing granules'))
     return v
 
 manifest = {}
