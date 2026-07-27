@@ -250,9 +250,9 @@ def jkp2(w,h,dark):
 </div>{FOOT}"""
 
 LOC_DATA = [
- ('SREE MANTRALAYA PETROCHEM (SMP)', [('Hyderabad','8977020177, 8977020175'),('Guntur','8886668998'),('Z. Medapadu (Near Rajahmundry)','9381579829'),('Visakhapatnam','8977020179')]),
+ ('SREE MANTRALAYA PETROCHEM (SMP)', [('Hyderabad','8977020177, 8977020175'),('Guntur','8886668998'),('Rajahmundry','9381579829'),('Visakhapatnam','8977020179')]),
  ('SREE RAVITEJA POLYMERS', [('Tenali','8886668921, 8886668915, 8886668912')]),
- ('SREE SAI AMBICA MARKETING AGENCIES', [('Tenali','8977020178'),('Vijayawada','8886668920'),('Z. Medapadu (Near Rajahmundry)','9381579829')]),
+ ('SREE SAI AMBICA MARKETING AGENCIES', [('Tenali','8977020178'),('Vijayawada','8886668920'),('Rajahmundry','9381579829')]),
  ('BALA GANESHA POLYMERS', [('Tenali','8886668915, 8886668912')]),
  ('SREE PADMAVATHI ENTERPRISES', [('Hyderabad','8977020177, 8977020175, 8977020170')]),
  ('SREE RAVITEJA POLYMERS LIMITED', [('Hyderabad','8977020177, 8977020176'),('Nellore','8886668921')]),
@@ -366,7 +366,7 @@ def loc_map(w,h,dark):
                 f'<text x="{x+dx}" y="{y+7}" text-anchor="{anchor}" font-size="23" font-weight="700" font-style="italic" fill="{up}" font-family="Inter">{name}</text>')
     pins = (pin('Hyderabad', dx=-18, anchor='end')
           + pin('Visakhapatnam', dx=-16, anchor='end')
-          + pin('Z. Medapadu', dx=16, dy=-12)
+          + pin('Rajahmundry', dx=16, dy=-12)
           + pin('Vijayawada', dx=-12, anchor='end', dy=-12, r=7)
           + pin('Guntur', dx=-14, anchor='end', dy=8, r=7)
           + pin('Tenali', dx=14, dy=26, r=7)
