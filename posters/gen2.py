@@ -221,8 +221,8 @@ def jkp1(w,h,dark):
 def jkp2(w,h,dark):
     fg = '#fff' if dark else '#10141B'
     sub = 'rgba(255,255,255,0.78)' if dark else '#3A4250'
-    apps = [('jkp-rope','ROPES'),('jkp-toys','TOYS'),('jkp-cables','CABLES &amp; WIRES'),('jkp-tanks','WATER TANKS'),
-            ('jkp-luggage','LUGGAGE'),('jkp-household','HOUSEHOLD'),('jkp-drums','BLOW CONTAINERS'),('jkp-preforms','PET PREFORMS')]
+    apps = [('jkp-multilayer','MULTILAYER PACKAGING'),('jkp-blow2','BLOW CONTAINERS'),('jkp-household','HOUSEHOLD'),('greenhouse-films','ADDITIVE MASTERBATCHES'),
+            ('jkp-preforms','PET PREFORMS'),('jkp-nonwoven','WOVEN &amp; NON-WOVEN BAGS'),('jkp-agrifilm','AGRICULTURE FILMS'),('jkp-rope','ROPES')]
     borders=['#A80B0B','#D83000','#F07800','#F6921E','#F6921E','#F07800','#D83000','#A80B0B']
     tiles=''.join(f'<div class="aw"><div class="ac" style="border-color:{borders[i]};"><img src="{P(p)}"></div><div class="al">{l}</div></div>' for i,(p,l) in enumerate(apps))
     return base(w,h,dark)+f"""<style>
@@ -232,21 +232,21 @@ def jkp2(w,h,dark):
 .cap2 em{{{GT_W if dark else GT_D}font-style:italic}}
 .sub{{margin-top:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:500;color:{sub};line-height:1.5}}
 .rt{{flex:1}}
-.agrid{{display:grid;grid-template-columns:repeat(4,1fr);gap:20px 14px}}
+.agrid{{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 14px}}
 .aw{{text-align:center}}
-.ac{{width:158px;height:158px;border-radius:50%;overflow:hidden;border:4px solid;margin:0 auto;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,{'0.4' if dark else '0.12'})}}
+.ac{{width:196px;height:196px;border-radius:50%;overflow:hidden;border:5px solid;margin:0 auto;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,{'0.4' if dark else '0.12'})}}
 .ac img{{width:100%;height:100%;object-fit:cover}}
-.al{{margin-top:9px;font-size:14.5px;font-weight:800;letter-spacing:1.5px;color:{'rgba(255,255,255,0.85)' if dark else '#3A4250'}}}
+.al{{margin-top:10px;font-size:15px;font-weight:800;letter-spacing:1px;color:{'rgba(255,255,255,0.85)' if dark else '#3A4250'}}}
 .also{{margin-top:16px;font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;color:{'rgba(255,255,255,0.6)' if dark else '#8A93A0'};text-align:center;letter-spacing:0.3px}}
 </style>{hdr(dark)}
 <div class="wrap">
-<div class="lt">{jkplogo(dark,128)}
-<div class="label" style="margin-top:20px;">JKP MASTERBATCHES</div>
+<div class="lt">{jkplogo(dark,185)}
+<div class="label" style="margin-top:22px;">JKP MASTERBATCHES</div>
 <div class="cap cap2">One partner.<br><em>Every application.</em></div>
 {dealerblock(dark, center=False, size=17)}
 </div>
 <div class="rt"><div class="agrid">{tiles}</div>
-<div class="also">Also for: Polyester Fibre &middot; Multilayer Packaging &middot; Coolers &middot; Electrical &amp; Automotive &middot; Agriculture &middot; Polycoat &middot; Non-Woven / Woven &middot; Additive Masterbatches</div></div>
+<div class="also">Also for: Polyester Fibre &middot; Toys &middot; Cables &amp; Wires &middot; Water Tanks &middot; Luggage &middot; Coolers &middot; Electrical &amp; Automotive &middot; Polycoat</div></div>
 </div>{FOOT}"""
 
 LOC_DATA = [
@@ -411,7 +411,7 @@ def build(dark):
     v['poster-03-pigments'] = (700,1000, photoposter(700,1000,dark,'PIGMENTS','Colour, mastered.','Organic &amp; inorganic pigments for every application.','pigments'))
     v['poster-04-moisture'] = (800,1000, photoposter(800,1000,dark,'MOISTURE POWDER','Dry. Consistent. Reliable.','Moisture powder &amp; moisture dana — quality you can measure.','moisture-powder-full'))
     v['poster-05-jkp-masterbatch'] = (700,1000, jkp1(700,1000,dark))
-    v['poster-jkp-applications-2200x1000'] = (1650,750, jkp2(1650,750,dark))
+    v['poster-jkp-applications-2200x1200'] = (1650,900, jkp2(1650,900,dark))
     v['poster-06-pp-apps'] = (1500,600, appsposter(1500,600,dark,'POLYPROPYLENE (PP)',f"One granule. {em('A thousand products.')}",
       [('Homopolymer',['Textile wraps &amp; garment bags','Woven sacks &amp; non-woven fabric','Thin-wall containers &amp; moulding']),
        ('Random Co-Polymer',['High-clarity bottles &amp; containers','House wares &amp; consumer products','Transparent packaging']),
