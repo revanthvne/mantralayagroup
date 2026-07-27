@@ -249,6 +249,100 @@ def jkp2(w,h,dark):
 <div class="also">Also for: Polyester Fibre &middot; Multilayer Packaging &middot; Coolers &middot; Electrical &amp; Automotive &middot; Agriculture &middot; Polycoat &middot; Non-Woven / Woven &middot; Additive Masterbatches</div></div>
 </div>{FOOT}"""
 
+LOC_DATA = [
+ ('SREE MANTRALAYA PETROCHEM (SMP)', [('Hyderabad','8977020177, 8977020175'),('Guntur','8886668998'),('Z. Medapadu (Near Rajahmundry)','9381579829'),('Visakhapatnam','8977020179')]),
+ ('SREE RAVITEJA POLYMERS', [('Tenali','8886668921, 8886668915, 8886668912')]),
+ ('SREE SAI AMBICA MARKETING AGENCIES', [('Tenali','8977020178'),('Vijayawada','8886668920'),('Z. Medapadu (Near Rajahmundry)','9381579829')]),
+ ('BALA GANESHA POLYMERS', [('Tenali','8886668915, 8886668912')]),
+ ('SREE PADMAVATHI ENTERPRISES', [('Hyderabad','8977020177, 8977020175, 8977020170')]),
+ ('SREE RAVITEJA POLYMERS LIMITED', [('Hyderabad','8977020177, 8977020176'),('Nellore','8886668921')]),
+]
+
+def upcomingpill(dark, size=19):
+    return f'<span style="display:inline-block;background:{GRAD};color:#fff;border-radius:100px;padding:12px 30px;font-size:{size}px;font-weight:800;letter-spacing:1px;box-shadow:0 10px 28px rgba(216,60,0,0.4);">Upcoming: Bengaluru &amp; Chennai</span>'
+
+def loc_a(w,h,dark):
+    """Variant A — 3x2 directory cards with cities + phone numbers."""
+    card = 'background:rgba(255,255,255,0.05);border:1px solid rgba(240,120,0,0.4)' if dark else 'background:#fff;border:1px solid rgba(168,11,11,0.14);box-shadow:0 10px 28px rgba(168,11,11,0.07)'
+    gt = GT_W if dark else GT_D
+    city = '#fff' if dark else '#10141B'
+    ph = 'rgba(255,255,255,0.62)' if dark else '#5A6472'
+    cards=''
+    for name,locs in LOC_DATA:
+        rows=''.join(f'<div class="lr"><span class="dot"></span><span class="ct">{c}</span><span class="pn">{p}</span></div>' for c,p in locs)
+        cards+=f'<div class="cc"><div class="cn">{name}</div>{rows}</div>'
+    return base(w,h,dark)+f"""<style>
+.wrap{{padding:30px 48px 22px;flex:1;display:flex;flex-direction:column;position:relative;z-index:4}}
+.top{{display:flex;justify-content:space-between;align-items:flex-end}}
+.cap2{{font-size:46px;margin-top:8px}}
+.cap2 em{{{gt}font-style:italic}}
+.grid{{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;flex:1;align-content:stretch}}
+.cc{{{card};border-radius:18px;padding:22px 26px}}
+.cn{{font-size:21.5px;font-weight:900;letter-spacing:0.4px;{gt}line-height:1.3;min-height:56px}}
+.lr{{display:flex;align-items:flex-start;gap:10px;margin-top:11px}}
+.dot{{width:9px;height:9px;border-radius:50%;background:#F07800;flex:none;box-shadow:0 0 10px rgba(240,120,0,0.8);margin-top:7px}}
+.ct{{font-size:18.5px;font-weight:800;color:{city};white-space:nowrap}}
+.pn{{font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;color:{ph};margin-left:auto;text-align:right}}
+</style>{bgimg('natural-granules')}{hdr(dark)}
+<div class="wrap"><div class="top"><div><div class="label">OUR COMPANIES &amp; LOCATIONS</div>
+<div class="cap cap2">One group. <em>Wherever you build.</em></div></div>{upcomingpill(dark)}</div>
+<div class="grid">{cards}</div></div>{FOOT}"""
+
+def loc_b(w,h,dark):
+    """Variant B — wide: caption left, clean rows with city chips right."""
+    gt = GT_W if dark else GT_D
+    chip = ('background:rgba(255,255,255,0.07);border:1px solid rgba(240,120,0,0.45);color:#fff' if dark
+            else 'background:#fff;border:1px solid rgba(16,20,27,0.1);box-shadow:0 5px 14px rgba(0,0,0,0.05);color:#10141B')
+    rows=''
+    for name,locs in LOC_DATA:
+        chips=''.join(f'<span class="ch">{c}</span>' for c,_ in locs)
+        rows+=f'<div class="row"><div class="rn">{name}</div><div class="chs">{chips}</div></div>'
+    return base(w,h,dark)+f"""<style>
+.wrap{{flex:1;display:flex;gap:48px;align-items:center;padding:20px 48px 16px;position:relative;z-index:4}}
+.lt{{width:440px;flex:none}}
+.cap2{{font-size:56px;margin-top:12px}}
+.cap2 em{{{gt}font-style:italic}}
+.sub{{margin-top:14px;font-family:'Inter',sans-serif;font-size:19px;font-weight:500;color:{'rgba(255,255,255,0.78)' if dark else '#3A4250'};line-height:1.55}}
+.rt{{flex:1;display:flex;flex-direction:column;justify-content:center;gap:13px}}
+.row{{display:flex;align-items:center;gap:18px;border-bottom:1px solid {'rgba(255,255,255,0.09)' if dark else 'rgba(16,20,27,0.08)'};padding-bottom:13px}}
+.rn{{flex:1;font-size:21px;font-weight:900;letter-spacing:0.3px;{gt}}}
+.chs{{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}}
+.ch{{{chip};border-radius:100px;padding:8px 20px;font-size:16px;font-weight:700;white-space:nowrap}}
+</style>{bgimg('coloured-granules')}{hdr(dark)}
+<div class="wrap"><div class="lt"><div class="label">COMPANIES &amp; LOCATIONS</div>
+<div class="cap cap2">Six companies.<br><em>Seven cities.</em></div>
+<div class="sub">Andhra Pradesh &amp; Telangana — served from Hyderabad, Guntur, Tenali, Vijayawada, Nellore, Z.&nbsp;Medapadu and Visakhapatnam.</div>
+<div style="margin-top:24px;">{upcomingpill(dark)}</div></div>
+<div class="rt">{rows}</div></div>{FOOT}"""
+
+def loc_c(w,h,dark):
+    """Variant C — portrait stacked directory with numbers."""
+    card = 'background:rgba(255,255,255,0.05);border-left:6px solid #F07800' if dark else 'background:#fff;border-left:6px solid #D83000;box-shadow:0 8px 22px rgba(168,11,11,0.07)'
+    gt = GT_W if dark else GT_D
+    city = '#fff' if dark else '#10141B'
+    ph = 'rgba(255,255,255,0.62)' if dark else '#5A6472'
+    cards=''
+    for name,locs in LOC_DATA:
+        rows=''.join(f'<div class="lr"><span class="ct">{c}</span><span class="pn">{p}</span></div>' for c,p in locs)
+        cards+=f'<div class="cc"><div class="cn">{name}</div>{rows}</div>'
+    return base(w,h,dark)+f"""<style>
+.wrap{{padding:30px 52px 22px;flex:1;display:flex;flex-direction:column;position:relative;z-index:4}}
+.cap2{{font-size:54px;margin-top:10px;text-align:center}}
+.cap2 em{{{gt}font-style:italic}}
+.label{{text-align:center}}
+.stack{{margin-top:26px;display:flex;flex-direction:column;gap:15px;flex:1;justify-content:space-evenly}}
+.cc{{{card};border-radius:14px;padding:18px 26px}}
+.cn{{font-size:24px;font-weight:900;letter-spacing:0.4px;{gt}}}
+.lr{{display:flex;align-items:baseline;margin-top:8px}}
+.ct{{font-size:19px;font-weight:800;color:{city}}}
+.pn{{font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:{ph};margin-left:auto}}
+.up{{margin-top:20px;text-align:center}}
+</style>{bgimg('pigments')}{hdr(dark)}
+<div class="wrap"><div class="label">MANTRALAYA GROUP · COMPANIES &amp; LOCATIONS</div>
+<div class="cap cap2">Always <em>within reach.</em></div>
+<div class="stack">{cards}</div>
+<div class="up">{upcomingpill(dark,21)}</div></div>{FOOT}"""
+
 def build(dark):
     v = {}
     em = lambda t: f"<em>{t}</em>"
@@ -289,6 +383,9 @@ def build(dark):
     v['poster-19-promise'] = (1500,750, message(1500,750,dark,'MANTRALAYA GROUP &amp; SREE RAVITEJA POLYMERS LIMITED',
       f"&ldquo;We deliver {em('what we promise.&rdquo;')}",'35+ years of consistent supply, honest pricing and relationships that last.',capsize=76,sidephoto='plastic-sutli'))
     v['poster-20-branches'] = (1650,750, message(1650,750,dark,'OUR NETWORK',f"Wherever you build, {em('we&rsquo;re nearby.')}",'',extra=branchextra(dark)))
+    v['poster-locations-a'] = (1500,900, loc_a(1500,900,dark))
+    v['poster-locations-b'] = (1650,750, loc_b(1650,750,dark))
+    v['poster-locations-c'] = (1000,1500, loc_c(1000,1500,dark))
     return v
 
 manifest = {}
