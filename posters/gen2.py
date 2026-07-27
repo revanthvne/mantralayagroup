@@ -343,6 +343,62 @@ def loc_c(w,h,dark):
 <div class="stack">{cards}</div>
 <div class="up">{upcomingpill(dark,21)}</div></div>{FOOT}"""
 
+def loc_map(w,h,dark):
+    """Variant D — South India map with company pins."""
+    from mapdata import PATHS, CITIES
+    gt = GT_W if dark else GT_D
+    fg = '#fff' if dark else '#10141B'
+    aptg = 'rgba(240,120,0,0.20)' if dark else 'rgba(216,60,0,0.14)'
+    nb   = 'rgba(255,255,255,0.055)' if dark else 'rgba(16,20,27,0.055)'
+    lbl  = '#fff' if dark else '#10141B'
+    up   = '#F6921E' if dark else '#C43D00'
+    halo = 'rgba(240,120,0,0.35)'
+    focus = ''.join(f'<path d="{p}"/>' for s in ('andhra-pradesh','telangana') for p in PATHS[s])
+    rest  = ''.join(f'<path d="{p}"/>' for s in ('karnataka','tamil-nadu','odisha','maharashtra','chhattisgarh','kerala') for p in PATHS[s])
+    def pin(name, dx=16, anchor='start', dy=7, r=9, cluster=False):
+        x,y = CITIES[name]
+        return (f'<circle cx="{x}" cy="{y}" r="{r+9}" fill="{halo}"/>'
+                f'<circle cx="{x}" cy="{y}" r="{r}" fill="url(#mg)" stroke="#fff" stroke-width="2.5"/>'
+                f'<text x="{x+dx}" y="{y+dy}" text-anchor="{anchor}" font-size="26" font-weight="800" fill="{lbl}" font-family="Montserrat">{name}</text>')
+    def upin(name, dx=16, anchor='start'):
+        x,y = CITIES[name]
+        return (f'<circle cx="{x}" cy="{y}" r="9" fill="none" stroke="{up}" stroke-width="2.5" stroke-dasharray="4 4"/>'
+                f'<text x="{x+dx}" y="{y+7}" text-anchor="{anchor}" font-size="23" font-weight="700" font-style="italic" fill="{up}" font-family="Inter">{name}</text>')
+    pins = (pin('Hyderabad', dx=-18, anchor='end')
+          + pin('Visakhapatnam', dx=-16, anchor='end')
+          + pin('Z. Medapadu', dx=16, dy=-12)
+          + pin('Vijayawada', dx=-12, anchor='end', dy=-12, r=7)
+          + pin('Guntur', dx=-14, anchor='end', dy=8, r=7)
+          + pin('Tenali', dx=14, dy=26, r=7)
+          + pin('Nellore')
+          + upin('Bengaluru', dx=-16, anchor='end') + upin('Chennai'))
+    svg = f"""<svg viewBox="30 20 980 1030" style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);height:100%;overflow:visible;">
+<defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#A80B0B"/><stop offset="0.5" stop-color="#D83000"/><stop offset="1" stop-color="#F07800"/></linearGradient></defs>
+<g fill="{nb}">{rest}</g>
+<g fill="{aptg}">{focus}</g>
+{pins}</svg>"""
+    rows=''
+    for name,locs in LOC_DATA:
+        cities=' &middot; '.join(c.replace(' (Near Rajahmundry)','') for c,_ in locs)
+        rows+=f'<div class="row"><div class="rn">{name}</div><div class="rc">{cities}</div></div>'
+    return base(w,h,dark)+f"""<style>
+.wrap{{flex:1;display:flex;gap:30px;align-items:stretch;padding:14px 48px 10px;position:relative;z-index:4}}
+.lt{{width:620px;flex:none;display:flex;flex-direction:column;justify-content:center}}
+.cap2{{font-size:47px;margin-top:8px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.rows{{margin-top:18px;display:flex;flex-direction:column;gap:8px}}
+.row{{border-left:4px solid #F07800;padding-left:16px}}
+.rn{{font-size:19px;font-weight:900;letter-spacing:0.3px;{gt}}}
+.rc{{margin-top:1px;font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;color:{'rgba(255,255,255,0.75)' if dark else '#3A4250'}}}
+.mapbox{{flex:1;position:relative}}
+</style>{hdr(dark)}
+<div class="wrap"><div class="lt"><div class="label">COMPANIES &amp; LOCATIONS</div>
+<div class="cap cap2">Six companies.<br><em>On the map.</em></div>
+<div class="rows">{rows}</div>
+<div style="margin-top:18px;">{upcomingpill(dark,17)}</div></div>
+<div class="mapbox">{svg}</div></div>{FOOT}"""
+
 def build(dark):
     v = {}
     em = lambda t: f"<em>{t}</em>"
@@ -386,6 +442,7 @@ def build(dark):
     v['poster-locations-a'] = (1500,900, loc_a(1500,900,dark))
     v['poster-locations-b'] = (1650,750, loc_b(1650,750,dark))
     v['poster-locations-c'] = (1000,1500, loc_c(1000,1500,dark))
+    v['poster-locations-d-map'] = (1650,750, loc_map(1650,750,dark))
     return v
 
 manifest = {}
