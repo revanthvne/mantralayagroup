@@ -182,6 +182,74 @@ def branchextra(dark):
     chips = ''.join(f'<span style="{chip};border-radius:100px;padding:14px 28px;font-size:21px;font-weight:700;">{c}</span>' for c in ['Hyderabad','Guntur','Visakhapatnam','Z. Medapadu','Tenali','Vijayawada','Nellore'])
     return f'<div class="extra" style="display:flex;flex-wrap:wrap;gap:14px;">{chips}<span style="background:{GRAD};color:#fff;border-radius:100px;padding:14px 28px;font-size:21px;font-weight:800;">Upcoming: Bengaluru &amp; Chennai</span></div>'
 
+def jkplogo(dark, h=150):
+    """JKP logo — untouched artwork; on dark posters it sits on a white card."""
+    if dark:
+        return f'<div style="display:inline-block;background:#fff;border-radius:18px;padding:16px 30px;box-shadow:0 12px 34px rgba(0,0,0,0.4);"><img src="../../jkp-logo.png" style="height:{h}px;display:block;"></div>'
+    return f'<img src="../../jkp-logo.png" style="height:{h}px;display:block;margin:0 auto;">'
+
+def dealerblock(dark, center=True, size=23):
+    lab = '#F6921E' if dark else '#C43D00'
+    fg = '#fff' if dark else '#10141B'
+    al = 'center' if center else 'left'
+    mg = '0 auto' if center else '0'
+    return f"""<div style="text-align:{al};">
+<div style="width:220px;height:2px;margin:{'26px auto 18px' if center else '26px 0 18px'};background:linear-gradient(90deg,{'transparent' if center else '#F07800'},#F07800,transparent);"></div>
+<div style="font-size:17px;font-weight:800;letter-spacing:6px;color:{lab};">AUTHORISED DEALERS</div>
+<div style="margin-top:12px;font-size:{size}px;font-weight:900;letter-spacing:0.5px;color:{fg};line-height:1.6;">SREE SAI AMBICA MARKETING AGENCIES<br>SREE PADMAVATHI ENTERPRISES</div>
+</div>"""
+
+def jkp1(w,h,dark):
+    fg = '#fff' if dark else '#10141B'
+    sub = 'rgba(255,255,255,0.82)' if dark else '#3A4250'
+    return base(w,h,dark)+f"""<style>
+.wrap{{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:26px 44px 0;position:relative;z-index:4}}
+.cap2{{font-size:47px;margin-top:10px;color:{fg}}}
+.cap2 em{{{GT_W if dark else GT_D}font-style:italic}}
+.sub{{margin-top:12px;font-family:'Inter',sans-serif;font-size:19px;font-weight:500;color:{sub};line-height:1.5}}
+.card{{margin-top:22px;width:100%;background:#fff;border-radius:20px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.7)' if dark else '#D83000'};box-shadow:0 14px 38px rgba(0,0,0,{'0.45' if dark else '0.12'})}}
+.card img{{width:100%;height:238px;object-fit:cover;object-position:center 62%;background:#fff;display:block}}
+</style>{hdr(dark)}
+<div class="wrap">
+{jkplogo(dark,132)}
+<div class="label" style="margin-top:24px;">MASTER BATCHES</div>
+<div class="cap cap2">Dream the shade.<br><em>We shall make it.</em></div>
+<div class="sub">Colour, white, black &amp; additive masterbatches<br>for every polymer application.</div>
+<div class="card"><img src="{P('jkp-granule-jars-wide')}"></div>
+{dealerblock(dark)}
+</div>{FOOT}"""
+
+def jkp2(w,h,dark):
+    fg = '#fff' if dark else '#10141B'
+    sub = 'rgba(255,255,255,0.78)' if dark else '#3A4250'
+    apps = [('jkp-rope','ROPES'),('jkp-toys','TOYS'),('jkp-cables','CABLES &amp; WIRES'),('jkp-tanks','WATER TANKS'),
+            ('jkp-luggage','LUGGAGE'),('jkp-household','HOUSEHOLD'),('jkp-drums','BLOW CONTAINERS'),('jkp-preforms','PET PREFORMS')]
+    borders=['#A80B0B','#D83000','#F07800','#F6921E','#F6921E','#F07800','#D83000','#A80B0B']
+    tiles=''.join(f'<div class="aw"><div class="ac" style="border-color:{borders[i]};"><img src="{P(p)}"></div><div class="al">{l}</div></div>' for i,(p,l) in enumerate(apps))
+    return base(w,h,dark)+f"""<style>
+.wrap{{flex:1;display:flex;gap:44px;align-items:center;padding:20px 48px 14px;position:relative;z-index:4}}
+.lt{{width:430px;flex:none}}
+.cap2{{font-size:44px;margin-top:10px;color:{fg}}}
+.cap2 em{{{GT_W if dark else GT_D}font-style:italic}}
+.sub{{margin-top:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:500;color:{sub};line-height:1.5}}
+.rt{{flex:1}}
+.agrid{{display:grid;grid-template-columns:repeat(4,1fr);gap:20px 14px}}
+.aw{{text-align:center}}
+.ac{{width:158px;height:158px;border-radius:50%;overflow:hidden;border:4px solid;margin:0 auto;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,{'0.4' if dark else '0.12'})}}
+.ac img{{width:100%;height:100%;object-fit:cover}}
+.al{{margin-top:9px;font-size:14.5px;font-weight:800;letter-spacing:1.5px;color:{'rgba(255,255,255,0.85)' if dark else '#3A4250'}}}
+.also{{margin-top:16px;font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;color:{'rgba(255,255,255,0.6)' if dark else '#8A93A0'};text-align:center;letter-spacing:0.3px}}
+</style>{hdr(dark)}
+<div class="wrap">
+<div class="lt">{jkplogo(dark,128)}
+<div class="label" style="margin-top:20px;">JKP MASTERBATCHES</div>
+<div class="cap cap2">One partner.<br><em>Every application.</em></div>
+{dealerblock(dark, center=False, size=17)}
+</div>
+<div class="rt"><div class="agrid">{tiles}</div>
+<div class="also">Also for: Polyester Fibre &middot; Multilayer Packaging &middot; Coolers &middot; Electrical &amp; Automotive &middot; Agriculture &middot; Polycoat &middot; Non-Woven / Woven &middot; Additive Masterbatches</div></div>
+</div>{FOOT}"""
+
 def build(dark):
     v = {}
     em = lambda t: f"<em>{t}</em>"
@@ -193,7 +261,8 @@ def build(dark):
       ['ARAMCO','BOROUGE','CABOT','CELANESE','CHEVRON PHILLIPS','EXXON MOBIL','FORMOSA','GC MARKETING','GULF POLYMERS','INEOS (INOVYN)','LG CHEM','LYONDELL BASELL','MITSUBISHI CORP.','OQ (LUBAN)','SABIC','SCGC','WESTLAKE','&amp; MORE'],6,'coloured-granules',circles=['natural-granules','coloured-granules','pigments']))
     v['poster-03-pigments'] = (700,1000, photoposter(700,1000,dark,'PIGMENTS','Colour, mastered.','Organic &amp; inorganic pigments for every application.','pigments'))
     v['poster-04-moisture'] = (800,1000, photoposter(800,1000,dark,'MOISTURE POWDER','Dry. Consistent. Reliable.','Moisture powder &amp; moisture dana — quality you can measure.','moisture-powder-full'))
-    v['poster-05-masterbatch'] = (700,1000, photoposter(700,1000,dark,'MASTER BATCHES','The right shade. Every batch.','White, black &amp; colour master batches.','coloured-granules'))
+    v['poster-05-jkp-masterbatch'] = (700,1000, jkp1(700,1000,dark))
+    v['poster-jkp-applications-2200x1000'] = (1650,750, jkp2(1650,750,dark))
     v['poster-06-pp-apps'] = (1500,600, appsposter(1500,600,dark,'POLYPROPYLENE (PP)',f"One granule. {em('A thousand products.')}",
       [('Homopolymer',['Textile wraps &amp; garment bags','Woven sacks &amp; non-woven fabric','Thin-wall containers &amp; moulding']),
        ('Random Co-Polymer',['High-clarity bottles &amp; containers','House wares &amp; consumer products','Transparent packaging']),
