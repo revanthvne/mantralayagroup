@@ -38,16 +38,20 @@ def hdr(dark, co='MANTRALAYA GROUP'):
 def bgimg(photo): return f'<div class="bgimg"><img src="{P(photo)}"></div>'
 
 # ---------- templates (each takes dark:bool) ----------
-def brandgrid(w,h,dark,label,cap,brands,cols,bgphoto):
+def brandgrid(w,h,dark,label,cap,brands,cols,bgphoto,circles=None):
     card = 'rgba(255,255,255,0.06);border:1px solid rgba(240,120,0,0.4)' if dark else '#ffffff;border:1px solid rgba(168,11,11,0.15);box-shadow:0 8px 24px rgba(168,11,11,0.07)'
     bs = ''.join(f'<div class="b">{b}</div>' for b in brands)
+    ph = ''.join(f'<div class="pt"><img src="{P(p)}"></div>' for p in (circles or []))
     return base(w,h,dark)+f"""<style>
 .wrap{{padding:36px 48px 30px;display:flex;flex-direction:column;flex:1}}
-.cap2{{font-size:52px;margin-top:12px}}
+.cap2{{font-size:52px;margin-top:12px;max-width:72%}}
 .cap2 em{{{GT_W if dark else GT_D}font-style:italic}}
 .bgrid{{margin-top:40px;display:grid;grid-template-columns:repeat({cols},1fr);gap:16px;flex:1;align-content:center}}
 .b{{background:{card};border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;letter-spacing:1px;padding:34px 10px;text-align:center}}
-</style>{bgimg(bgphoto)}{hdr(dark)}
+.pts{{position:absolute;right:48px;top:130px;display:flex;gap:16px;z-index:5}}
+.pt{{width:118px;height:118px;border-radius:50%;overflow:hidden;border:4px solid #F07800;box-shadow:0 10px 28px rgba(0,0,0,0.35)}}
+.pt img{{width:100%;height:100%;object-fit:cover}}
+</style>{bgimg(bgphoto)}{hdr(dark)}<div class="pts">{ph}</div>
 <div class="wrap z"><div class="label">{label}</div><div class="cap cap2">{cap}</div><div class="bgrid">{bs}</div></div>{FOOT}"""
 
 def photoposter(w,h,dark,label,cap,sub,photo):
@@ -80,7 +84,7 @@ def appsposter(w,h,dark,label,cap,cols_data,bgphoto):
 </style>{bgimg(bgphoto)}{hdr(dark)}
 <div class="wrap z"><div class="label">{label}</div><div class="cap cap2">{cap}</div><div class="cols">{cols}</div></div>{FOOT}"""
 
-def duoposter(w,h,dark,label,cap,sub,photos,bgphoto):
+def duoposter(w,h,dark,label,cap,sub,photos,bgphoto,co='MANTRALAYA GROUP'):
     ph = ''.join(f'<div class="tile"><img src="{P(p)}"></div>' for p in photos)
     return base(w,h,dark)+f"""<style>
 .wrap{{padding:30px 48px 26px;flex:1;display:flex;gap:40px;align-items:center}}
@@ -91,7 +95,7 @@ def duoposter(w,h,dark,label,cap,sub,photos,bgphoto):
 .tiles{{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}}
 .tile{{border-radius:16px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.7)' if dark else '#D83000'};aspect-ratio:1.25;box-shadow:0 12px 30px rgba(0,0,0,{'0.4' if dark else '0.12'})}}
 .tile img{{width:100%;height:100%;object-fit:cover}}
-</style>{bgimg(bgphoto)}{hdr(dark)}
+</style>{bgimg(bgphoto)}{hdr(dark,co)}
 <div class="wrap z"><div class="lt"><div class="label">{label}</div><div class="cap cap2">{cap}</div><div class="sub">{sub}</div></div><div class="tiles">{ph}</div></div>{FOOT}"""
 
 def collageposter(w,h,dark,label,cap,sub,url,photos):
@@ -113,29 +117,32 @@ def collageposter(w,h,dark,label,cap,sub,url,photos):
 def totem(w,h,dark):
     brands_d = 'GAIL · BCPL · HMEL · HALDIA · OPAL<br>MRPL · HPCL · RELIANCE · NAYARA'
     brands_i = 'ARAMCO · BOROUGE · CABOT · CELANESE<br>CHEVRON PHILLIPS · EXXON MOBIL · FORMOSA<br>GC MARKETING · GULF POLYMERS · INEOS<br>LG CHEM · LYONDELL BASELL · MITSUBISHI<br>OQ (LUBAN) · SABIC · SCGC · WESTLAKE'
-    tiles = ''.join(f'<div class="tt"><img src="{P(p)}"></div>' for p in ['coloured-granules','pigments'])
+    tiles = ''.join(f'<div class="tw"><div class="tt"><img src="{P(p)}"></div><div class="tl">{l}</div></div>'
+                    for p,l in [('natural-granules','PLASTIC GRANULES'),('coloured-granules','MASTER BATCHES'),('pigments','PIGMENTS')])
     logo = '../../mg-logo-dark.png' if dark else '../../mg-logo.png'
     return base(w,h,dark)+f"""<style>
-.wrap{{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:44px 40px 0;position:relative;z-index:4}}
-.wrap img.lg{{height:96px}}
-.label2{{margin-top:36px;font-size:24px;font-weight:800;letter-spacing:10px;color:{'#F6921E' if dark else '#C43D00'}}}
-.cap2{{font-size:64px;margin-top:18px}}
+.wrap{{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px 40px 0;position:relative;z-index:4}}
+.wrap img.lg{{height:92px}}
+.label2{{margin-top:30px;font-size:24px;font-weight:800;letter-spacing:10px;color:{'#F6921E' if dark else '#C43D00'}}}
+.cap2{{font-size:60px;margin-top:14px}}
 .cap2 em{{{GT_W if dark else GT_D}font-style:italic}}
-.tt{{width:330px;height:330px;border-radius:50%;overflow:hidden;border:6px solid;margin-top:44px;box-shadow:0 16px 40px rgba(0,0,0,{'0.5' if dark else '0.15'})}}
-.tt:nth-of-type(1){{border-color:#A80B0B}}.tt:nth-of-type(2){{border-color:#F07800}}
+.tw{{margin-top:38px}}
+.tt{{width:280px;height:280px;border-radius:50%;overflow:hidden;border:6px solid;margin:0 auto;box-shadow:0 16px 40px rgba(0,0,0,{'0.5' if dark else '0.15'})}}
+.tw:nth-of-type(1) .tt{{border-color:#A80B0B}}.tw:nth-of-type(2) .tt{{border-color:#D83000}}.tw:nth-of-type(3) .tt{{border-color:#F07800}}
 .tt img{{width:100%;height:100%;object-fit:cover}}
-.sec{{margin-top:46px;font-size:20px;font-weight:800;letter-spacing:6px;color:{'rgba(255,255,255,0.55)' if dark else '#8A93A0'}}}
-.bl{{margin-top:14px;font-size:20px;font-weight:800;line-height:1.85;letter-spacing:0.5px}}
-.stall{{margin-top:70px;background:{GRAD};color:#fff;border-radius:24px;padding:34px 46px;font-size:28px;font-weight:900;letter-spacing:2px;line-height:1.6;white-space:nowrap}}
+.tl{{margin-top:14px;font-size:19px;font-weight:800;letter-spacing:4px;color:{'rgba(255,255,255,0.85)' if dark else '#3A4250'}}}
+.wetrade{{margin-top:52px;font-size:52px;font-weight:900;letter-spacing:6px;{GT_W if dark else GT_D}}}
+.sec{{margin-top:34px;font-size:20px;font-weight:800;letter-spacing:6px;color:{'rgba(255,255,255,0.55)' if dark else '#8A93A0'}}}
+.bl{{margin-top:12px;font-size:20px;font-weight:800;line-height:1.8;letter-spacing:0.5px}}
 </style>{bgimg('natural-granules')}
 <div class="rule"></div>
 <div class="wrap"><img class="lg" src="{logo}">
 <div class="label2">RAW MATERIALS</div>
 <div class="cap cap2">Every polymer.<br><em>One counter.</em></div>
 {tiles}
+<div class="wetrade">WE TRADE</div>
 <div class="sec">DOMESTIC</div><div class="bl">{brands_d}</div>
 <div class="sec">IMPORTED</div><div class="bl">{brands_i}</div>
-<div class="stall">HIPLEX 2026<br>HALL 4<br>STALLS C 05 &amp; C 06</div>
 </div><div class="ftr" style="justify-content:center;font-size:19px;"><span>www.mantralayagroup.com</span></div></body></html>"""
 
 def message(w,h,dark,label,cap,sub,extra='',capsize=None,sidephoto=None):
@@ -172,10 +179,10 @@ def build(dark):
     em = lambda t: f"<em>{t}</em>"
     v['poster-01-raw-domestic'] = (1500,900, brandgrid(1500,900,dark,'RAW MATERIALS · DOMESTIC POLYMERS',
       f"India's biggest polymer names. {em('One trusted trader.')}",
-      ['GAIL','BCPL','HMEL','HALDIA','OPAL','MRPL','HPCL','RELIANCE','NAYARA'],3,'natural-granules'))
+      ['GAIL','BCPL','HMEL','HALDIA','OPAL','MRPL','HPCL','RELIANCE','NAYARA'],3,'natural-granules',circles=['natural-granules','coloured-granules']))
     v['poster-02-raw-imported'] = (1650,900, brandgrid(1650,900,dark,'RAW MATERIALS · IMPORTED POLYMERS',
       f"Sourced from the world's finest. {em('Delivered here.')}",
-      ['ARAMCO','BOROUGE','CABOT','CELANESE','CHEVRON PHILLIPS','EXXON MOBIL','FORMOSA','GC MARKETING','GULF POLYMERS','INEOS (INOVYN)','LG CHEM','LYONDELL BASELL','MITSUBISHI CORP.','OQ (LUBAN)','SABIC','SCGC','WESTLAKE','&amp; MORE'],6,'coloured-granules'))
+      ['ARAMCO','BOROUGE','CABOT','CELANESE','CHEVRON PHILLIPS','EXXON MOBIL','FORMOSA','GC MARKETING','GULF POLYMERS','INEOS (INOVYN)','LG CHEM','LYONDELL BASELL','MITSUBISHI CORP.','OQ (LUBAN)','SABIC','SCGC','WESTLAKE','&amp; MORE'],6,'coloured-granules',circles=['coloured-granules','pigments']))
     v['poster-03-pigments'] = (700,1000, photoposter(700,1000,dark,'PIGMENTS','Colour, mastered.','Organic &amp; inorganic pigments for every application.','pigments'))
     v['poster-04-moisture'] = (800,1000, photoposter(800,1000,dark,'MOISTURE POWDER &amp; DANA','Dry. Consistent. Reliable.','Moisture powder &amp; moisture dana — quality you can measure.','natural-granules'))
     v['poster-05-masterbatch'] = (700,1000, photoposter(700,1000,dark,'MASTER BATCHES','The right shade. Every batch.','White, black &amp; colour master batches.','coloured-granules'))
@@ -188,7 +195,7 @@ def build(dark):
        ('Moulding',['Blow moulding up to 100 litres','Overhead tanks','Drip laterals']),
        ('Specialty',['Extrusion coating','Imported granules &amp; master batches','Adhesive lamination &amp; foam film'])],'greenhouse-films'))
     v['poster-08-sutli-ropes'] = (1500,600, duoposter(1500,600,dark,'END PRODUCTS',f"Sutli, ropes &amp; twine — {em('every budget.')}",
-      'Manufactured under multiple brands with various qualities and price ranges.',['plastic-sutli','ropes'],'ropes'))
+      'Manufactured under multiple brands with various qualities and price ranges.',['plastic-sutli','rope-yellow'],'ropes',co='BALA GANESHA POLYMERS'))
     v['poster-09-bags'] = (1500,600, duoposter(1500,600,dark,'END PRODUCTS',f"Bags for {em('every business.')}",
       'PP &amp; PE bags · BOPP bags · Non-woven bags · Garment &amp; jewellery packing',['pp-bags','non-woven-bags','garment-bags','bopp-bags'],'non-woven-bags'))
     v['poster-10-films'] = (1000,1000, photoposter(1000,1000,dark,'POLY FILMS','Films that protect what you make.','Treated rolls · Stretch film · Packaging films','treated-rolls'))
