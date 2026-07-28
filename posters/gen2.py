@@ -595,7 +595,7 @@ def rawmat_b(w,h,dark,label,hero,apps):
 <div class="cap cap2">One granule.<br><em>A thousand products.</em></div></div>
 <div class="strip">{tiles}</div>{FOOT}"""
 
-def rawmat_c(w,h,dark,label,hero,apps):
+def rawmat_c(w,h,dark,label,hero,apps,side1='polymer-plant'):
     """Variation C — industry plant + granules stacked left, quote & 2x2 tiles right."""
     gt = GT_W if dark else GT_D
     fg='#fff' if dark else '#10141B'
@@ -612,7 +612,7 @@ def rawmat_c(w,h,dark,label,hero,apps):
 .tw{{position:relative;border-radius:14px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.7)' if dark else '#D83000'};aspect-ratio:2.4;box-shadow:0 12px 28px rgba(0,0,0,0.3)}}
 .tw img{{width:100%;height:100%;object-fit:cover;display:block}}
 .tl{{position:absolute;left:0;right:0;bottom:0;padding:16px 8px 7px;text-align:center;font-size:13px;font-weight:800;letter-spacing:1.5px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.65))}}
-</style><div class="side"><div class="im"><img src="{P('polymer-plant')}"></div><div class="im"><img src="{P(hero)}"></div></div>{hdr(dark)}
+</style><div class="side"><div class="im"><img src="{P(side1)}"></div><div class="im"><img src="{P(hero)}"></div></div>{hdr(dark)}
 <div class="wrap"><div class="label">{label} · FROM PLANT TO PRODUCT</div>
 <div class="cap cap2">One granule.<br><em>A thousand products.</em></div>
 <div class="grid">{tiles}</div></div>{FOOT}"""
@@ -900,12 +900,13 @@ def build(dark):
       'Plastic raw materials · Additives · Pigments · Master batches · Moisture powder'))
     PP_APPS=[('pp-bags','WOVEN SACKS'),('jkp-household','HOUSE WARES'),('jkp-luggage','LUGGAGE'),('ps-disposables','THIN-WALL CONTAINERS'),('jkp-blow2','BOTTLES &amp; CLOSURES'),('jkp-nonwoven','NON-WOVEN FABRIC')]
     PE_APPS=[('greenhouse-films','GREENHOUSE FILMS'),('milk-pouches','BLOWN FILM'),('jkp-tanks','OVERHEAD TANKS'),('jkp-drums','BLOW MOULDING'),('treated-rolls','PACKAGING FILMS'),('ps-foil-pouches','LAMINATION')]
-    v['poster-pp-images-a'] = (1500,900, rawmat_a(1500,900,dark,'POLYPROPYLENE (PP) · RAW MATERIALS','pp-granules-hero',PP_APPS))
-    v['poster-pp-images-b'] = (1500,900, rawmat_b(1500,900,dark,'POLYPROPYLENE (PP) · RAW MATERIALS','pp-granules-hero',PP_APPS[:5]))
-    v['poster-pp-images-c'] = (1500,900, rawmat_c(1500,900,dark,'POLYPROPYLENE (PP)','pp-granules-hero',PP_APPS))
-    v['poster-pe-images-a'] = (1500,900, rawmat_a(1500,900,dark,'POLYETHYLENE (PE) · RAW MATERIALS','pe-pellets-hero',PE_APPS))
-    v['poster-pe-images-b'] = (1500,900, rawmat_b(1500,900,dark,'POLYETHYLENE (PE) · RAW MATERIALS','pe-pellets-hero',PE_APPS[:5]))
-    v['poster-pe-images-c'] = (1500,900, rawmat_c(1500,900,dark,'POLYETHYLENE (PE)','pe-pellets-hero',PE_APPS))
+    PPPE = 'POLYPROPYLENE (PP) &amp; POLYETHYLENE (PE)'
+    MIX_A=[('pp-bags','WOVEN SACKS'),('jkp-household','HOUSE WARES'),('jkp-luggage','LUGGAGE'),('greenhouse-films','GREENHOUSE FILMS'),('jkp-tanks','OVERHEAD TANKS'),('jkp-drums','BLOW MOULDING')]
+    MIX_B=[('pp-bags','WOVEN SACKS'),('jkp-household','HOUSE WARES'),('greenhouse-films','GREENHOUSE FILMS'),('jkp-tanks','OVERHEAD TANKS'),('treated-rolls','PACKAGING FILMS')]
+    MIX_C=[('pp-bags','WOVEN SACKS'),('jkp-household','HOUSE WARES'),('greenhouse-films','GREENHOUSE FILMS'),('jkp-tanks','OVERHEAD TANKS')]
+    v['poster-pp-pe-images-a'] = (1500,900, rawmat_a(1500,900,dark,PPPE,'pp-granules-hero',MIX_A))
+    v['poster-pp-pe-images-b'] = (1500,900, rawmat_b(1500,900,dark,PPPE,'pe-pellets-hero',MIX_B))
+    v['poster-pp-pe-images-c'] = (1500,900, rawmat_c(1500,900,dark,PPPE,'pe-pellets-hero',MIX_C,side1='pp-granules-hero'))
     v['poster-pands-room-1'] = (1650,750, psroom_a(1650,750,dark))
     v['poster-pands-room-2'] = (1650,750, psroom_b(1650,750,dark))
     v['poster-branches-room-map'] = (1200,1000, loc_room1(1200,1000,dark))
