@@ -126,7 +126,7 @@ def totem(w,h,dark):
     brands_d = 'GAIL · BCPL · HMEL · HALDIA · OPAL<br>MRPL · HPCL · RELIANCE · NAYARA'
     brands_i = 'ARAMCO · BOROUGE · CABOT · CELANESE<br>CHEVRON PHILLIPS · EXXON MOBIL · FORMOSA<br>GC MARKETING · GULF POLYMERS · INEOS<br>LG CHEM · LYONDELL BASELL · MITSUBISHI<br>OQ (LUBAN) · SABIC · SCGC · WESTLAKE'
     tiles = ''.join(f'<div class="tw"><div class="tt"><img src="{P(p)}"></div><div class="tl">{l}</div></div>'
-                    for p,l in [('natural-granules','POLYMER RAW MATERIAL'),('coloured-granules','MASTER BATCHES'),('pigments','PIGMENTS')])
+                    for p,l in [('pp-granules-hero','POLYMER RAW MATERIAL'),('coloured-granules','MASTER BATCHES'),('pigments','PIGMENTS')])
     logo = '../../mg-logo-dark.png' if dark else '../../mg-logo.png'
     return base(w,h,dark)+f"""<style>
 .wrap{{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px 40px 0;position:relative;z-index:4}}
