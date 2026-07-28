@@ -549,6 +549,74 @@ def pands2(w,h,dark):
 <div class="qr"><img src="../qr-ps.png"><div class="t">SCAN TO SHOP</div></div>
 </div>{FOOT}"""
 
+def rawmat_a(w,h,dark,label,hero,apps):
+    """Variation A — hero granule left, labeled app circles right."""
+    gt = GT_W if dark else GT_D
+    fg='#fff' if dark else '#10141B'
+    borders=['#A80B0B','#D83000','#F07800','#F6921E','#D83000','#A80B0B']
+    tiles=''.join(f'<div class="aw"><div class="ac" style="border-color:{borders[i%6]};"><img src="{P(p)}"></div><div class="al">{l}</div></div>' for i,(p,l) in enumerate(apps))
+    return base(w,h,dark)+f"""<style>
+.hero{{position:absolute;left:0;top:0;bottom:0;width:44%;z-index:1}}
+.hero img{{width:100%;height:100%;object-fit:cover}}
+.hero::after{{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0) 55%,{'#150B07' if dark else '#FBF4EB'} 100%),linear-gradient(180deg,{'rgba(21,11,7,0.72)' if dark else 'rgba(251,244,235,0.72)'} 0%,rgba(0,0,0,0) 26%)}}
+.wrap{{flex:1;display:flex;flex-direction:column;justify-content:center;padding:10px 52px 6px;margin-left:41%;position:relative;z-index:4}}
+.cap2{{font-size:56px;margin-top:10px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.agrid{{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px 14px}}
+.aw{{text-align:center}}
+.ac{{width:170px;height:170px;border-radius:50%;overflow:hidden;border:5px solid;margin:0 auto;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,{'0.4' if dark else '0.12'})}}
+.ac img{{width:100%;height:100%;object-fit:cover}}
+.al{{margin-top:9px;font-size:14px;font-weight:800;letter-spacing:1.5px;color:{'rgba(255,255,255,0.85)' if dark else '#3A4250'}}}
+</style><div class="hero"><img src="{P(hero)}"></div>{hdr(dark)}
+<div class="wrap"><div class="label">{label}</div>
+<div class="cap cap2">One granule.<br><em>A thousand products.</em></div>
+<div class="agrid">{tiles}</div></div>{FOOT}"""
+
+def rawmat_b(w,h,dark,label,hero,apps):
+    """Variation B — full-bleed granule bg, centered quote, app strip along bottom."""
+    gt = GT_W if dark else GT_D
+    fg='#fff' if dark else '#10141B'
+    tiles=''.join(f'<div class="tw"><img src="{P(p)}"><div class="tl">{l}</div></div>' for p,l in apps)
+    ov = ('linear-gradient(180deg, rgba(13,8,6,0.78) 0%, rgba(13,8,6,0.45) 34%, rgba(13,8,6,0.55) 62%, rgba(13,8,6,0.95) 100%)' if dark
+        else 'linear-gradient(180deg, rgba(251,244,235,0.88) 0%, rgba(251,244,235,0.55) 34%, rgba(251,244,235,0.62) 62%, rgba(251,244,235,0.97) 100%)')
+    return base(w,h,dark)+f"""<style>
+.bg{{position:absolute;inset:0}}
+.bg img{{width:100%;height:100%;object-fit:cover}}
+.bg::after{{content:'';position:absolute;inset:0;background:{ov}}}
+.mid{{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;z-index:4;padding:0 60px}}
+.cap2{{font-size:84px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.strip{{display:flex;gap:16px;padding:0 48px 26px;position:relative;z-index:4}}
+.tw{{flex:1;position:relative;border-radius:14px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.7)' if dark else '#D83000'};aspect-ratio:1.15;box-shadow:0 12px 28px rgba(0,0,0,0.35)}}
+.tw img{{width:100%;height:100%;object-fit:cover;display:block}}
+.tl{{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 7px;text-align:center;font-size:12.5px;font-weight:800;letter-spacing:1.5px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.65))}}
+</style><div class="bg"><img src="{P(hero)}"></div>{hdr(dark)}
+<div class="mid"><div class="label">{label}</div>
+<div class="cap cap2">One granule.<br><em>A thousand products.</em></div></div>
+<div class="strip">{tiles}</div>{FOOT}"""
+
+def rawmat_c(w,h,dark,label,hero,apps):
+    """Variation C — industry plant + granules stacked left, quote & 2x2 tiles right."""
+    gt = GT_W if dark else GT_D
+    fg='#fff' if dark else '#10141B'
+    tiles=''.join(f'<div class="tw"><img src="{P(p)}"><div class="tl">{l}</div></div>' for p,l in apps[:4])
+    return base(w,h,dark)+f"""<style>
+.side{{position:absolute;left:0;top:0;bottom:0;width:38%;z-index:1;display:flex;flex-direction:column}}
+.side .im{{flex:1;overflow:hidden;position:relative}}
+.side .im img{{width:100%;height:100%;object-fit:cover}}
+.side::after{{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0) 60%,{'#150B07' if dark else '#FBF4EB'} 100%),linear-gradient(180deg,{'rgba(21,11,7,0.7)' if dark else 'rgba(251,244,235,0.7)'} 0%,rgba(0,0,0,0) 22%)}}
+.wrap{{flex:1;display:flex;flex-direction:column;justify-content:center;padding:8px 52px;margin-left:36%;position:relative;z-index:4}}
+.cap2{{font-size:58px;margin-top:10px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.grid{{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px}}
+.tw{{position:relative;border-radius:14px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.7)' if dark else '#D83000'};aspect-ratio:2.4;box-shadow:0 12px 28px rgba(0,0,0,0.3)}}
+.tw img{{width:100%;height:100%;object-fit:cover;display:block}}
+.tl{{position:absolute;left:0;right:0;bottom:0;padding:16px 8px 7px;text-align:center;font-size:13px;font-weight:800;letter-spacing:1.5px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.65))}}
+</style><div class="side"><div class="im"><img src="{P('polymer-plant')}"></div><div class="im"><img src="{P(hero)}"></div></div>{hdr(dark)}
+<div class="wrap"><div class="label">{label} · FROM PLANT TO PRODUCT</div>
+<div class="cap cap2">One granule.<br><em>A thousand products.</em></div>
+<div class="grid">{tiles}</div></div>{FOOT}"""
+
 def build(dark):
     v = {}
     em = lambda t: f"<em>{t}</em>"
@@ -599,6 +667,14 @@ def build(dark):
       f"Raw materials to {em('end products.')}",
       [('gen-pigment-scoops','PIGMENTS'),('gen-mb-beakers','MASTER BATCHES'),('gen-powder-pour','MOISTURE POWDER'),('gen-film-macro','POLY FILMS')],
       'Plastic raw materials · Additives · Pigments · Master batches · Moisture powder'))
+    PP_APPS=[('pp-bags','WOVEN SACKS'),('jkp-household','HOUSE WARES'),('jkp-luggage','LUGGAGE'),('ps-disposables','THIN-WALL CONTAINERS'),('jkp-blow2','BOTTLES &amp; CLOSURES'),('jkp-nonwoven','NON-WOVEN FABRIC')]
+    PE_APPS=[('greenhouse-films','GREENHOUSE FILMS'),('milk-pouches','BLOWN FILM'),('jkp-tanks','OVERHEAD TANKS'),('jkp-drums','BLOW MOULDING'),('treated-rolls','PACKAGING FILMS'),('ps-foil-pouches','LAMINATION')]
+    v['poster-pp-images-a'] = (1500,900, rawmat_a(1500,900,dark,'POLYPROPYLENE (PP) · RAW MATERIALS','pp-granules-hero',PP_APPS))
+    v['poster-pp-images-b'] = (1500,900, rawmat_b(1500,900,dark,'POLYPROPYLENE (PP) · RAW MATERIALS','pp-granules-hero',PP_APPS[:5]))
+    v['poster-pp-images-c'] = (1500,900, rawmat_c(1500,900,dark,'POLYPROPYLENE (PP)','pp-granules-hero',PP_APPS))
+    v['poster-pe-images-a'] = (1500,900, rawmat_a(1500,900,dark,'POLYETHYLENE (PE) · RAW MATERIALS','pe-pellets-hero',PE_APPS))
+    v['poster-pe-images-b'] = (1500,900, rawmat_b(1500,900,dark,'POLYETHYLENE (PE) · RAW MATERIALS','pe-pellets-hero',PE_APPS[:5]))
+    v['poster-pe-images-c'] = (1500,900, rawmat_c(1500,900,dark,'POLYETHYLENE (PE)','pe-pellets-hero',PE_APPS))
     return v
 
 manifest = {}
