@@ -798,6 +798,58 @@ def loc_room2(w,h,dark):
 <div class="up2">{upcomingpill(dark,14)}</div>
 </div>{FOOT}"""
 
+def dealall_a(w,h,dark):
+    """Meeting room — full dealing range, 10 labeled tiles. 2200x1000."""
+    gt = GT_W if dark else GT_D
+    fg='#fff' if dark else '#10141B'
+    pics=[('pp-granules-hero','PP GRANULES'),('pe-pellets-hero','PE GRANULES'),('natural-granules','PVC &amp; SPECIALTY RESINS'),('gen-granule-gradient','MASTER BATCHES'),('pigments','PIGMENTS'),
+          ('moisture-powder','MOISTURE POWDER'),('treated-rolls','POLY FILMS'),('pp-bags','BAGS'),('ropes','SUTLI &amp; ROPES'),('recycled-granules','RECYCLED GRANULES')]
+    tiles=''.join(f'<div class="tw"><img src="{P(p)}"><div class="tl">{l}</div></div>' for p,l in pics)
+    return base(w,h,dark)+f"""<style>
+.top{{padding:14px 56px 0;position:relative;z-index:4}}
+.cap2{{font-size:47px;margin-top:8px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.sub{{margin-top:8px;font-family:'Inter',sans-serif;font-size:17.5px;font-weight:600;color:{'rgba(255,255,255,0.78)' if dark else '#3A4250'}}}
+.sub b{{color:{'#F6921E' if dark else '#C43D00'}}}
+.grid{{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:1fr 1fr;gap:13px;padding:18px 48px 18px;position:relative;z-index:4}}
+.tw{{position:relative;min-height:0;border-radius:14px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.65)' if dark else '#D83000'};box-shadow:0 10px 24px rgba(0,0,0,{'0.35' if dark else '0.1'})}}
+.tw img{{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}}
+.tl{{position:absolute;left:0;right:0;bottom:0;padding:16px 6px 6px;text-align:center;font-size:11.5px;font-weight:800;letter-spacing:1.2px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.68));z-index:2}}
+</style>{hdr(dark)}
+<div class="top"><div class="label">WE DEAL IN</div>
+<div class="cap cap2">Every raw material. <em>Every product.</em></div>
+<div class="sub"><b>Raw materials:</b> PP · PE · PVC · Metallocene · PET · EVA · Polystyrene · Biodegradable PBAT &nbsp;&nbsp;<b>Plus:</b> Master batches · Pigments · Additives · Moisture powder &amp; dana · Films · Bags · Sutli &amp; ropes · Recycled granules</div></div>
+<div class="grid">{tiles}</div>{FOOT}"""
+
+def dealall_b(w,h,dark):
+    """Meeting room — 3 columns: raw materials / additives & colour / end products. 2000x1000."""
+    gt = GT_W if dark else GT_D
+    fg='#fff' if dark else '#10141B'
+    card = 'background:rgba(24,12,8,0.9);border-top:5px solid #F07800' if dark else 'background:#fff;border-top:5px solid #D83000;box-shadow:0 10px 30px rgba(168,11,11,0.08)'
+    it = 'rgba(255,255,255,0.82)' if dark else '#3A4250'
+    hcol = '#F6921E' if dark else '#A80B0B'
+    cols=[('RAW MATERIALS','pp-granules-hero',['Polypropylene (PP) &amp; Polyethylene (PE)','PVC · Metallocene · PET · EVA','Polystyrene &amp; Biodegradable PBAT','Domestic &amp; imported granules']),
+          ('ADDITIVES &amp; COLOUR','gen-granule-gradient',['Master batches — white, black &amp; colour','Organic &amp; inorganic pigments','UV stabilizers, additives &amp; processing aids','Moisture powder &amp; moisture dana']),
+          ('END PRODUCTS','pp-bags',['PP, PE, BOPP &amp; non-woven bags','Sutli, ropes &amp; twine','Poly films &amp; treated rolls','Recycled &amp; reprocessed granules'])]
+    html=''
+    for t,p,items in cols:
+        lis=''.join(f'<div class="it">{i}</div>' for i in items)
+        html+=f'<div class="col"><div class="cph"><img src="{P(p)}"></div><h4>{t}</h4>{lis}</div>'
+    return base(w,h,dark)+f"""<style>
+.top{{padding:14px 56px 0;position:relative;z-index:4;text-align:center}}
+.cap2{{font-size:46px;margin-top:8px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.cols{{flex:1;display:flex;gap:24px;padding:20px 48px 20px;position:relative;z-index:4}}
+.col{{flex:1;{card};border-radius:16px;overflow:hidden;display:flex;flex-direction:column}}
+.cph{{height:200px;overflow:hidden;position:relative}}
+.cph img{{width:100%;height:100%;object-fit:cover;display:block}}
+.col h4{{font-size:20px;font-weight:800;letter-spacing:1.5px;color:{hcol};padding:16px 24px 6px}}
+.it{{font-family:'Inter',sans-serif;font-size:16px;font-weight:500;color:{it};padding:7px 24px;border-bottom:1px solid {'rgba(255,255,255,0.08)' if dark else 'rgba(16,20,27,0.06)'};line-height:1.4}}
+</style>{bgimg('natural-granules')}{hdr(dark)}
+<div class="top"><div class="label">WE DEAL IN</div>
+<div class="cap cap2">From raw material <em>to finished product.</em></div></div>
+<div class="cols">{html}</div>{FOOT}"""
+
 def build(dark):
     v = {}
     em = lambda t: f"<em>{t}</em>"
@@ -859,6 +911,8 @@ def build(dark):
     v['poster-pands-room-2'] = (1650,750, psroom_b(1650,750,dark))
     v['poster-branches-room-map'] = (1200,1000, loc_room1(1200,1000,dark))
     v['poster-branches-room-cards'] = (1200,1000, loc_room2(1200,1000,dark))
+    v['poster-dealing-room-2200x1000'] = (1650,750, dealall_a(1650,750,dark))
+    v['poster-dealing-room-2000x1000'] = (1500,750, dealall_b(1500,750,dark))
     return v
 
 manifest = {}
