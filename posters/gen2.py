@@ -639,6 +639,57 @@ def credit2(w,h,dark):
 <div class="cap cap2">Terms that move<br><em>with your business.</em></div>
 <div class="chips">{chips}</div></div>{FOOT}"""
 
+def psroom_a(w,h,dark):
+    """P&S meeting room 1 — photo mosaic left, message + QR right."""
+    gt = GT_W if dark else GT_D
+    fg='#fff' if dark else '#10141B'
+    pics=['ps-snack-pouches','ps-foil-pouches','ps-food-containers','ps-disposables','ps-cups','ps-grow-bags','jkp-multilayer','non-woven-bags']
+    tiles=''.join(f'<div class="m"><img src="{P(p)}"></div>' for p in pics)
+    return base(w,h,dark)+f"""<style>
+.mos{{position:absolute;left:0;top:0;bottom:0;width:56%;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:6px;z-index:1}}
+.m{{overflow:hidden}}
+.m img{{width:100%;height:100%;object-fit:cover;display:block}}
+.mos::after{{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0) 70%,{'#150B07' if dark else '#FBF4EB'} 100%),linear-gradient(180deg,{'rgba(21,11,7,0.55)' if dark else 'rgba(251,244,235,0.55)'} 0%,rgba(0,0,0,0) 18%)}}
+.wrap{{flex:1;display:flex;flex-direction:column;justify-content:center;padding:10px 56px;margin-left:54%;position:relative;z-index:4}}
+.cap2{{font-size:56px;margin-top:10px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.sub{{margin-top:14px;font-family:'Inter',sans-serif;font-size:20px;font-weight:500;color:{'rgba(255,255,255,0.82)' if dark else '#3A4250'};line-height:1.55}}
+.row{{margin-top:24px;display:flex;align-items:center;gap:24px}}
+.url{{background:{GRAD};color:#fff;border-radius:100px;padding:14px 32px;font-size:20px;font-weight:800;box-shadow:0 10px 28px rgba(216,60,0,0.45)}}
+.qr img{{width:150px;height:150px;border-radius:12px;border:5px solid #D83000;background:#fff;display:block}}
+</style><div class="mos">{tiles}</div>{hdr(dark)}
+<div class="wrap"><div class="label">PRODUCTS &amp; STORES</div>
+<div class="cap cap2">Everything plastic.<br><em>Off the shelf.</em></div>
+<div class="sub">Pouches · Containers · Disposables · Cups · Grow bags · Bags &amp; more — retail and bulk.</div>
+<div class="row"><div class="url">productsandstores.com</div><div class="qr"><img src="../qr-ps.png"></div></div>
+</div>{FOOT}"""
+
+def psroom_b(w,h,dark):
+    """P&S meeting room 2 — caption top, double filmstrip of labeled products."""
+    gt = GT_W if dark else GT_D
+    fg='#fff' if dark else '#10141B'
+    pics=[('ps-snack-pouches','ZIP-LOCK POUCHES'),('ps-foil-pouches','FOIL POUCHES'),('ps-food-containers','CONTAINERS'),('ps-disposables','DISPOSABLES'),('ps-cups','CUPS &amp; LIDS'),
+          ('ps-grow-bags','GROW BAGS'),('pp-bags','PP &amp; PE BAGS'),('garment-bags','GARMENT PACKING'),('milk-pouches','MILK POUCHES'),('ropes','ROPES &amp; TWINE')]
+    tiles=''.join(f'<div class="tw"><img src="{P(p)}"><div class="tl">{l}</div></div>' for p,l in pics)
+    return base(w,h,dark)+f"""<style>
+.top{{display:flex;align-items:center;justify-content:space-between;padding:16px 56px 0;position:relative;z-index:4}}
+.cap2{{font-size:50px;margin-top:8px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.sub{{margin-top:8px;font-family:'Inter',sans-serif;font-size:18px;font-weight:500;color:{'rgba(255,255,255,0.78)' if dark else '#3A4250'}}}
+.qrbox{{text-align:center;flex:none}}
+.qrbox img{{width:150px;height:150px;border-radius:12px;border:5px solid #D83000;background:#fff;display:block}}
+.qrbox .t{{margin-top:6px;font-size:12px;font-weight:800;letter-spacing:2px;color:{'#F6921E' if dark else '#C43D00'}}}
+.grid{{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:1fr 1fr;gap:14px;padding:20px 48px 20px;position:relative;z-index:4}}
+.tw{{position:relative;min-height:0;border-radius:14px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.65)' if dark else '#D83000'};box-shadow:0 10px 24px rgba(0,0,0,{'0.35' if dark else '0.1'})}}
+.tw img{{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}}
+.tl{{position:absolute;left:0;right:0;bottom:0;padding:16px 6px 6px;text-align:center;font-size:11.5px;font-weight:800;letter-spacing:1.2px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.66));z-index:2}}
+</style>{hdr(dark)}
+<div class="top"><div><div class="label">PRODUCTS &amp; STORES</div>
+<div class="cap cap2">One store. <em>Every plastic product.</em></div>
+<div class="sub">Scan to browse the complete catalogue at <b>productsandstores.com</b></div></div>
+<div class="qrbox"><img src="../qr-ps.png"><div class="t">SCAN TO SHOP</div></div></div>
+<div class="grid">{tiles}</div>{FOOT}"""
+
 def build(dark):
     v = {}
     em = lambda t: f"<em>{t}</em>"
@@ -696,6 +747,8 @@ def build(dark):
     v['poster-pe-images-a'] = (1500,900, rawmat_a(1500,900,dark,'POLYETHYLENE (PE) · RAW MATERIALS','pe-pellets-hero',PE_APPS))
     v['poster-pe-images-b'] = (1500,900, rawmat_b(1500,900,dark,'POLYETHYLENE (PE) · RAW MATERIALS','pe-pellets-hero',PE_APPS[:5]))
     v['poster-pe-images-c'] = (1500,900, rawmat_c(1500,900,dark,'POLYETHYLENE (PE)','pe-pellets-hero',PE_APPS))
+    v['poster-pands-room-1'] = (1650,750, psroom_a(1650,750,dark))
+    v['poster-pands-room-2'] = (1650,750, psroom_b(1650,750,dark))
     return v
 
 manifest = {}
