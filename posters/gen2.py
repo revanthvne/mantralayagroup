@@ -822,29 +822,28 @@ def dealall_a(w,h,dark):
 <div class="grid">{tiles}</div>{FOOT}"""
 
 def dealall_b(w,h,dark):
-    """Meeting room — 3 columns: raw materials / additives & colour / end products. 2000x1000."""
+    """Meeting room — 3 image groups, no tables. 2000x1000."""
     gt = GT_W if dark else GT_D
     fg='#fff' if dark else '#10141B'
-    card = 'background:rgba(24,12,8,0.9);border-top:5px solid #F07800' if dark else 'background:#fff;border-top:5px solid #D83000;box-shadow:0 10px 30px rgba(168,11,11,0.08)'
-    it = 'rgba(255,255,255,0.82)' if dark else '#3A4250'
-    hcol = '#F6921E' if dark else '#A80B0B'
-    cols=[('RAW MATERIALS','pp-granules-hero',['Polypropylene (PP) &amp; Polyethylene (PE)','PVC · Metallocene · PET · EVA','Polystyrene &amp; Biodegradable PBAT','Domestic &amp; imported granules']),
-          ('ADDITIVES &amp; COLOUR','gen-granule-gradient',['Master batches — white, black &amp; colour','Organic &amp; inorganic pigments','UV stabilizers, additives &amp; processing aids','Moisture powder &amp; moisture dana']),
-          ('END PRODUCTS','pp-bags',['PP, PE, BOPP &amp; non-woven bags','Sutli, ropes &amp; twine','Poly films &amp; treated rolls','Recycled &amp; reprocessed granules'])]
+    hcol = '#F6921E' if dark else '#C43D00'
+    groups=[('RAW MATERIALS',[('pp-granules-hero','PP'),('pe-pellets-hero','PE'),('natural-granules','PVC &amp; RESINS'),('gen-dana-pearls','PET · EVA · PS')]),
+            ('ADDITIVES &amp; COLOUR',[('gen-granule-gradient','MASTER BATCHES'),('pigments','PIGMENTS'),('moisture-powder','MOISTURE POWDER'),('gen-pigment-burst','ADDITIVES &amp; UV')]),
+            ('END PRODUCTS',[('pp-bags','BAGS'),('ropes','SUTLI &amp; ROPES'),('treated-rolls','FILMS &amp; ROLLS'),('recycled-granules','RECYCLED GRANULES')])]
     html=''
-    for t,p,items in cols:
-        lis=''.join(f'<div class="it">{i}</div>' for i in items)
-        html+=f'<div class="col"><div class="cph"><img src="{P(p)}"></div><h4>{t}</h4>{lis}</div>'
+    for t,pics in groups:
+        tiles=''.join(f'<div class="tw"><img src="{P(p)}"><div class="tl">{l}</div></div>' for p,l in pics)
+        html+=f'<div class="col"><div class="gh">{t}</div><div class="g4">{tiles}</div></div>'
     return base(w,h,dark)+f"""<style>
 .top{{padding:14px 56px 0;position:relative;z-index:4;text-align:center}}
 .cap2{{font-size:46px;margin-top:8px;color:{fg}}}
 .cap2 em{{{gt}font-style:italic}}
-.cols{{flex:1;display:flex;gap:24px;padding:20px 48px 20px;position:relative;z-index:4}}
-.col{{flex:1;{card};border-radius:16px;overflow:hidden;display:flex;flex-direction:column}}
-.cph{{height:200px;overflow:hidden;position:relative}}
-.cph img{{width:100%;height:100%;object-fit:cover;display:block}}
-.col h4{{font-size:20px;font-weight:800;letter-spacing:1.5px;color:{hcol};padding:16px 24px 6px}}
-.it{{font-family:'Inter',sans-serif;font-size:16px;font-weight:500;color:{it};padding:7px 24px;border-bottom:1px solid {'rgba(255,255,255,0.08)' if dark else 'rgba(16,20,27,0.06)'};line-height:1.4}}
+.cols{{flex:1;display:flex;gap:26px;padding:18px 48px 18px;position:relative;z-index:4;min-height:0}}
+.col{{flex:1;display:flex;flex-direction:column;min-height:0}}
+.gh{{text-align:center;font-size:17px;font-weight:800;letter-spacing:3px;color:{hcol};padding-bottom:10px}}
+.g4{{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;min-height:0}}
+.tw{{position:relative;min-height:0;border-radius:13px;overflow:hidden;border:3px solid {'rgba(240,120,0,0.65)' if dark else '#D83000'};box-shadow:0 10px 22px rgba(0,0,0,{'0.35' if dark else '0.1'})}}
+.tw img{{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}}
+.tl{{position:absolute;left:0;right:0;bottom:0;padding:15px 5px 5px;text-align:center;font-size:11px;font-weight:800;letter-spacing:1px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.68));z-index:2}}
 </style>{bgimg('natural-granules')}{hdr(dark)}
 <div class="top"><div class="label">WE DEAL IN</div>
 <div class="cap cap2">From raw material <em>to finished product.</em></div></div>
