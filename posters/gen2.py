@@ -690,6 +690,86 @@ def psroom_b(w,h,dark):
 <div class="qrbox"><img src="../qr-ps.png"><div class="t">SCAN TO SHOP</div></div></div>
 <div class="grid">{tiles}</div>{FOOT}"""
 
+BRANCHES = [
+ ('Hyderabad','8977020177 · 8977020175<br>8977020176 · 8977020170'),
+ ('Tenali','8886668921 · 8886668915<br>8886668912 · 8977020178'),
+ ('Guntur','8886668998'),
+ ('Vijayawada','8886668920'),
+ ('Rajahmundry','9381579829'),
+ ('Visakhapatnam','8977020179'),
+ ('Nellore','8886668921'),
+]
+
+def loc_room1(w,h,dark):
+    """Meeting room — branches WITH map."""
+    from mapdata import PATHS, CITIES
+    gt = GT_W if dark else GT_D
+    fg = '#fff' if dark else '#10141B'
+    aptg = 'rgba(240,120,0,0.20)' if dark else 'rgba(216,60,0,0.14)'
+    nb   = 'rgba(255,255,255,0.055)' if dark else 'rgba(16,20,27,0.055)'
+    lbl  = '#fff' if dark else '#10141B'
+    up   = '#F6921E' if dark else '#C43D00'
+    halo = 'rgba(240,120,0,0.35)'
+    focus = ''.join(f'<path d="{p}"/>' for st in ('andhra-pradesh','telangana') for p in PATHS[st])
+    rest  = ''.join(f'<path d="{p}"/>' for st in ('karnataka','tamil-nadu','odisha','maharashtra','chhattisgarh','kerala') for p in PATHS[st])
+    def pin(name, dx=16, anchor='start', dy=8, r=10):
+        x,y = CITIES[name]
+        return (f'<circle cx="{x}" cy="{y}" r="{r+9}" fill="{halo}"/>'
+                f'<circle cx="{x}" cy="{y}" r="{r}" fill="url(#mg3)" stroke="#fff" stroke-width="2.5"/>'
+                f'<text x="{x+dx}" y="{y+dy}" text-anchor="{anchor}" font-size="30" font-weight="800" fill="{lbl}" font-family="Montserrat">{name}</text>')
+    def upin(name, dx=16, anchor='start'):
+        x,y = CITIES[name]
+        return (f'<circle cx="{x}" cy="{y}" r="10" fill="none" stroke="{up}" stroke-width="2.5" stroke-dasharray="4 4"/>'
+                f'<text x="{x+dx}" y="{y+8}" text-anchor="{anchor}" font-size="26" font-weight="700" font-style="italic" fill="{up}" font-family="Inter">{name}</text>')
+    pins = (pin('Hyderabad', dx=-20, anchor='end') + pin('Visakhapatnam', dx=-18, anchor='end')
+          + pin('Rajahmundry', dx=18, dy=-14) + pin('Vijayawada', dx=-14, anchor='end', dy=-14, r=8)
+          + pin('Guntur', dx=-16, anchor='end', dy=10, r=8) + pin('Tenali', dx=16, dy=30, r=8)
+          + pin('Nellore') + upin('Bengaluru', dx=-18, anchor='end') + upin('Chennai'))
+    svg = f"""<svg viewBox="130 120 880 700" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;" preserveAspectRatio="xMidYMid meet">
+<defs><linearGradient id="mg3" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#A80B0B"/><stop offset="0.5" stop-color="#D83000"/><stop offset="1" stop-color="#F07800"/></linearGradient></defs>
+<g fill="{nb}">{rest}</g><g fill="{aptg}">{focus}</g>{pins}</svg>"""
+    rows=''.join(f'<div class="br"><div class="bc">{c}</div><div class="bp">{p}</div></div>' for c,p in BRANCHES)
+    return base(w,h,dark)+f"""<style>
+.wrap{{flex:1;display:flex;gap:22px;padding:16px 44px 12px;position:relative;z-index:4}}
+.lt{{width:400px;flex:none;display:flex;flex-direction:column;justify-content:center}}
+.cap2{{font-size:42px;margin-top:8px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.brs{{margin-top:16px;display:flex;flex-direction:column;gap:7px}}
+.br{{display:flex;align-items:baseline;gap:12px;border-left:3px solid #F07800;padding-left:12px}}
+.bc{{font-size:17px;font-weight:900;{gt}white-space:nowrap}}
+.bp{{margin-left:auto;font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;text-align:right;line-height:1.5;color:{'rgba(255,255,255,0.72)' if dark else '#5A6472'}}}
+.mapbox{{flex:1;position:relative}}
+</style>{hdr(dark)}
+<div class="wrap"><div class="lt"><div class="label">OUR BRANCHES</div>
+<div class="cap cap2">Always <em>within reach.</em></div>
+<div class="brs">{rows}</div>
+<div style="margin-top:16px;">{upcomingpill(dark,15)}</div></div>
+<div class="mapbox">{svg}</div></div>{FOOT}"""
+
+def loc_room2(w,h,dark):
+    """Meeting room — branches WITHOUT map, card grid."""
+    gt = GT_W if dark else GT_D
+    fg = '#fff' if dark else '#10141B'
+    card = 'background:rgba(255,255,255,0.05);border:1px solid rgba(240,120,0,0.4)' if dark else 'background:#fff;border:1px solid rgba(168,11,11,0.14);box-shadow:0 8px 22px rgba(168,11,11,0.07)'
+    cards=''.join(f'<div class="cc"><div class="cn">{c}</div><div class="cp">{p}</div></div>' for c,p in BRANCHES)
+    upcard = f'<div class="cc" style="background:{GRAD};border:none;"><div class="cn" style="-webkit-text-fill-color:#fff;background:none;color:#fff;">Upcoming</div><div class="cp" style="color:rgba(255,255,255,0.92);">Bengaluru<br>Chennai</div></div>'
+    return base(w,h,dark)+f"""<style>
+.wrap{{flex:1;display:flex;flex-direction:column;padding:22px 48px 18px;position:relative;z-index:4;text-align:center}}
+.cap2{{font-size:46px;margin-top:8px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.grid{{margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;flex:1;align-content:center}}
+.cc{{{card};border-radius:16px;padding:20px 16px}}
+.cn{{font-size:21px;font-weight:900;{gt}}}
+.cp{{margin-top:8px;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;line-height:1.6;color:{'rgba(255,255,255,0.75)' if dark else '#5A6472'}}}
+.sub{{margin-top:14px;font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:{'rgba(255,255,255,0.65)' if dark else '#8A93A0'}}}
+</style>{bgimg('coloured-granules')}{hdr(dark)}
+<div class="wrap"><div class="label">OUR BRANCHES</div>
+<div class="cap cap2">Seven cities. <em>One phone call away.</em></div>
+<div class="grid">{cards}{upcard}</div>
+<div class="sub">Andhra Pradesh &amp; Telangana · www.mantralayagroup.com</div>
+</div>{FOOT}"""
+
 def build(dark):
     v = {}
     em = lambda t: f"<em>{t}</em>"
@@ -749,6 +829,8 @@ def build(dark):
     v['poster-pe-images-c'] = (1500,900, rawmat_c(1500,900,dark,'POLYETHYLENE (PE)','pe-pellets-hero',PE_APPS))
     v['poster-pands-room-1'] = (1650,750, psroom_a(1650,750,dark))
     v['poster-pands-room-2'] = (1650,750, psroom_b(1650,750,dark))
+    v['poster-branches-room-map'] = (1200,1000, loc_room1(1200,1000,dark))
+    v['poster-branches-room-cards'] = (1200,1000, loc_room2(1200,1000,dark))
     return v
 
 manifest = {}
