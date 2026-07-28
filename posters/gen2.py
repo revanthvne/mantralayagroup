@@ -617,6 +617,28 @@ def rawmat_c(w,h,dark,label,hero,apps):
 <div class="cap cap2">One granule.<br><em>A thousand products.</em></div>
 <div class="grid">{tiles}</div></div>{FOOT}"""
 
+def credit2(w,h,dark):
+    """Credit variant 2 — full-bleed discussion photo, text lower-left."""
+    gt = GT_W if dark else GT_D
+    ov = ('linear-gradient(100deg, rgba(13,8,6,0.93) 0%, rgba(13,8,6,0.72) 42%, rgba(13,8,6,0.25) 100%), linear-gradient(0deg, rgba(13,8,6,0.55) 0%, rgba(0,0,0,0) 40%)' if dark
+        else 'linear-gradient(100deg, rgba(251,244,235,0.95) 0%, rgba(251,244,235,0.78) 42%, rgba(251,244,235,0.25) 100%), linear-gradient(0deg, rgba(251,244,235,0.6) 0%, rgba(0,0,0,0) 40%)')
+    fg = '#fff' if dark else '#10141B'
+    chip = ('background:rgba(255,255,255,0.1);border:1px solid rgba(240,120,0,0.5);color:#fff' if dark
+        else 'background:#fff;border:1px solid rgba(16,20,27,0.1);box-shadow:0 6px 16px rgba(0,0,0,0.07);color:#10141B')
+    chips=''.join(f'<span style="{chip};border-radius:100px;padding:12px 26px;font-size:18px;font-weight:700;">{c}</span>' for c in ['Flexible credit cycles','Trusted trade partners','35+ years of relationships'])
+    return base(w,h,dark)+f"""<style>
+.bg{{position:absolute;inset:0}}
+.bg img{{width:100%;height:100%;object-fit:cover;object-position:center 30%}}
+.bg::after{{content:'';position:absolute;inset:0;background:{ov}}}
+.wrap{{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 40px;position:relative;z-index:4;max-width:62%}}
+.cap2{{font-size:62px;margin-top:12px;color:{fg}}}
+.cap2 em{{{gt}font-style:italic}}
+.chips{{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap}}
+</style><div class="bg"><img src="{P('credit-discussion')}"></div>{hdr(dark)}
+<div class="wrap"><div class="label">CREDIT FACILITY</div>
+<div class="cap cap2">Terms that move<br><em>with your business.</em></div>
+<div class="chips">{chips}</div></div>{FOOT}"""
+
 def build(dark):
     v = {}
     em = lambda t: f"<em>{t}</em>"
@@ -646,9 +668,8 @@ def build(dark):
     v['poster-11-pands'] = (1000,1500, pands2(1000,1500,dark))
     v['poster-12-totem'] = (600,2133, totem(600,2133,dark))
     v['poster-13-credit-1'] = (1500,750, message(1500,750,dark,'CREDIT FACILITY',f"Your growth. {em('Our credit.')}",
-      'Flexible credit facilities for trusted trade partners — built on 35+ years of relationships. Talk to our team today.',sidephoto='coloured-granules'))
-    v['poster-15-credit-2'] = (900,750, message(900,750,dark,'CREDIT FACILITY',f"Terms that move {em('with your business.')}",
-      'Credit cycles tailored to your trade. Ask us how.',capsize=52))
+      'Flexible credit facilities for trusted trade partners — built on 35+ years of relationships. Talk to our team today.',sidephoto='credit-discussion'))
+    v['poster-15-credit-2'] = (1500,750, credit2(1500,750,dark))
     v['poster-17-pands-qr'] = (900,750, message(900,750,dark,'PRODUCTS &amp; STORES',f"Take the store {em('with you.')}",
       'Scan to browse the complete catalogue at productsandstores.com.',
       extra='<div class="extra"><img src="../qr-ps.png" style="width:190px;height:190px;border-radius:14px;border:5px solid #D83000;"></div>',capsize=52))
