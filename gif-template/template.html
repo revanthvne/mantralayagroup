@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Playfair+Display:ital,wght@1,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{ --cycle: 6s; }
+body{width:640px;height:640px;overflow:hidden;position:relative;font-family:'Montserrat',sans-serif;
+  background:radial-gradient(ellipse 85% 70% at 50% 32%, #2A160B, #150B07);}
+.rule{position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(105deg,#A80B0B,#D83000 46%,#F07800);}
+.sweep{position:absolute;top:0;left:-40%;width:40%;height:7px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent);
+  animation:sweep var(--cycle) linear infinite;}
+@keyframes sweep{0%{left:-40%}35%{left:100%}100%{left:100%}}
+/* falling granules */
+.g{position:absolute;border-radius:50%;top:-30px;animation-name:fall;animation-iteration-count:infinite;animation-timing-function:linear;}
+@keyframes fall{0%{transform:translateY(-30px) rotate(0deg);opacity:0}8%{opacity:0.85}90%{opacity:0.85}100%{transform:translateY(700px) rotate(200deg);opacity:0}}
+/* logo pop */
+.logo{position:absolute;top:44px;left:50%;transform:translateX(-50%);height:104px;
+  animation:pop var(--cycle) cubic-bezier(.2,1.4,.4,1) infinite;}
+@keyframes pop{0%{transform:translateX(-50%) scale(0);opacity:0}6%{transform:translateX(-50%) scale(1.12);opacity:1}10%{transform:translateX(-50%) scale(1)}88%{opacity:1;transform:translateX(-50%) scale(1)}96%{opacity:0;transform:translateX(-50%) scale(0.9)}100%{opacity:0}}
+brand-off{position:absolute;top:266px;width:100%;text-align:center;font-size:25px;font-weight:900;letter-spacing:9px;color:rgba(255,255,255,0.85);
+  animation:fadeup var(--cycle) ease infinite;}
+@keyframes fadeup{0%,6%{opacity:0;transform:translateY(16px)}14%{opacity:1;transform:translateY(0)}88%{opacity:1}96%,100%{opacity:0}}
+/* rotating messages */
+.msg{position:absolute;top:168px;width:100%;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:800;font-size:34px;line-height:1.2;color:#fff;opacity:0;}
+.msg em{font-style:italic;background:linear-gradient(100deg,#FF6A2B,#F6921E 55%,#FFC46B);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.m1{animation:m1 var(--cycle) ease infinite}
+.m2{animation:m2 var(--cycle) ease infinite}
+@keyframes m1{8%{opacity:0;transform:translateY(14px)}16%{opacity:1;transform:translateY(0)}44%{opacity:1}52%{opacity:0;transform:translateY(-12px)}100%{opacity:0}}
+@keyframes m2{50%{opacity:0;transform:translateY(14px)}58%{opacity:1;transform:translateY(0)}86%{opacity:1}94%{opacity:0;transform:translateY(-12px)}100%{opacity:0}}
+.pill{position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:linear-gradient(105deg,#A80B0B,#D83000 46%,#F07800);
+  color:#fff;border-radius:100px;padding:14px 30px;font-size:18px;font-weight:800;letter-spacing:0.5px;white-space:nowrap;box-shadow:0 12px 34px rgba(216,60,0,0.5);
+  animation:pill var(--cycle) ease infinite;}
+@keyframes pill{0%,10%{opacity:0;transform:translateX(-50%) translateY(18px)}20%{opacity:1;transform:translateX(-50%) translateY(0)}45%,55%{transform:translateX(-50%) translateY(0) scale(1.06)}50%{transform:translateX(-50%) translateY(0) scale(1)}88%{opacity:1}96%,100%{opacity:0}}
+.web{position:absolute;bottom:52px;width:100%;text-align:center;font-size:17px;font-weight:800;letter-spacing:2px;color:#F6921E;
+  animation:fadeup var(--cycle) ease infinite;}
+
+.hx{position:absolute;top:236px;width:100%;text-align:center;}
+.hx .word{font-family:'Montserrat',sans-serif;font-weight:900;font-size:118px;letter-spacing:6px;line-height:1;}
+.hx .word span{display:inline-block;animation:lpop var(--cycle) cubic-bezier(.2,1.5,.4,1) infinite;}
+.hx .word span:nth-child(1){color:#E8731A;animation-delay:0.00s}
+.hx .word span:nth-child(2){color:#4FC3F7;animation-delay:0.07s}
+.hx .word span:nth-child(3){color:#F9D14C;animation-delay:0.14s}
+.hx .word span:nth-child(4){color:#EF6AA2;animation-delay:0.21s}
+.hx .word span:nth-child(5){color:#7ED47E;animation-delay:0.28s}
+.hx .word span:nth-child(6){color:#E8731A;animation-delay:0.35s}
+@keyframes lpop{0%{transform:translateY(40px) scale(0);opacity:0}8%{transform:translateY(-6px) scale(1.15);opacity:1}12%{transform:translateY(0) scale(1)}88%{opacity:1;transform:translateY(0) scale(1)}96%,100%{opacity:0;transform:scale(0.92)}}
+.hxsub{margin-top:14px;font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;letter-spacing:5px;color:#F6921E;animation:fadeup var(--cycle) ease infinite;}
+</style></head><body>
+<div class="rule"></div><div class="sweep"></div>
+<script>
+const colors=['#A80B0B','#D83000','#F07800','#F6921E','#FFC46B','#4FC3F7','#7ED47E','#F9D14C'];
+for(let i=0;i<26;i++){
+  const d=document.createElement('div'); d.className='g';
+  const s=6+Math.random()*10;
+  d.style.width=d.style.height=s+'px';
+  d.style.left=(Math.random()*98)+'%';
+  d.style.background=colors[i%colors.length];
+  d.style.animationDuration=(3.4+Math.random()*3)+'s';
+  d.style.animationDelay=(-Math.random()*6)+'s';
+  document.body.appendChild(d);
+}
+</script>
+<img class="logo" src="../mg-logo-dark.png">
+<div class="hx"><div class="word"><span>H</span><span>I</span><span>P</span><span>L</span><span>E</span><span>X</span></div>
+<div class="hxsub">INTERNATIONAL PLASTICS EXPO &mdash; 2026</div></div>
+
+<div class="msg m1">You&rsquo;re <em>invited.</em></div>
+<div class="msg m2">&ldquo;We deliver <em>what we promise.&rdquo;</em></div>
+<div class="pill">HIPLEX 2026 · Hall 4 · Stalls C 05 &amp; C 06</div>
+<div class="web">7&ndash;10 AUGUST 2026 · HITEX, HYDERABAD</div>
+</body></html>

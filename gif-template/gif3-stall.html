@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Inter:wght@600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cycle:6s}
+body{width:640px;height:640px;overflow:hidden;position:relative;font-family:'Montserrat',sans-serif;background:radial-gradient(ellipse 90% 80% at 50% 35%, #2A160B, #120A07);}
+.rule{position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(105deg,#A80B0B,#D83000 46%,#F07800)}
+.glow{position:absolute;width:520px;height:520px;border-radius:50%;left:60px;top:80px;background:radial-gradient(circle, rgba(216,60,0,0.25), transparent 65%);animation:breathe var(--cycle) ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(0.9);opacity:0.7}50%{transform:scale(1.1);opacity:1}}
+.logo{position:absolute;top:52px;left:50%;transform:translateX(-50%);height:96px;animation:pop var(--cycle) cubic-bezier(.2,1.4,.4,1) infinite}
+@keyframes pop{0%{transform:translateX(-50%) scale(0);opacity:0}7%{transform:translateX(-50%) scale(1.1);opacity:1}11%{transform:translateX(-50%) scale(1)}88%{opacity:1}96%,100%{opacity:0}}
+.lbl{position:absolute;top:186px;width:100%;text-align:center;font-size:21px;font-weight:800;letter-spacing:9px;color:rgba(255,255,255,0.7);animation:fadeup var(--cycle) ease infinite}
+@keyframes fadeup{0%,8%{opacity:0;transform:translateY(14px)}16%{opacity:1;transform:translateY(0)}88%{opacity:1}96%,100%{opacity:0}}
+.num{position:absolute;top:224px;width:100%;text-align:center;font-size:92px;font-weight:900;line-height:1;white-space:nowrap;background:linear-gradient(100deg,#A80B0B 0%,#D83000 40%,#F07800 75%,#FFB25C 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 10px 34px rgba(216,60,0,0.5));animation:numin var(--cycle) cubic-bezier(.2,1.3,.4,1) infinite}
+@keyframes numin{0%,10%{transform:scale(0.3);opacity:0}20%{transform:scale(1.08);opacity:1}25%{transform:scale(1)}46%,54%{transform:scale(1.04)}50%{transform:scale(1)}88%{opacity:1;transform:scale(1)}96%,100%{opacity:0}}
+.hall{position:absolute;top:352px;width:100%;text-align:center;font-size:27px;font-weight:800;letter-spacing:4px;color:#fff;animation:fadeup var(--cycle) ease infinite}
+.hall b{color:#F6921E}
+.hx{position:absolute;bottom:104px;width:100%;text-align:center;font-size:34px;font-weight:900;letter-spacing:4px;animation:fadeup var(--cycle) ease infinite}
+.hx span:nth-child(1){color:#E8731A}.hx span:nth-child(2){color:#4FC3F7}.hx span:nth-child(3){color:#F9D14C}.hx span:nth-child(4){color:#EF6AA2}.hx span:nth-child(5){color:#7ED47E}.hx span:nth-child(6){color:#E8731A}
+.web{position:absolute;bottom:58px;width:100%;text-align:center;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:#F6921E;animation:fadeup var(--cycle) ease infinite}
+</style></head><body>
+<div class="rule"></div><div class="glow"></div>
+<img class="logo" src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/mg-logo-dark.png">
+<div class="lbl">FIND US AT STALLS</div>
+<div class="num">C 05 &amp; C 06</div>
+<div class="hall">HALL <b>4</b> · HITEX EXHIBITION CENTRE</div>
+<div class="hx"><span>H</span><span>I</span><span>P</span><span>L</span><span>E</span><span>X</span> <span style="color:#fff;font-size:22px;letter-spacing:2px;">2026</span></div>
+<div class="web">7&ndash;10 August 2026 · Hyderabad</div>
+</body></html>

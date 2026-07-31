@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Playfair+Display:ital,wght@1,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cycle:6s}
+body{width:640px;height:640px;overflow:hidden;position:relative;font-family:'Montserrat',sans-serif;background:radial-gradient(ellipse 85% 70% at 50% 30%, #FFF8EE, #FBF4EB);}
+.rule{position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(105deg,#A80B0B,#D83000 46%,#F07800)}
+.sweep{position:absolute;top:0;left:-40%;width:40%;height:7px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.95),transparent);animation:sweep var(--cycle) linear infinite}
+@keyframes sweep{0%{left:-40%}35%{left:100%}100%{left:100%}}
+.arc{position:absolute;inset:0;pointer-events:none}
+.logos{position:absolute;top:56px;width:100%;display:flex;justify-content:center;gap:44px;align-items:center;animation:pop var(--cycle) cubic-bezier(.2,1.4,.4,1) infinite}
+.logos img{height:96px}
+.div{width:2px;height:70px;background:rgba(16,20,27,0.15)}
+@keyframes pop{0%{transform:scale(0);opacity:0}7%{transform:scale(1.1);opacity:1}11%{transform:scale(1)}88%{opacity:1}96%,100%{opacity:0}}
+.inv{position:absolute;top:196px;width:100%;text-align:center;font-size:19px;font-weight:800;letter-spacing:8px;color:#C43D00;animation:fadeup var(--cycle) ease infinite}
+@keyframes fadeup{0%,7%{opacity:0;transform:translateY(14px)}15%{opacity:1;transform:translateY(0)}88%{opacity:1}96%,100%{opacity:0}}
+.big{position:absolute;top:238px;width:100%;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:800;font-size:52px;line-height:1.25;color:#10141B;animation:fadeup var(--cycle) ease infinite}
+.big em{background:linear-gradient(100deg,#A80B0B,#D83000 45%,#F07800);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pill{position:absolute;bottom:120px;left:50%;transform:translateX(-50%);background:linear-gradient(105deg,#A80B0B,#D83000 46%,#F07800);color:#fff;border-radius:100px;padding:15px 32px;font-size:19px;font-weight:800;white-space:nowrap;box-shadow:0 12px 34px rgba(216,60,0,0.35);animation:pill var(--cycle) ease infinite}
+@keyframes pill{0%,12%{opacity:0;transform:translateX(-50%) translateY(18px)}22%{opacity:1;transform:translateX(-50%) translateY(0)}45%,55%{transform:translateX(-50%) scale(1.05)}50%{transform:translateX(-50%) scale(1)}88%{opacity:1}96%,100%{opacity:0}}
+.web{position:absolute;bottom:64px;width:100%;text-align:center;font-size:16px;font-weight:800;letter-spacing:2px;color:#C43D00;animation:fadeup var(--cycle) ease infinite}
+</style></head><body>
+<div class="rule"></div><div class="sweep"></div>
+<svg class="arc" viewBox="0 0 640 640"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#A80B0B"/><stop offset="1" stop-color="#F07800"/></linearGradient></defs>
+<path d="M -20 470 Q 320 380 660 460" stroke="url(#g)" stroke-width="4" fill="none" opacity="0.4"/>
+<path d="M -20 500 Q 320 560 660 490" stroke="url(#g)" stroke-width="4" fill="none" opacity="0.25"/></svg>
+<div class="logos"><img src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/mg-logo.png"><div class="div"></div><img src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/srpl-logo-light.png"></div>
+<div class="inv">YOU ARE INVITED · HIPLEX 2026</div>
+<div class="big">&ldquo;We deliver <em>what we promise.&rdquo;</em></div>
+<div class="pill">HALL 4 · STALLS C 05 &amp; C 06 · HITEX</div>
+<div class="web">7&ndash;10 AUGUST 2026 · HYDERABAD</div>
+</body></html>

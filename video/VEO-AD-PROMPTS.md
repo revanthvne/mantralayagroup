@@ -106,3 +106,49 @@
 
 ### After generating
 Drop all MP4s into `smp-website/video/veo-clips/` and tell Claude **"assemble the TV ads"**. I'll deliver `ad01.mp4` … `ad10.mp4` (~45s each, captions, poster inserts, animated stats/QRs, CTA end-cards, colour grade, seamless loop) plus one combined `all-ads-loop.mp4` (~7½ min cycle) for the screens.
+
+# ADDITIONAL PRODUCTS & STORES ADS
+
+## AD 11 — "Little hands. Big smiles." (Toys)
+- `ad11-s1.mp4` — Colourful plastic toy parts — bright rings, blocks and wheels — sliding down a chute into a collection bin in a toy factory, static camera, cheerful colours, photorealistic real DSLR industrial footage, no text, no watermarks, 8 seconds.
+- `ad11-s2.mp4` — A worker's hands snapping together a bright toy truck from moulded parts at an assembly bench, close-up, warm light, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad11-s3.mp4` — Rows of finished colourful toys lined on retail shelves, camera gliding slowly along the shelf, bright store lighting, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad11-s4.mp4` — A young Indian child laughing while playing with a colourful plastic toy truck on a living-room floor, soft window light, candid, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+
+## AD 12 — "Fresh stays fresh." (Multilayer film & pouches)
+- `ad12-s1.mp4` — Glossy multilayer packaging film gliding over polished steel rollers, light shimmering across the surface, static camera, photorealistic real DSLR industrial footage, no text, no watermarks, 8 seconds.
+- `ad12-s2.mp4` — Close-up of a hand pressing a zip-lock seal closed on a clear stand-up pouch full of colourful snacks, satisfying detail, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad12-s3.mp4` — Rows of filled stand-up pouches with grains and dried fruit standing on a bright retail counter, camera slowly arcing, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad12-s4.mp4` — A shopkeeper's hands scooping grains into a fresh clear pouch on a weighing scale at a kirana counter, warm shop light, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+
+## AD 13 — "Holds everything together." (Ropes & twine)
+- `ad13-s1.mp4` — Bright coloured plastic twine threads twisting together into rope on a spinning rope-making machine, hypnotic rotation, static camera, photorealistic real DSLR industrial footage, no text, no watermarks, 8 seconds.
+- `ad13-s2.mp4` — Neat coils of blue and yellow plastic rope stacking up beside a winding machine, a worker placing one coil on the stack, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad13-s3.mp4` — An Indian farmer tying a tarpaulin over a loaded cart with bright yellow plastic rope, tugging the knot tight, golden field light, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad13-s4.mp4` — Colourful rope coils and sutli spools displayed on hooks in a hardware store, camera pushing in slowly, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+
+# RAW MATERIAL SERIES (Mantralaya Group)
+
+## AD 14 — Polypropylene: "The workhorse of plastics."
+- `ad14-s1.mp4` — Macro of translucent white polypropylene granules cascading in slow motion onto a growing heap, soft studio light, static camera, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad14-s2.mp4` — Camera dollying slowly along stacked white woven PP sacks in a bright warehouse aisle, nothing moving but the camera, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad14-s3.mp4` — A woman placing a transparent food container into a neat stack of identical containers in a modern kitchen, natural movement, warm light, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad14-s4.mp4` — A hand holding a single white PP granule up to the light between thumb and finger, factory softly blurred behind, static macro, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+
+## AD 15 — Polyethylene: "Soft films. Strong tanks."
+- `ad15-s1.mp4` — Macro of glossy milky-white polyethylene pellets tumbling gently in slow motion against dark background, static camera, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad15-s2.mp4` — Thin clear polyethylene film billowing softly in the air above a table, light dancing through it as it settles, slow motion, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad15-s3.mp4` — Camera slowly rising up a colourful row of large plastic water storage tanks lined outside a factory wall, static tanks, blue sky, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad15-s4.mp4` — A farmer's hands connecting a black drip-irrigation pipe in a green field, water beginning to drip, morning light, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+
+## AD 16 — PVC & Metallocene: "Precision polymers."
+- `ad16-s1.mp4` — White PVC powder being scooped by hand with a steel scoop from a sack, fine powder sifting off the edges, macro, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad16-s2.mp4` — Camera gliding along neat bundles of white PVC pipes and window profiles racked in a warehouse, static product, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad16-s3.mp4` — An electrician's hands coiling a finished insulated cable with bright coloured sheathing, workshop light, close-up, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad16-s4.mp4` — Ultra-clear strong metallocene film stretched taut between two hands, light gleaming across its surface, dark background, macro, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+
+## AD 17 — Specialty resins: "PET · EVA · PS · PBAT"
+- `ad17-s1.mp4` — Colourful transparent PET preforms standing in neat rows like glass soldiers, camera dollying past slowly, studio light, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad17-s2.mp4` — A hand flexing a soft white EVA foam sheet, bending it and letting it spring back, close-up, soft light, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad17-s3.mp4` — Stacks of crisp white polystyrene food trays being fanned by a hand on a counter, clean studio light, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.
+- `ad17-s4.mp4` — A green leaf resting on a small heap of biodegradable PBAT granules on a wooden table, gentle breeze moving the leaf, macro, warm natural light, photorealistic real DSLR footage, no text, no watermarks, 8 seconds.

@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Playfair+Display:ital,wght@1,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cycle:7s}
+body{width:640px;height:640px;overflow:hidden;position:relative;font-family:'Montserrat',sans-serif;background:radial-gradient(ellipse 85% 70% at 50% 30%, #2A160B, #150B07);}
+.rule{position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(105deg,#A80B0B,#D83000 46%,#F07800)}
+.logo{position:absolute;top:40px;left:50%;transform:translateX(-50%);height:84px}
+.big{position:absolute;top:146px;width:100%;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:800;font-size:40px;color:#fff;line-height:1.2}
+.big em{background:linear-gradient(100deg,#FF6A2B,#F6921E 55%,#FFC46B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid{position:absolute;top:248px;left:80px;right:80px;display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.city{border:1px solid rgba(240,120,0,0.45);background:rgba(255,255,255,0.05);border-radius:100px;padding:10px 8px;text-align:center;font-size:17px;font-weight:800;color:#fff;opacity:0;animation:cpop var(--cycle) cubic-bezier(.2,1.4,.4,1) infinite}
+.city .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#F07800;margin-right:9px;box-shadow:0 0 12px rgba(240,120,0,0.9)}
+@keyframes cpop{0%{opacity:0;transform:scale(0.6)}8%{opacity:1;transform:scale(1.06)}11%{transform:scale(1)}86%{opacity:1}94%,100%{opacity:0}}
+.up{position:absolute;bottom:92px;left:50%;transform:translateX(-50%);background:linear-gradient(105deg,#A80B0B,#D83000 46%,#F07800);color:#fff;border-radius:100px;padding:11px 26px;font-size:15.5px;font-weight:800;white-space:nowrap;box-shadow:0 12px 30px rgba(216,60,0,0.5);animation:cpop var(--cycle) ease infinite;animation-delay:2.4s}
+.web{position:absolute;bottom:46px;width:100%;text-align:center;font-size:16px;font-weight:800;letter-spacing:2px;color:#F6921E;animation:cpop var(--cycle) ease infinite;animation-delay:2.6s}
+</style></head><body>
+<div class="rule"></div>
+<img class="logo" src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/mg-logo-dark.png">
+<div class="big">Wherever you build,<br><em>we&rsquo;re nearby.</em></div>
+<div class="grid">
+<div class="city" style="animation-delay:0.2s"><span class="dot"></span>Hyderabad</div>
+<div class="city" style="animation-delay:0.5s"><span class="dot"></span>Guntur</div>
+<div class="city" style="animation-delay:0.8s"><span class="dot"></span>Tenali</div>
+<div class="city" style="animation-delay:1.1s"><span class="dot"></span>Vijayawada</div>
+<div class="city" style="animation-delay:1.4s"><span class="dot"></span>Rajahmundry</div>
+<div class="city" style="animation-delay:1.7s"><span class="dot"></span>Visakhapatnam</div>
+<div class="city" style="animation-delay:2.0s;grid-column:span 2;width:60%;justify-self:center;"><span class="dot"></span>Nellore</div>
+</div>
+<div class="up">Upcoming: Bengaluru &amp; Chennai</div>
+<div class="web">HIPLEX 2026 · STALLS C 05 &amp; C 06</div>
+</body></html>

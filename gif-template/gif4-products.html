@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Playfair+Display:ital,wght@1,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cycle:8s}
+body{width:640px;height:640px;overflow:hidden;position:relative;font-family:'Montserrat',sans-serif;background:radial-gradient(ellipse 85% 70% at 50% 30%, #2A160B, #150B07);}
+.rule{position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(105deg,#A80B0B,#D83000 46%,#F07800)}
+.logo{position:absolute;top:40px;left:50%;transform:translateX(-50%);height:86px}
+.lbl{position:absolute;top:142px;width:100%;text-align:center;font-size:18px;font-weight:800;letter-spacing:8px;color:#F6921E}
+.big{position:absolute;top:176px;width:100%;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:800;font-size:40px;color:#fff}
+.big em{background:linear-gradient(100deg,#FF6A2B,#F6921E 55%,#FFC46B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stage{position:absolute;top:252px;left:50%;transform:translateX(-50%);width:250px;height:250px;border-radius:50%;overflow:hidden;border:6px solid #F07800;box-shadow:0 18px 50px rgba(216,60,0,0.45)}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:cyc var(--cycle) ease infinite}
+.stage img:nth-child(1){animation-delay:0s}.stage img:nth-child(2){animation-delay:2s}.stage img:nth-child(3){animation-delay:4s}.stage img:nth-child(4){animation-delay:6s}
+@keyframes cyc{0%{opacity:0;transform:scale(1.15)}4%{opacity:1;transform:scale(1)}25%{opacity:1}31%{opacity:0;transform:scale(0.95)}100%{opacity:0}}
+.qr{position:absolute;right:64px;bottom:64px;width:110px;height:110px;border-radius:12px;border:5px solid #D83000;background:#fff;animation:qrp var(--cycle) ease infinite}
+@keyframes qrp{0%,100%{transform:scale(1)}25%,75%{transform:scale(1.06)}50%{transform:scale(1)}}
+.cta{position:absolute;left:64px;bottom:74px;font-size:21px;font-weight:800;color:#fff;line-height:1.5}
+.cta b{color:#F6921E}
+</style></head><body>
+<div class="rule"></div>
+<img class="logo" src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/mg-logo-dark.png">
+<div class="lbl">PRODUCTS &amp; STORES</div>
+<div class="big">Everything plastic. <em>Off the shelf.</em></div>
+<div class="stage">
+<img src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/products/ps-snack-pouches.jpg"><img src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/products/ps-food-containers.jpg">
+<img src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/products/ps-cups.jpg"><img src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/products/ps-grow-bags.jpg">
+</div>
+<div class="cta">Scan &amp; shop<br><b>productsandstores.com</b></div>
+<img class="qr" src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/posters/qr-ps.png">
+</body></html>
