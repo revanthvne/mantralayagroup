@@ -6,10 +6,10 @@
 *{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 @page{size:210mm 297mm;margin:0;}
 body{font-family:'Inter',sans-serif;}
-.page{width:210mm;height:297mm;overflow:hidden;position:relative;background:#08080A;color:#FAFAFA;
+.page{width:210mm;height:297mm;overflow:hidden;position:relative;background:#FFFFFF;color:#131313;
   padding:10mm 12mm 0;display:flex;flex-direction:column;}
 .page::before{content:'';position:absolute;inset:0;
-  background-image:radial-gradient(rgba(255,255,255,.055) 0.35mm,transparent 0.35mm);
+  background-image:radial-gradient(rgba(0,0,0,.075) 0.35mm,transparent 0.35mm);
   background-size:6mm 6mm;}
 .page>*{position:relative;z-index:1;}
 .og{background:linear-gradient(90deg,#ff8c1a,#ff6b35);-webkit-background-clip:text;background-clip:text;color:transparent;}
@@ -19,22 +19,22 @@ body{font-family:'Inter',sans-serif;}
 /* header */
 .hdr{display:flex;align-items:center;justify-content:space-between;}
 .hdr svg{display:block;}
-.mgpill{display:flex;align-items:center;gap:2.8mm;background:#131316;border:0.3mm solid #242429;
+.mgpill{display:flex;align-items:center;gap:2.8mm;background:#F7F5F2;border:0.3mm solid #E5E2DD;
   border-radius:20mm;padding:1.8mm 4.5mm 1.8mm 2.5mm;}
 .mgpill img{height:8mm;display:block;}
-.mgpill .t{font-size:2.5mm;line-height:1.35;color:#B8B8B8;font-weight:500;}
-.mgpill .t b{display:block;font-size:2.9mm;color:#FAFAFA;font-weight:700;letter-spacing:.2mm;}
+.mgpill .t{font-size:2.5mm;line-height:1.35;color:#6B6875;font-weight:500;}
+.mgpill .t b{display:block;font-size:2.9mm;color:#131313;font-weight:700;letter-spacing:.2mm;}
 
 /* hero */
-.badge{display:inline-flex;align-items:center;gap:2.2mm;border:0.3mm solid #242429;border-radius:20mm;
-  padding:1.4mm 4mm;font-size:2.6mm;letter-spacing:.5mm;color:#D9D5E6;margin-top:4.8mm;}
+.badge{display:inline-flex;align-items:center;gap:2.2mm;border:0.3mm solid #E5E2DD;border-radius:20mm;
+  padding:1.4mm 4mm;font-size:2.6mm;letter-spacing:.5mm;color:#4A4655;margin-top:4.8mm;}
 .badge .dot{width:1.8mm;height:1.8mm;border-radius:50%;background:#ff8c1a;}
 .herorow{display:flex;gap:7mm;margin-top:4.8mm;align-items:stretch;}
 .heroL{flex:1.15;}
 .heroL h1{font-weight:900;font-size:12.4mm;line-height:1.02;letter-spacing:-0.45mm;}
-.heroL h1 .dim{color:#B8B8B8;}
-.heroL .lead{margin-top:3.8mm;font-size:3.35mm;line-height:1.55;color:#B8B8B8;}
-.heroL .lead b{color:#FAFAFA;font-weight:700;}
+.heroL h1 .dim{color:#A3A1A8;}
+.heroL .lead{margin-top:3.8mm;font-size:3.35mm;line-height:1.55;color:#4A4655;}
+.heroL .lead b{color:#131313;font-weight:700;}
 .heroL .hak{margin-top:2.5mm;font-size:2.9mm;line-height:1.5;color:#8A8794;font-style:italic;}
 .heroL .hak b{color:#ff8c1a;font-style:normal;}
 .stats{display:flex;gap:8mm;margin-top:4.5mm;}
@@ -42,7 +42,7 @@ body{font-family:'Inter',sans-serif;}
 .stat .l{font-size:2.8mm;color:#8A8794;margin-top:0.8mm;}
 /* terminal card */
 .term{flex:1;background:#0E0E11;border:0.3mm solid #242429;border-radius:3.5mm;overflow:hidden;
-  display:flex;flex-direction:column;box-shadow:0 4mm 12mm rgba(0,0,0,.5);}
+  display:flex;flex-direction:column;box-shadow:0 3mm 10mm rgba(0,0,0,.22);}
 .tbar{display:flex;align-items:center;gap:1.8mm;background:#131316;border-bottom:0.3mm solid #242429;padding:2.2mm 4mm;}
 .tbar .c{width:2.4mm;height:2.4mm;border-radius:50%;}
 .tbar .lbl{margin-left:auto;font-size:2.7mm;color:#8A8794;}
@@ -58,44 +58,44 @@ body{font-family:'Inter',sans-serif;}
 
 /* features */
 .feats{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm;margin-top:5mm;}
-.fcard{background:#0E0E11;border:0.3mm solid #242429;border-radius:3.5mm;padding:4mm 4.5mm;display:flex;gap:3.2mm;align-items:flex-start;}
+.fcard{background:#F7F5F2;border:0.3mm solid #E5E2DD;border-radius:3.5mm;padding:4mm 4.5mm;display:flex;gap:3.2mm;align-items:flex-start;}
 .fcard .ic{flex:0 0 8mm;width:8mm;height:8mm;border-radius:2mm;background:linear-gradient(135deg,#ff8c1a,#ff6b35);
   display:flex;align-items:center;justify-content:center;}
 .fcard .ic svg{width:4.4mm;height:4.4mm;stroke:#08080A;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
 .fcard h3{font-size:3.6mm;font-weight:800;letter-spacing:-0.1mm;}
-.fcard p{font-size:2.8mm;line-height:1.45;color:#B8B8B8;margin-top:1mm;}
+.fcard p{font-size:2.8mm;line-height:1.45;color:#55525E;margin-top:1mm;}
 
 /* steps */
 .steps{display:flex;gap:3.5mm;margin-top:5mm;}
-.step{flex:1;border:0.3mm solid #242429;border-radius:3.5mm;padding:3.4mm 4mm;background:rgba(255,255,255,.02);}
+.step{flex:1;border:0.3mm solid #E5E2DD;border-radius:3.5mm;padding:3.4mm 4mm;background:rgba(0,0,0,.015);}
 .step .num{font-size:3mm;color:#ff8c1a;font-weight:700;letter-spacing:.5mm;}
 .step h4{font-size:3.3mm;font-weight:800;margin-top:1.5mm;}
-.step p{font-size:2.65mm;line-height:1.4;color:#8A8794;margin-top:1mm;}
+.step p{font-size:2.65mm;line-height:1.4;color:#6B6875;margin-top:1mm;}
 .step:last-child{border-color:rgba(255,140,26,.5);}
 /* platforms */
 .plats{margin-top:4.5mm;display:flex;align-items:center;gap:2.5mm;flex-wrap:wrap;}
 .plats .pl{font-size:2.8mm;letter-spacing:.4mm;color:#8A8794;}
-.chip{border:0.3mm solid #242429;background:#0E0E11;border-radius:20mm;padding:1.5mm 3.8mm;font-size:2.9mm;font-weight:700;color:#D9D5E6;}
+.chip{border:0.3mm solid #E5E2DD;background:#F7F5F2;border-radius:20mm;padding:1.5mm 3.8mm;font-size:2.9mm;font-weight:700;color:#2A2833;}
 .chip.more{color:#8A8794;font-weight:500;border-style:dashed;}
 
 /* CTA band */
-.cta{margin-top:5mm;background:linear-gradient(90deg,rgba(255,140,26,.14),rgba(255,107,53,.05));
+.cta{margin-top:5mm;background:linear-gradient(90deg,rgba(255,140,26,.10),rgba(255,107,53,.04));
   border:0.35mm solid rgba(255,140,26,.45);border-radius:4mm;padding:4mm 6mm;display:flex;align-items:center;gap:6mm;}
 .cta .qr{width:24mm;height:24mm;background:#fff;border-radius:2.5mm;padding:1.6mm;display:block;}
 .cta .txt{flex:1;}
 .cta .txt h3{font-size:5.2mm;font-weight:900;letter-spacing:-0.2mm;}
-.cta .txt p{font-size:3.2mm;color:#B8B8B8;margin-top:1.5mm;line-height:1.5;}
-.cta .btn{background:linear-gradient(90deg,#ff8c1a,#ff6b35);color:#08080A;font-weight:800;font-size:3.9mm;
+.cta .txt p{font-size:3.2mm;color:#55525E;margin-top:1.5mm;line-height:1.5;}
+.cta .btn{background:linear-gradient(90deg,#ff8c1a,#ff6b35);color:#FFFFFF;font-weight:800;font-size:3.9mm;
   border-radius:2.5mm;padding:3.5mm 6mm;white-space:nowrap;text-align:center;}
 .cta .btn small{display:block;font-size:2.6mm;font-weight:700;margin-top:0.6mm;}
 
 /* MG footer */
-.mgfoot{margin-top:auto;margin-left:-12mm;margin-right:-12mm;background:#0E0E11;border-top:0.3mm solid #242429;
+.mgfoot{margin-top:auto;margin-left:-12mm;margin-right:-12mm;background:#F7F5F2;border-top:0.3mm solid #E5E2DD;
   padding:3.8mm 12mm 4.2mm;display:flex;align-items:center;gap:4mm;}
 .mgfoot img{height:9.5mm;}
-.mgfoot .t{font-size:2.8mm;color:#8A8794;line-height:1.5;}
-.mgfoot .t b{color:#FAFAFA;font-size:3.1mm;letter-spacing:.2mm;}
-.mgfoot .ev{margin-left:auto;text-align:right;font-size:2.7mm;color:#8A8794;line-height:1.6;white-space:nowrap;}
+.mgfoot .t{font-size:2.8mm;color:#6B6875;line-height:1.5;}
+.mgfoot .t b{color:#131313;font-size:3.1mm;letter-spacing:.2mm;}
+.mgfoot .ev{margin-left:auto;text-align:right;font-size:2.7mm;color:#6B6875;line-height:1.6;white-space:nowrap;}
 .mgfoot .ev b{color:#ff8c1a;}
 </style></head><body>
 
@@ -110,9 +110,9 @@ body{font-family:'Inter',sans-serif;}
       <rect x="16" y="24" width="4" height="14" rx="1.5" fill="url(#mGrad)"/>
       <rect x="24" y="16" width="4" height="22" rx="1.5" fill="url(#mGrad)"/>
       <rect x="32" y="6" width="4" height="32" rx="1.5" fill="url(#mGrad)"/>
-      <text x="50" y="28" font-family="Inter" font-weight="800" font-size="21" letter-spacing="-0.6" fill="#ffffff">Matatah</text>
+      <text x="50" y="28" font-family="Inter" font-weight="800" font-size="21" letter-spacing="-0.6" fill="#0A0A0A">Matatah</text>
     </svg>
-    <div class="mgpill"><img src="../mg-logo-dark.png"><div class="t">From the family of<b>MANTRALAYA GROUP</b></div></div>
+    <div class="mgpill"><img src="../mg-logo.png"><div class="t">From the family of<b>MANTRALAYA GROUP</b></div></div>
   </div>
 
   <div class="badge mono"><span class="dot"></span>10% INTERVIEW RATE — INDUSTRY AVG UNDER 2%</div>
@@ -182,7 +182,7 @@ body{font-family:'Inter',sans-serif;}
   </div>
 
   <div class="mgfoot">
-    <img src="../mg-logo-dark.png">
+    <img src="../mg-logo.png">
     <div class="t"><b>MANTRALAYA GROUP</b><br>Proudly supporting innovation from our family — built by Revanth, Founder &amp; AI Engineer.</div>
     <div class="ev"><b>HIPLEX 2026</b> · Hitex, Hyderabad<br>Stalls C 05 &amp; C 06 · Hall 4</div>
   </div>
