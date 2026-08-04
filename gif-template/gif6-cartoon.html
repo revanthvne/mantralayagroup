@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cycle:7s}
+body{width:640px;height:640px;overflow:hidden;position:relative;font-family:'Montserrat',sans-serif;
+ background:radial-gradient(ellipse 100% 60% at 50% 0%, #FFE9C7, #F9D9A0 55%, #E8B96B);}
+/* vintage rings */
+.ring{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);border-radius:50%;border:3px solid rgba(168,11,11,0.18)}
+.r1{width:560px;height:560px}.r2{width:460px;height:460px;border-color:rgba(216,60,0,0.15)}.r3{width:360px;height:360px;border-color:rgba(240,120,0,0.14)}
+.title{position:absolute;top:44px;width:100%;text-align:center;font-family:'Luckiest Guy',cursive;font-size:47px;color:#A80B0B;text-shadow:3px 3px 0 #FFC46B;letter-spacing:2px;
+ animation:wob var(--cycle) ease infinite}
+@keyframes wob{0%,100%{transform:rotate(-1.6deg) scale(1)}50%{transform:rotate(1.6deg) scale(1.04)}}
+.sub{position:absolute;top:106px;width:100%;text-align:center;font-size:19px;font-weight:900;letter-spacing:5px;color:#8A4B00}
+/* road */
+.road{position:absolute;bottom:150px;left:0;right:0;height:66px;background:#C99B5F;border-top:5px solid #A87840}
+.dash{position:absolute;bottom:178px;left:0;width:200%;height:5px;
+ background:repeating-linear-gradient(90deg,#FFF3DC 0 42px,transparent 42px 84px);
+ animation:roadmove 0.7s linear infinite}
+@keyframes roadmove{0%{transform:translateX(0)}100%{transform:translateX(-84px)}}
+/* runner: original granule character */
+.runner{position:absolute;bottom:196px;left:-140px;animation:dash var(--cycle) cubic-bezier(.25,.6,.35,1) infinite}
+@keyframes dash{0%{left:-140px}30%{left:214px}36%{left:238px}40%{left:230px}92%{left:230px}100%{left:700px}}
+.bod{animation:bounce 0.32s ease-in-out infinite alternate}
+@keyframes bounce{0%{transform:translateY(0) rotate(-3deg)}100%{transform:translateY(-9px) rotate(3deg)}}
+/* dust puffs */
+.puff{position:absolute;bottom:190px;width:36px;height:36px;border-radius:50%;background:rgba(255,243,220,0.9);filter:blur(2px);opacity:0;animation:puff var(--cycle) ease-out infinite}
+.pf1{animation-delay:0.15s;left:40px}.pf2{animation-delay:0.55s;left:110px}.pf3{animation-delay:0.95s;left:175px}
+@keyframes puff{0%{opacity:0;transform:scale(0.3)}4%{opacity:0.95}12%{opacity:0;transform:scale(1.7) translateY(-14px)}100%{opacity:0}}
+/* sign the runner stops at */
+.sign{position:absolute;bottom:216px;right:78px;text-align:center;animation:signpop var(--cycle) cubic-bezier(.2,1.5,.4,1) infinite}
+@keyframes signpop{0%,30%{transform:scale(0);opacity:0}38%{transform:scale(1.12);opacity:1}42%{transform:scale(1)}88%{opacity:1;transform:scale(1)}96%,100%{opacity:0}}
+.board{background:#fff;border:5px solid #A80B0B;border-radius:14px;padding:12px 18px;box-shadow:5px 6px 0 rgba(138,75,0,0.35)}
+.board .b1{font-family:'Luckiest Guy',cursive;font-size:29px;color:#D83000}
+.board .b2{font-size:14px;font-weight:900;letter-spacing:2px;color:#10141B;margin-top:2px}
+.post{width:8px;height:52px;background:#8A4B00;margin:0 auto}
+.foot{position:absolute;bottom:84px;width:100%;text-align:center;font-size:17px;font-weight:900;letter-spacing:3px;color:#8A4B00}
+.logo{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);height:46px}
+.meep{position:absolute;bottom:300px;left:300px;font-family:'Luckiest Guy',cursive;font-size:26px;color:#A80B0B;opacity:0;transform:rotate(-8deg);animation:meep var(--cycle) ease infinite}
+@keyframes meep{40%{opacity:0;transform:rotate(-8deg) scale(0.4)}46%{opacity:1;transform:rotate(-8deg) scale(1.1)}52%{opacity:1}60%{opacity:0}100%{opacity:0}}
+</style></head><body>
+<div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+<div class="title">CATCH US IF YOU CAN!</div>
+<div class="sub">HIPLEX 2026 · HYDERABAD</div>
+<div class="road"></div><div class="dash"></div>
+<div class="puff pf1"></div><div class="puff pf2"></div><div class="puff pf3"></div>
+<div class="runner"><div class="bod">
+<svg width="120" height="110" viewBox="0 0 120 110">
+  <ellipse cx="60" cy="98" rx="34" ry="7" fill="rgba(138,75,0,0.25)"/>
+  <circle cx="60" cy="50" r="34" fill="#F07800" stroke="#A80B0B" stroke-width="5"/>
+  <circle cx="49" cy="42" r="6.5" fill="#fff"/><circle cx="71" cy="42" r="6.5" fill="#fff"/>
+  <circle cx="51" cy="43" r="3" fill="#10141B"/><circle cx="73" cy="43" r="3" fill="#10141B"/>
+  <path d="M48 62 Q60 74 72 62" stroke="#10141B" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <line x1="42" y1="82" x2="30" y2="100" stroke="#10141B" stroke-width="6" stroke-linecap="round"/>
+  <line x1="76" y1="82" x2="88" y2="98" stroke="#10141B" stroke-width="6" stroke-linecap="round"/>
+  <line x1="30" y1="58" x2="12" y2="48" stroke="#10141B" stroke-width="6" stroke-linecap="round"/>
+  <line x1="90" y1="58" x2="106" y2="66" stroke="#10141B" stroke-width="6" stroke-linecap="round"/>
+</svg>
+</div></div>
+<div class="meep">ZOOM&nbsp;ZOOM!</div>
+<div class="sign"><div class="board"><div class="b1">STALLS C 05 &amp; C 06</div><div class="b2">HALL 4 · 7&ndash;10 AUG</div></div><div class="post"></div></div>
+<div class="foot">EVERY POLYMER · ONE COUNTER</div>
+<img class="logo" src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/mg-logo.png">
+</body></html>
