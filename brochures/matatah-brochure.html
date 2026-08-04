@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'Montserrat';src:url('file:///tmp/Montserrat.ttf');font-weight:100 900;}
+@font-face{font-family:'Playfair';src:url('file:///tmp/Playfair.ttf');font-weight:400 900;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+@page{size:210mm 297mm;margin:0;}
+body{font-family:'Montserrat',sans-serif;}
+.page{width:210mm;height:297mm;overflow:hidden;position:relative;page-break-after:always;}
+
+/* ---------- PAGE 1 : DARK HERO ---------- */
+.p1{background:#0E0B1E;color:#fff;padding:11mm 14mm 10mm;display:flex;flex-direction:column;}
+.p1::before{content:'';position:absolute;top:-60mm;right:-60mm;width:150mm;height:150mm;border-radius:50%;
+  background:radial-gradient(circle,rgba(99,82,255,.28),transparent 65%);}
+.p1::after{content:'';position:absolute;bottom:-50mm;left:-40mm;width:120mm;height:120mm;border-radius:50%;
+  background:radial-gradient(circle,rgba(240,120,0,.14),transparent 65%);}
+.topbar{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;}
+.wordmark{font-weight:800;font-size:9.5mm;letter-spacing:.5mm;}
+.wordmark span{background:linear-gradient(90deg,#8B7CFF,#C9BFFF);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.mgpill{display:flex;align-items:center;gap:3mm;background:rgba(255,255,255,.07);border:0.3mm solid rgba(255,255,255,.18);
+  border-radius:20mm;padding:2.2mm 4.5mm 2.2mm 2.8mm;}
+.mgpill img{height:9mm;display:block;}
+.mgpill .t{font-size:2.9mm;font-weight:600;line-height:1.35;color:#E8E4FF;}
+.mgpill .t b{display:block;font-size:3.2mm;color:#fff;}
+.hero{position:relative;z-index:2;margin-top:8mm;}
+.kicker{display:inline-block;background:linear-gradient(90deg,#6352FF,#9B4DFF);border-radius:20mm;
+  padding:1.8mm 5mm;font-size:3.3mm;font-weight:700;letter-spacing:.4mm;text-transform:uppercase;}
+.hero h1{font-family:'Playfair',serif;font-weight:800;font-size:14.5mm;line-height:1.06;margin-top:4.5mm;}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#A18CFF,#F5A45C);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero p{margin-top:4mm;font-size:3.8mm;line-height:1.55;color:#CFC9E8;max-width:172mm;}
+.hero p b{color:#fff;}
+.stats{position:relative;z-index:2;display:flex;gap:5mm;margin-top:6.5mm;}
+.stat{flex:1;background:rgba(255,255,255,.055);border:0.3mm solid rgba(255,255,255,.14);border-radius:4mm;padding:4.2mm 5mm;}
+.stat .n{font-size:9mm;font-weight:800;background:linear-gradient(90deg,#A18CFF,#E4DBFF);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.stat .l{font-size:3.1mm;font-weight:600;color:#BBB2DD;margin-top:1.5mm;line-height:1.4;}
+.feats{position:relative;z-index:2;margin-top:6.5mm;}
+.feats h2{font-size:5.8mm;font-weight:800;margin-bottom:4mm;}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:4mm;}
+.fcard{background:rgba(255,255,255,.05);border:0.3mm solid rgba(255,255,255,.12);border-radius:4mm;padding:4.5mm 5mm 4.2mm;display:flex;gap:4mm;align-items:flex-start;}
+.fcard .ic{flex:0 0 9mm;width:9mm;height:9mm;border-radius:2.5mm;background:linear-gradient(135deg,#6352FF,#9B4DFF);
+  display:flex;align-items:center;justify-content:center;}
+.fcard .ic svg{width:5mm;height:5mm;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.fcard h3{font-size:3.9mm;font-weight:700;margin-bottom:1.5mm;}
+.fcard p{font-size:3.1mm;line-height:1.5;color:#C4BDE2;}
+.proof{position:relative;z-index:2;margin-top:6.5mm;margin-bottom:5mm;}
+.proof .ph{font-size:3.4mm;font-weight:700;letter-spacing:.5mm;text-transform:uppercase;color:#9C92C8;margin-bottom:3mm;}
+.prow{display:flex;gap:4mm;}
+.pcard{flex:1;background:rgba(255,255,255,.05);border:0.3mm solid rgba(255,255,255,.12);border-radius:3.5mm;padding:3.8mm 4.5mm;display:flex;align-items:center;gap:3.5mm;}
+.pcard .av{width:8mm;height:8mm;border-radius:2.2mm;background:linear-gradient(135deg,#F07800,#D83000);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:4mm;}
+.pcard .pt{font-size:3.1mm;line-height:1.4;color:#C4BDE2;}
+.pcard .pt b{display:block;font-size:3.4mm;color:#fff;}
+.p1foot{position:relative;z-index:2;margin-top:auto;display:flex;align-items:center;gap:6mm;
+  background:linear-gradient(90deg,rgba(99,82,255,.22),rgba(155,77,255,.10));border:0.3mm solid rgba(255,255,255,.16);
+  border-radius:4.5mm;padding:4mm 6mm;}
+.p1foot img.qr{width:21mm;height:21mm;border-radius:2.5mm;background:#fff;padding:1.5mm;}
+.p1foot .txt{flex:1;}
+.p1foot .txt h3{font-size:5mm;font-weight:800;}
+.p1foot .txt p{font-size:3.4mm;color:#CFC9E8;margin-top:1.5mm;line-height:1.5;}
+.p1foot .url{font-size:4.6mm;font-weight:800;letter-spacing:.3mm;color:#fff;white-space:nowrap;}
+
+/* ---------- PAGE 2 : LIGHT ---------- */
+.p2{background:#FBF7F0;color:#191428;padding:10mm 14mm 0;display:flex;flex-direction:column;}
+.sechead{font-size:6mm;font-weight:800;margin-bottom:4mm;}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;}
+.step{background:#fff;border:0.3mm solid #E7DFD2;border-radius:4mm;padding:4mm 4mm 3.6mm;}
+.step .num{font-family:'Playfair',serif;font-size:7.5mm;font-weight:800;color:#6352FF;}
+.step h4{font-size:3.6mm;font-weight:700;margin:2mm 0 1.6mm;}
+.step p{font-size:2.95mm;line-height:1.5;color:#5A5470;}
+.plats{margin-top:6mm;}
+.pgrid{display:flex;flex-wrap:wrap;gap:2.8mm;}
+.chip{background:#fff;border:0.3mm solid #E2D9C9;border-radius:20mm;padding:2mm 4.5mm;font-size:3.3mm;font-weight:700;color:#2A2440;}
+.chip small{font-weight:500;color:#8A8399;font-size:2.9mm;}
+.pnote{font-size:3mm;color:#6E6885;margin-top:2.2mm;}
+.founder{margin-top:5mm;background:#131022;color:#fff;border-radius:5mm;padding:4.5mm 6mm;display:flex;gap:6mm;align-items:center;}
+.founder .q{flex:1.6;}
+.founder .q .mark{font-family:'Playfair',serif;font-size:11mm;line-height:0;color:#8B7CFF;display:block;margin-bottom:3.5mm;}
+.founder .q p{font-size:3.4mm;line-height:1.55;color:#DDD8F2;}
+.founder .q .who{margin-top:3.5mm;font-size:3.3mm;font-weight:700;}
+.founder .q .who span{font-weight:500;color:#A79ED0;}
+.fstats{flex:1;display:flex;flex-direction:column;gap:3.5mm;}
+.fstat{background:rgba(255,255,255,.07);border-radius:3mm;padding:2.6mm 4.5mm;display:flex;align-items:baseline;gap:3mm;}
+.fstat .n{font-size:6mm;font-weight:800;color:#A18CFF;min-width:14mm;}
+.fstat .l{font-size:3mm;color:#C7C0E5;line-height:1.4;}
+.bottom{margin-top:5mm;margin-bottom:5mm;display:flex;gap:6mm;align-items:stretch;}
+.freebox{flex:1;background:#fff;border:0.45mm solid #6352FF;border-radius:5mm;padding:5mm 6mm;}
+.freebox .tag{display:inline-block;background:#EEEAFF;color:#5546E8;font-size:3mm;font-weight:800;letter-spacing:.4mm;
+  border-radius:20mm;padding:1.5mm 4mm;text-transform:uppercase;}
+.freebox h3{font-size:6.4mm;font-weight:800;margin-top:3mm;}
+.freebox h3 span{font-size:3.6mm;font-weight:600;color:#6E6885;}
+.freebox ul{list-style:none;margin-top:3.5mm;}
+.freebox li{font-size:3.2mm;line-height:1.75;color:#3A3450;padding-left:6mm;position:relative;}
+.freebox li::before{content:'✓';position:absolute;left:0;color:#6352FF;font-weight:800;}
+.qrbox{flex:1;background:linear-gradient(135deg,#6352FF,#9B4DFF);border-radius:5mm;padding:6mm;color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.qrbox img{width:27mm;height:27mm;background:#fff;border-radius:3.5mm;padding:2mm;}
+.qrbox h3{font-size:4.6mm;font-weight:800;margin-top:3mm;}
+.qrbox .u{font-size:4.2mm;font-weight:800;letter-spacing:.4mm;margin-top:1.5mm;}
+.qrbox p{font-size:3.1mm;margin-top:1.5mm;color:#EDE8FF;}
+.mgfoot{margin-top:auto;margin-left:-14mm;margin-right:-14mm;background:linear-gradient(90deg,#A80B0B,#D83000,#F07800);
+  padding:4mm 14mm;display:flex;align-items:center;gap:5mm;color:#fff;}
+.mgfoot img{height:11mm;}
+.mgfoot .t{font-size:3.4mm;line-height:1.5;font-weight:600;}
+.mgfoot .t b{font-size:3.9mm;display:block;}
+.mgfoot .ev{margin-left:auto;text-align:right;font-size:3.1mm;font-weight:700;line-height:1.55;white-space:nowrap;}
+</style></head><body>
+
+<!-- PAGE 1 -->
+<div class="page p1">
+  <div class="topbar">
+    <div class="wordmark"><span>MATATAH</span></div>
+    <div class="mgpill"><img src="../mg-logo-dark.png"><div class="t">From the family of<b>MANTRALAYA GROUP</b></div></div>
+  </div>
+  <div class="hero">
+    <div class="kicker">AI Job-Search Copilot</div>
+    <h1>Get hired.<br><em>Stop filling forms.</em></h1>
+    <p>Job hunting is exhausting — the tabs, the forms, the silence. <b>Matatah</b> carries that weight for you.
+    It scans <b>500+ company job boards</b>, AI-scores every role against your resume, writes a tailored resume and
+    cover letter for each one, and auto-fills the entire application. <b>You just review and press Submit.</b></p>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">10%</div><div class="l">Interview rate with Matatah<br>industry average is under 2%</div></div>
+    <div class="stat"><div class="n">&lt;60s</div><div class="l">To generate a fully tailored<br>resume &amp; cover letter</div></div>
+    <div class="stat"><div class="n">500+</div><div class="l">Company job boards<br>scanned for real matches</div></div>
+  </div>
+  <div class="feats">
+    <h2>Why job seekers love it</h2>
+    <div class="fgrid">
+      <div class="fcard"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="#fff"/></svg></div><div><h3>AI-Powered Matching</h3><p>Every role is scored against your profile before you see it. Only real matches surface — not keyword noise.</p></div></div>
+      <div class="fcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2 L5 14 L11 14 L10 22 L19 9 L13 9 Z"/></svg></div><div><h3>Zero Form Fatigue</h3><p>No more 45-minute application forms. The Chrome extension fills every field — even the custom questions.</p></div></div>
+      <div class="fcard"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="12" height="12" rx="2"/><path d="M8 20 L18 20 A2 2 0 0 0 20 18 L20 8"/></svg></div><div><h3>Batch Apply</h3><p>Pick your shortlist. Matatah opens each application, fills it, and waits for your review — it never submits without you.</p></div></div>
+      <div class="fcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20 L8 19 L20 7 L17 4 L5 16 Z"/><path d="M14 7 L17 10"/></svg></div><div><h3>Tailored Every Time</h3><p>Generic applications get auto-rejected. Every submission gets a resume and cover letter rewritten for that exact role.</p></div></div>
+    </div>
+  </div>
+  <div class="proof">
+    <div class="ph">Real interviews secured using Matatah</div>
+    <div class="prow">
+      <div class="pcard"><div class="av">F</div><div class="pt"><b>Fireworks AI</b>Solutions Architect · Technical discussion</div></div>
+      <div class="pcard"><div class="av">V</div><div class="pt"><b>Vanta</b>Engineering · Recruiter screen</div></div>
+      <div class="pcard"><div class="av">H</div><div class="pt"><b>Hardware Startup</b>Product Manager · Outreach</div></div>
+    </div>
+  </div>
+  <div class="p1foot">
+    <img class="qr" src="../posters/qr-matatah.png">
+    <div class="txt"><h3>Free to start. No card needed.</h3><p>Scan the code, drop your resume — takes 30 seconds.</p></div>
+    <div class="url">matatah.com</div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page p2">
+  <div>
+    <div class="sechead">Four steps. That's it.</div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h4>Upload your resume</h4><p>PDF, DOCX or pasted text. Skills, experience and preferences extracted automatically.</p></div>
+      <div class="step"><div class="num">02</div><h4>Find jobs</h4><p>Matatah scans 500+ company boards and AI-scores every opening against your profile.</p></div>
+      <div class="step"><div class="num">03</div><h4>Tailor &amp; apply</h4><p>One click generates a tailored resume + cover letter. The extension autofills the form.</p></div>
+      <div class="step"><div class="num">04</div><h4>You press Submit</h4><p>Review everything and submit yourself. You stay in control — always.</p></div>
+    </div>
+  </div>
+  <div class="plats">
+    <div class="sechead" style="font-size:5.4mm;">Works on every major application system</div>
+    <div class="pgrid">
+      <div class="chip">Workday <small>· Stripe, Amazon, Google</small></div>
+      <div class="chip">Greenhouse <small>· Notion, Figma, Airbnb</small></div>
+      <div class="chip">Lever <small>· Reddit, Dropbox</small></div>
+      <div class="chip">Ashby <small>· Retool, Loom, Brex</small></div>
+      <div class="chip">SmartRecruiters <small>· LinkedIn, Visa</small></div>
+      <div class="chip">iCIMS <small>· Fortune 500</small></div>
+      <div class="chip">Taleo</div>
+      <div class="chip">BambooHR</div>
+    </div>
+    <div class="pnote">+ hundreds of custom company career portals built on these platforms.</div>
+  </div>
+  <div class="founder">
+    <div class="q"><span class="mark">“</span>
+      <p>I built Matatah and used it myself first. Forty applications in, I was already in active interview
+      pipelines at AI companies in the US. The approach works — I built Matatah so you don't have to figure
+      it out the hard way.</p>
+      <div class="who">Revanth <span>· Founder &amp; AI Engineer</span></div>
+    </div>
+    <div class="fstats">
+      <div class="fstat"><div class="n">40</div><div class="l">applications sent using Matatah</div></div>
+      <div class="fstat"><div class="n">3</div><div class="l">active interview pipelines secured</div></div>
+      <div class="fstat"><div class="n">120h</div><div class="l">saved in a single job-search sprint</div></div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="freebox">
+      <div class="tag">Always Free to Try</div>
+      <h3>$0 <span>/ month — no card needed</span></h3>
+      <ul>
+        <li>Daily job scan with 10 AI-scored matches</li>
+        <li>3 AI-tailored resumes &amp; cover letters</li>
+        <li>Batch apply with Chrome extension autofill</li>
+        <li>Upgrade anytime — Pro from $29/month</li>
+      </ul>
+    </div>
+    <div class="qrbox">
+      <img src="../posters/qr-matatah.png">
+      <h3>Scan to start free</h3>
+      <div class="u">matatah.com</div>
+      <p>Know someone job hunting? Share this page.</p>
+    </div>
+  </div>
+  <div class="mgfoot">
+    <img src="../mg-logo-dark.png">
+    <div class="t"><b>MANTRALAYA GROUP</b>Proudly supporting innovation from our family — on and beyond the shop floor.</div>
+    <div class="ev">HIPLEX 2026 · Hitex, Hyderabad<br>Visit us — Stalls C 05 &amp; C 06 · Hall 4</div>
+  </div>
+</div>
+
+</body></html>
