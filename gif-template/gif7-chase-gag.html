@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cycle:10s}
+body{width:640px;height:640px;overflow:hidden;position:relative;font-family:'Montserrat',sans-serif;
+ background:radial-gradient(ellipse 100% 60% at 50% 0%, #FFE9C7, #F9D9A0 55%, #E8B96B);}
+.title{position:absolute;top:38px;width:100%;text-align:center;font-family:'Luckiest Guy',cursive;font-size:44px;color:#A80B0B;text-shadow:3px 3px 0 #FFC46B;animation:wob var(--cycle) ease infinite}
+@keyframes wob{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}}
+.sub{position:absolute;top:96px;width:100%;text-align:center;font-size:17px;font-weight:900;letter-spacing:5px;color:#8A4B00}
+.road{position:absolute;bottom:150px;left:0;right:0;height:66px;background:#C99B5F;border-top:5px solid #A87840}
+.dash{position:absolute;bottom:178px;left:0;width:200%;height:5px;background:repeating-linear-gradient(90deg,#FFF3DC 0 42px,transparent 42px 84px);animation:roadmove 0.6s linear infinite}
+@keyframes roadmove{0%{transform:translateX(0)}100%{transform:translateX(-84px)}}
+/* runner (chased) */
+.runner{position:absolute;bottom:198px;left:-130px;z-index:4;animation:r1 var(--cycle) linear infinite}
+@keyframes r1{0%{left:-130px}12%{left:700px}30%{left:700px}34%{left:-130px}46%{left:216px}50%{left:236px}90%{left:236px}100%{left:700px}}
+.bod{animation:bounce 0.3s ease-in-out infinite alternate}
+@keyframes bounce{0%{transform:translateY(0) rotate(-3deg)}100%{transform:translateY(-8px) rotate(3deg)}}
+/* chaser */
+.chaser{position:absolute;bottom:194px;left:-190px;z-index:4;animation:c1 var(--cycle) linear infinite}
+@keyframes c1{0%{left:-190px}5%{left:-190px}17%{left:700px}30%{left:700px}36%{left:-190px}52%{left:120px}56%{left:168px}58%{left:160px}90%{left:160px}100%{left:-190px}}
+.cbod{animation:lunge 0.34s ease-in-out infinite alternate}
+@keyframes lunge{0%{transform:translateY(0) rotate(4deg)}100%{transform:translateY(-7px) rotate(-4deg)}}
+/* bonk squash on chaser at impact */
+.squash{animation:squash var(--cycle) linear infinite}
+@keyframes squash{0%,55%{transform:scaleX(1) scaleY(1)}57%{transform:scaleX(1.45) scaleY(0.62)}60%{transform:scaleX(0.92) scaleY(1.08)}62%,100%{transform:scaleX(1) scaleY(1)}}
+/* stars after bonk */
+.stars{position:absolute;bottom:300px;left:150px;font-size:30px;opacity:0;z-index:6;animation:stars var(--cycle) ease infinite}
+@keyframes stars{56%{opacity:0;transform:rotate(0)}58%{opacity:1}72%{opacity:1;transform:rotate(360deg) translateY(-10px)}78%{opacity:0}100%{opacity:0}}
+/* BIG MG LOGO — slams down mid-loop, glowing hero */
+.logowrap{position:absolute;bottom:206px;left:50%;transform:translateX(-50%);z-index:5;text-align:center;animation:slam var(--cycle) cubic-bezier(.2,1.3,.4,1) infinite}
+@keyframes slam{0%,40%{transform:translateX(-50%) translateY(-660px)}46%{transform:translateX(-50%) translateY(14px)}49%{transform:translateX(-50%) translateY(-8px)}52%{transform:translateX(-50%) translateY(0)}94%{transform:translateX(-50%) translateY(0)}100%{transform:translateX(-50%) translateY(-660px)}}
+.glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;background:radial-gradient(circle, rgba(240,120,0,0.4), transparent 65%);animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(0.9)}50%{transform:translate(-50%,-50%) scale(1.15)}}
+.card{position:relative;background:#fff;border:6px solid #A80B0B;border-radius:22px;padding:20px 30px;box-shadow:6px 8px 0 rgba(138,75,0,0.35)}
+.card img{height:104px;display:block}
+.card .nm{margin-top:6px;font-size:13px;font-weight:900;letter-spacing:3px;color:#A80B0B}
+/* invite sign appears after bonk */
+.inv{position:absolute;bottom:64px;width:100%;text-align:center;opacity:0;animation:inv var(--cycle) ease infinite;z-index:6}
+@keyframes inv{0%,60%{opacity:0;transform:translateY(16px)}66%{opacity:1;transform:translateY(0)}94%{opacity:1}100%{opacity:0}}
+.inv .l1{font-family:'Luckiest Guy',cursive;font-size:30px;color:#D83000}
+.inv .l2{font-size:15px;font-weight:900;letter-spacing:3px;color:#8A4B00;margin-top:4px}
+</style></head><body>
+<div class="title">EVERYONE ENDS UP HERE!</div>
+<div class="sub">HIPLEX 2026 · HYDERABAD</div>
+<div class="road"></div><div class="dash"></div>
+<div class="runner"><div class="bod">
+<svg width="104" height="96" viewBox="0 0 120 110">
+  <circle cx="60" cy="50" r="32" fill="#F07800" stroke="#A80B0B" stroke-width="5"/>
+  <circle cx="49" cy="42" r="6" fill="#fff"/><circle cx="71" cy="42" r="6" fill="#fff"/>
+  <circle cx="51" cy="43" r="3" fill="#10141B"/><circle cx="73" cy="43" r="3" fill="#10141B"/>
+  <path d="M48 62 Q60 73 72 62" stroke="#10141B" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <line x1="42" y1="80" x2="30" y2="98" stroke="#10141B" stroke-width="6" stroke-linecap="round"/>
+  <line x1="76" y1="80" x2="88" y2="96" stroke="#10141B" stroke-width="6" stroke-linecap="round"/>
+</svg></div></div>
+<div class="chaser"><div class="cbod squash">
+<svg width="128" height="110" viewBox="0 0 140 120">
+  <ellipse cx="70" cy="58" rx="42" ry="36" fill="#5A6472" stroke="#2E3640" stroke-width="5"/>
+  <circle cx="56" cy="48" r="7" fill="#fff"/><circle cx="82" cy="48" r="7" fill="#fff"/>
+  <circle cx="58" cy="50" r="3.4" fill="#10141B"/><circle cx="84" cy="50" r="3.4" fill="#10141B"/>
+  <path d="M52 74 Q70 66 88 74" stroke="#10141B" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M40 30 L52 40 M100 30 L88 40" stroke="#2E3640" stroke-width="6" stroke-linecap="round"/>
+  <line x1="48" y1="90" x2="36" y2="108" stroke="#10141B" stroke-width="6" stroke-linecap="round"/>
+  <line x1="92" y1="90" x2="104" y2="106" stroke="#10141B" stroke-width="6" stroke-linecap="round"/>
+</svg></div></div>
+<div class="stars">✶ ✦ ✶</div>
+<div class="logowrap"><div class="glow"></div>
+  <div class="card"><img src="file:///sessions/stoic-blissful-fermat/mnt/smp-website/mg-logo.png"><div class="nm">MANTRALAYA GROUP</div></div>
+</div>
+<div class="inv"><div class="l1">STALLS C 05 &amp; C 06 · HALL 4</div><div class="l2">7&ndash;10 AUGUST 2026 · HITEX, HYDERABAD</div></div>
+</body></html>
