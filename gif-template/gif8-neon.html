@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Mont';src:url('file:///tmp/Montserrat.ttf');font-weight:100 900;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:640px;height:640px;overflow:hidden;font-family:'Mont',sans-serif;
+  background:radial-gradient(ellipse at 50% 120%,#1A1030 0%,#0A0714 60%,#060410 100%);}
+.stage{position:relative;width:640px;height:640px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;}
+/* faint grid floor */
+.grid{position:absolute;inset:auto 0 0 0;height:200px;opacity:.25;
+  background:linear-gradient(transparent 49%,rgba(255,60,180,.35) 50%,transparent 51%),
+             linear-gradient(90deg,transparent 49%,rgba(80,220,255,.3) 50%,transparent 51%);
+  background-size:100% 40px,40px 100%;
+  transform:perspective(300px) rotateX(60deg) scale(1.4);transform-origin:bottom;}
+/* neon frame */
+.frame{position:absolute;inset:26px;border-radius:26px;border:3px solid rgba(255,60,180,.85);
+  box-shadow:0 0 18px rgba(255,60,180,.55),inset 0 0 18px rgba(255,60,180,.35);
+  animation:framefl 4s infinite;}
+@keyframes framefl{0%,6%,9%,100%{opacity:1}7%,8.2%{opacity:.35}52%,53%{opacity:.6}54%{opacity:1}}
+/* neon headline */
+.neon1{font-weight:900;font-size:92px;letter-spacing:6px;color:#FFD9F1;
+  text-shadow:0 0 8px #FF3CB4,0 0 24px #FF3CB4,0 0 60px #FF3CB4,0 0 110px rgba(255,60,180,.7);
+  animation:fl1 4s infinite;}
+@keyframes fl1{0%,100%{opacity:1}12%,12.8%{opacity:.4}13.6%{opacity:1}64%,64.6%{opacity:.5}65.4%{opacity:1}}
+.neon2{font-weight:800;font-size:56px;letter-spacing:14px;color:#D8FBFF;margin-top:-14px;
+  text-shadow:0 0 8px #35E0FF,0 0 22px #35E0FF,0 0 56px #35E0FF;
+  animation:fl2 4s infinite;}
+@keyframes fl2{0%,100%{opacity:1}30%,30.7%{opacity:.45}31.4%{opacity:1}82%,82.5%{opacity:.55}83%{opacity:1}}
+/* logo signboard */
+.board{background:rgba(255,255,255,.96);border-radius:16px;padding:12px 26px;
+  box-shadow:0 0 22px rgba(255,255,255,.5),0 0 60px rgba(255,60,180,.35);
+  animation:boardglow 4s ease-in-out infinite;}
+.board img{height:64px;display:block;}
+@keyframes boardglow{0%,100%{box-shadow:0 0 22px rgba(255,255,255,.5),0 0 60px rgba(255,60,180,.35)}
+  50%{box-shadow:0 0 30px rgba(255,255,255,.75),0 0 90px rgba(53,224,255,.45)}}
+/* stall pill */
+.pill{border:2.5px solid rgba(53,224,255,.9);border-radius:40px;padding:12px 30px;
+  color:#D8FBFF;font-weight:800;font-size:26px;letter-spacing:2px;white-space:nowrap;
+  text-shadow:0 0 10px #35E0FF;box-shadow:0 0 16px rgba(53,224,255,.5),inset 0 0 14px rgba(53,224,255,.25);
+  animation:pillp 4s ease-in-out infinite;}
+@keyframes pillp{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+.date{color:#FFB8E5;font-weight:700;font-size:22px;letter-spacing:3px;text-shadow:0 0 12px rgba(255,60,180,.8);}
+/* floating particles — periodic 4s */
+.p{position:absolute;border-radius:50%;}
+.p1{width:6px;height:6px;background:#FF3CB4;left:80px;top:120px;box-shadow:0 0 10px #FF3CB4;animation:drift1 4s ease-in-out infinite;}
+.p2{width:5px;height:5px;background:#35E0FF;right:90px;top:160px;box-shadow:0 0 10px #35E0FF;animation:drift2 4s ease-in-out infinite;}
+.p3{width:4px;height:4px;background:#FFD9F1;left:130px;bottom:150px;box-shadow:0 0 8px #FF3CB4;animation:drift2 4s ease-in-out infinite .8s;}
+.p4{width:5px;height:5px;background:#D8FBFF;right:130px;bottom:190px;box-shadow:0 0 8px #35E0FF;animation:drift1 4s ease-in-out infinite 1.6s;}
+@keyframes drift1{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+@keyframes drift2{0%,100%{transform:translateY(0)}50%{transform:translateY(18px)}}
+</style></head><body>
+<div class="stage">
+  <div class="grid"></div>
+  <div class="frame"></div>
+  <div class="p p1"></div><div class="p p2"></div><div class="p p3"></div><div class="p p4"></div>
+  <div style="text-align:center;">
+    <div class="neon1">HIPLEX</div>
+    <div class="neon2">2026</div>
+  </div>
+  <div class="board"><img src="../mg-logo.png"></div>
+  <div class="pill">STALLS C 05 &amp; C 06 · HALL 4</div>
+  <div class="date">7–10 AUG · HITEX, HYDERABAD</div>
+</div>
+</body></html>

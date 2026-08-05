@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Mont';src:url('file:///tmp/Montserrat.ttf');font-weight:100 900;}
+@font-face{font-family:'Play';src:url('file:///tmp/Playfair.ttf');font-weight:400 900;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:640px;height:640px;overflow:hidden;font-family:'Mont',sans-serif;
+  background:radial-gradient(ellipse at 50% 30%,#1C1A16 0%,#100F0C 70%);color:#EFE6D2;}
+.frame{position:absolute;inset:22px;border:1.5px solid rgba(208,171,92,.8);border-radius:6px;}
+.frame2{position:absolute;inset:32px;border:1px solid rgba(208,171,92,.35);border-radius:4px;}
+.corner{position:absolute;width:26px;height:26px;border-color:#D0AB5C;border-style:solid;border-width:0;}
+.c1{left:22px;top:22px;border-left-width:4px;border-top-width:4px;}
+.c2{right:22px;top:22px;border-right-width:4px;border-top-width:4px;}
+.c3{left:22px;bottom:22px;border-left-width:4px;border-bottom-width:4px;}
+.c4{right:22px;bottom:22px;border-right-width:4px;border-bottom-width:4px;}
+.wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;text-align:center;}
+.logobox{background:#F7F1E4;border-radius:14px;padding:12px 26px;box-shadow:0 0 0 1px rgba(208,171,92,.6),0 10px 30px rgba(0,0,0,.5);}
+.logobox img{height:60px;display:block;}
+.small{font-size:15px;font-weight:600;letter-spacing:7px;color:#C9B489;}
+.head{font-family:'Play',serif;font-weight:800;font-size:52px;line-height:1.15;
+  background:linear-gradient(100deg,#8A6B2F 0%,#D0AB5C 18%,#F7E7B5 38%,#FFF8DC 50%,#F7E7B5 62%,#D0AB5C 82%,#8A6B2F 100%);
+  background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shimmer 4s linear infinite;}
+@keyframes shimmer{0%{background-position:125% 0}100%{background-position:-125% 0}}
+.rule{display:flex;align-items:center;gap:14px;}
+.rule .line{width:110px;height:1px;background:linear-gradient(90deg,transparent,#D0AB5C);}
+.rule .line.r{background:linear-gradient(90deg,#D0AB5C,transparent);}
+.rule .dia{width:8px;height:8px;background:#D0AB5C;transform:rotate(45deg);animation:diap 4s ease-in-out infinite;}
+@keyframes diap{0%,100%{box-shadow:0 0 6px rgba(208,171,92,.6)}50%{box-shadow:0 0 16px rgba(247,231,181,.95)}}
+.ev{font-size:26px;font-weight:800;letter-spacing:5px;color:#F7E7B5;}
+.detail{font-size:19px;font-weight:600;letter-spacing:2.5px;color:#C9B489;line-height:1.8;}
+.detail b{color:#F7E7B5;font-weight:800;}
+/* gold dust — periodic */
+.d{position:absolute;border-radius:50%;background:#F7E7B5;}
+.d1{width:4px;height:4px;left:110px;top:150px;animation:dd1 4s ease-in-out infinite;}
+.d2{width:3px;height:3px;right:120px;top:200px;animation:dd2 4s ease-in-out infinite;}
+.d3{width:3px;height:3px;left:160px;bottom:170px;animation:dd2 4s ease-in-out infinite 1s;}
+.d4{width:4px;height:4px;right:150px;bottom:140px;animation:dd1 4s ease-in-out infinite 2s;}
+.d5{width:2.5px;height:2.5px;left:300px;top:110px;animation:dd2 4s ease-in-out infinite 2.6s;}
+@keyframes dd1{0%,100%{transform:translateY(0);opacity:.9}50%{transform:translateY(-26px);opacity:.3}}
+@keyframes dd2{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(20px);opacity:1}}
+</style></head><body>
+<div class="frame"></div><div class="frame2"></div>
+<div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+<div class="d d1"></div><div class="d d2"></div><div class="d d3"></div><div class="d d4"></div><div class="d d5"></div>
+<div class="wrap">
+  <div class="logobox"><img src="../mg-logo.png"></div>
+  <div class="small">MANTRALAYA GROUP</div>
+  <div class="head">The pleasure of<br>your company</div>
+  <div class="rule"><div class="line"></div><div class="dia"></div><div class="line r"></div></div>
+  <div class="ev">HIPLEX 2026</div>
+  <div class="detail"><b>STALLS C 05 &amp; C 06 · HALL 4</b><br>7–10 AUGUST · HITEX, HYDERABAD</div>
+</div>
+</body></html>
