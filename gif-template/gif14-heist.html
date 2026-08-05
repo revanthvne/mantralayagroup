@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Mont';src:url('file:///tmp/Montserrat.ttf');font-weight:100 900;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:640px;height:640px;overflow:hidden;font-family:'Mont',sans-serif;
+  background:linear-gradient(#0B1026 0%,#14204A 55%,#1B2A5E 100%);position:relative;color:#fff;}
+/* retro moon + halftone */
+.moon{position:absolute;right:44px;top:158px;width:96px;height:96px;border-radius:50%;
+  background:radial-gradient(circle at 38% 34%,#FFF3C9,#F5D77A 65%,#D9B44F);box-shadow:0 0 50px rgba(245,215,122,.5);}
+.moon::after{content:'';position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 62% 58%,rgba(180,140,60,.35) 6px,transparent 7px),
+             radial-gradient(circle at 30% 66%,rgba(180,140,60,.3) 9px,transparent 10px),
+             radial-gradient(circle at 70% 30%,rgba(180,140,60,.28) 5px,transparent 6px);}
+/* searchlights sweeping (3s ease loops) */
+.beam{position:absolute;bottom:150px;width:130px;height:420px;opacity:.16;
+  background:linear-gradient(to top,rgba(255,240,180,.9),transparent 80%);
+  clip-path:polygon(42% 100%,58% 100%,100% 0,0 0);transform-origin:bottom center;}
+.bm1{left:60px;animation:sw1 3s ease-in-out infinite;}
+.bm2{right:80px;animation:sw2 3s ease-in-out infinite;}
+@keyframes sw1{0%,100%{transform:rotate(-24deg)}50%{transform:rotate(18deg)}}
+@keyframes sw2{0%,100%{transform:rotate(20deg)}50%{transform:rotate(-16deg)}}
+/* distant skyline */
+.far{position:absolute;left:0;right:0;bottom:170px;height:180px;opacity:.55;
+  background:linear-gradient(#0A0E22,#0A0E22);
+  -webkit-mask:linear-gradient(#000,#000);
+  clip-path:polygon(0 100%,0 60%,6% 60%,6% 34%,13% 34%,13% 58%,20% 58%,20% 20%,29% 20%,29% 52%,36% 52%,36% 38%,45% 38%,45% 62%,53% 62%,53% 26%,62% 26%,62% 50%,70% 50%,70% 36%,79% 36%,79% 58%,87% 58%,87% 30%,95% 30%,95% 54%,100% 54%,100% 100%);}
+/* title */
+.kicker{position:absolute;top:34px;left:0;right:0;text-align:center;font-weight:800;font-size:17px;letter-spacing:6px;color:#F5D77A;}
+.title{position:absolute;top:56px;left:0;right:0;text-align:center;font-weight:900;font-size:41px;letter-spacing:1.5px;white-space:nowrap;
+  color:#FF5A4E;text-shadow:3px 3px 0 #7A1A14,6px 6px 0 rgba(0,0,0,.35);}
+​.subtsh{}.subt{position:absolute;top:112px;text-shadow:0 2px 8px rgba(0,0,0,.9);left:0;right:0;text-align:center;font-weight:700;font-size:16.5px;letter-spacing:2px;color:#CFE0FF;white-space:nowrap;}
+.subt b{color:#F5D77A;}
+/* TOP SECRET stamp */
+.stamp{position:absolute;top:200px;left:56px;border:4px solid #FF5A4E;color:#FF5A4E;font-weight:900;font-size:19px;
+  letter-spacing:3px;padding:6px 14px;transform:rotate(-14deg);border-radius:6px;opacity:.85;animation:stmp 1.5s infinite;}
+@keyframes stmp{0%,100%{opacity:.85}50%{opacity:.45}}
+.logo{position:absolute;bottom:84px;right:36px;z-index:5;background:#fff;border-radius:12px;padding:7px 13px;box-shadow:0 8px 20px rgba(0,0,0,.45);}
+.logo img{height:40px;display:block;}
+/* rooftop strip: buildings 180w + 70 gap = 250 period, static */
+.blds{position:absolute;left:-60px;right:-60px;bottom:64px;height:150px;}
+.bld{position:absolute;bottom:0;width:180px;height:150px;background:linear-gradient(#232B52,#1A2140);border-radius:6px 6px 0 0;
+  box-shadow:inset 0 6px 0 #38416F;}
+.bld .w{position:absolute;width:20px;height:26px;background:#F5D77A;border-radius:3px;opacity:.85;}
+.bld .w:nth-child(odd){opacity:.35;}
+/* runners: traverse 1500px in 6s (250px/s), jump cycle 1s matches 250px building period */
+.chase{position:absolute;bottom:206px;left:0;animation:run 6s linear infinite;}
+@keyframes run{from{transform:translateX(-430px)}to{transform:translateX(1070px)}}
+.runner{position:absolute;bottom:0;}
+.thief{left:150px;animation:jump 1s cubic-bezier(.45,0,.55,1) infinite;}
+.cop{left:0;animation:jump 1s cubic-bezier(.45,0,.55,1) infinite .5s;}
+@keyframes jump{0%,18%{transform:translateY(0) scaleY(1) scaleX(1)}28%{transform:translateY(-8px) scaleY(1.12) scaleX(.94)}
+  50%{transform:translateY(-64px) scaleY(1) scaleX(1) rotate(6deg)}
+  72%{transform:translateY(-8px) scaleY(1.1) scaleX(.95)}82%,100%{transform:translateY(4px) scaleY(.9) scaleX(1.1)}}
+.gr{position:relative;width:84px;height:94px;border-radius:48% 52% 46% 54%;}
+.thief .gr{background:radial-gradient(circle at 34% 28%,#6E7387,#3A3E52 72%);}
+.cop .gr{background:radial-gradient(circle at 34% 28%,#FF9C42,#E86A10 72%);}
+.eye{position:absolute;width:19px;height:19px;background:#fff;border-radius:50%;top:28%;}
+.eye::after{content:'';position:absolute;width:9px;height:9px;background:#17131E;border-radius:50%;left:6px;top:6px;}
+.eL{left:17%}.eR{left:50%}
+/* thief mask */
+.mask{position:absolute;left:6%;top:24%;width:88%;height:26px;background:#17131E;border-radius:12px;}
+.mask .me{position:absolute;width:17px;height:17px;background:#fff;border-radius:50%;top:4px;}
+.mask .me::after{content:'';position:absolute;width:8px;height:8px;background:#17131E;border-radius:50%;left:5px;top:5px;}
+.m1{left:16%}.m2{left:55%}
+/* swag sack */
+.sack{position:absolute;right:-34px;top:-16px;width:52px;height:56px;background:#8A5A2B;border-radius:50% 50% 46% 54%;
+  transform:rotate(14deg);box-shadow:inset 0 -8px 0 rgba(0,0,0,.2);}
+.sack::before{content:'';position:absolute;top:-8px;left:50%;margin-left:-7px;width:14px;height:14px;background:#6E441C;border-radius:4px;}
+.sack span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:#FFE9C2;}
+/* cop cap + badge */
+.cap{position:absolute;top:-20px;left:14%;width:62px;height:26px;background:#1F3C8C;border-radius:14px 14px 4px 4px;}
+.cap::before{content:'';position:absolute;bottom:-7px;left:-6px;width:74px;height:10px;background:#152A66;border-radius:6px;}
+.cap::after{content:'★';position:absolute;left:50%;top:2px;transform:translateX(-50%);color:#F5D77A;font-size:13px;}
+.smile{position:absolute;left:32%;top:58%;width:28px;height:13px;border:4px solid #17131E;border-top:none;border-radius:0 0 26px 26px;}
+.frown{position:absolute;left:34%;top:64%;width:24px;height:11px;border:4px solid #fff;border-bottom:none;border-radius:22px 22px 0 0;}
+/* speech bubbles */
+.bub{position:absolute;background:#FFF6E4;color:#1B2140;font-weight:800;font-size:14px;padding:7px 11px;border-radius:12px;white-space:nowrap;box-shadow:0 4px 10px rgba(0,0,0,.35);}
+.bub::after{content:'';position:absolute;bottom:-8px;left:18px;border:9px solid transparent;border-top-color:#FFF6E4;border-bottom:none;}
+.bubT{top:-52px;left:30px;}
+.bubC{top:-56px;left:-14px;background:#FFD84D;}
+.bubC::after{border-top-color:#FFD84D;}
+/* speed lines */
+.zip{position:absolute;height:5px;border-radius:3px;background:rgba(255,255,255,.4);animation:zipf 1s linear infinite;}
+.z1{width:44px;top:30px;left:-60px}.z2{width:30px;top:58px;left:-48px;animation-delay:.3s}.z3{width:36px;top:80px;left:-56px;animation-delay:.6s}
+@keyframes zipf{0%{opacity:0}30%{opacity:1}100%{opacity:0;transform:translateX(-36px)}}
+/* bottom caption bar */
+.bar{position:absolute;left:0;right:0;bottom:0;height:64px;background:#0A0E22;display:flex;align-items:center;justify-content:center;border-top:3px solid #F5D77A;}
+.bar span{font-weight:800;font-size:13.5px;letter-spacing:1px;color:#F5D77A;white-space:nowrap;animation:barbl 3s infinite;}
+@keyframes barbl{0%,100%{opacity:1}50%{opacity:.75}}
+/* scanlines + vignette for retro feel */
+.scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 2px,transparent 2px 5px);}
+.vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 46%,transparent 55%,rgba(0,0,0,.5) 100%);}
+.flick{position:absolute;inset:0;pointer-events:none;background:#fff;animation:flk 3s infinite;}
+@keyframes flk{0%,96.5%,100%{opacity:0}97.5%{opacity:.05}98.5%{opacity:0}99%{opacity:.04}}
+</style></head><body>
+<div class="moon"></div>
+<div class="beam bm1"></div><div class="beam bm2"></div>
+<div class="far"></div>
+<div class="kicker">A MANTRALAYA GROUP PRODUCTION</div>
+<div class="title">THE GRANULE HEIST</div>
+<div class="subt">MISSION: REACH <b>STALLS C 05 &amp; C 06</b> · HIPLEX 2026</div>
+<div class="stamp">TOP SECRET</div>
+<div class="logo"><img src="../mg-logo.png"></div>
+<div class="blds" id="blds"></div>
+<div class="chase">
+  <div class="runner cop">
+    <div class="bub bubC">STOP… FOR A VISIT!</div>
+    <div class="zip z1"></div><div class="zip z2"></div><div class="zip z3"></div>
+    <div class="gr"><div class="cap"></div><div class="eye eL"></div><div class="eye eR"></div><div class="smile" style="border-color:#17131E;"></div></div>
+  </div>
+  <div class="runner thief">
+    <div class="bub bubT">CATCH ME AT HIPLEX!</div>
+    <div class="gr"><div class="mask"><div class="me m1"></div><div class="me m2"></div></div><div class="smile" style="border-color:#fff;"></div>
+      <div class="sack"><span>PP</span></div></div>
+  </div>
+</div>
+<div class="bar"><span>THIS INVITE WILL SELF-DESTRUCT… JUST KIDDING — 7–10 AUG · HITEX, HYD</span></div>
+<div class="scan"></div><div class="vig"></div><div class="flick"></div>
+<script>
+const b=document.getElementById('blds');
+for(let i=0;i<4;i++){
+  const d=document.createElement('div');d.className='bld';d.style.left=(i*250)+'px';
+  for(let r=0;r<2;r++)for(let c=0;c<4;c++){const w=document.createElement('div');w.className='w';
+    w.style.left=(22+c*38)+'px';w.style.top=(34+r*48)+'px';d.appendChild(w);}
+  b.appendChild(d);
+}
+</script>
+</body></html>
