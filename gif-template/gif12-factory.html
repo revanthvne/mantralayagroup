@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Mont';src:url('file:///tmp/Montserrat.ttf');font-weight:100 900;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:640px;height:640px;overflow:hidden;font-family:'Mont',sans-serif;background:linear-gradient(#2A2440 0%,#3A3054 60%,#221D36 100%);position:relative;color:#fff;}
+/* sign */
+.sign{position:absolute;top:36px;left:50%;transform:translateX(-50%);text-align:center;}
+.sign .t1{font-weight:900;font-size:38px;color:#FFD84D;text-shadow:0 3px 0 rgba(0,0,0,.4);letter-spacing:1px;}
+.sign .t2{font-weight:800;font-size:20px;color:#C9C2E8;letter-spacing:4px;margin-top:6px;}
+.logo{position:absolute;top:162px;left:50%;transform:translateX(-50%);background:#fff;border-radius:12px;padding:8px 18px;box-shadow:0 8px 24px rgba(0,0,0,.45);}
+.logo img{height:46px;display:block;}
+/* windows */
+.win{position:absolute;width:54px;height:70px;background:#191430;border-radius:8px;overflow:hidden;}
+.win::after{content:'';position:absolute;inset:6px;background:linear-gradient(#FFD84D33,#FFD84D0F);border-radius:5px;animation:winfl 3s ease-in-out infinite;}
+.w1{left:46px;top:60px}.w2{left:46px;top:150px}.w3{right:46px;top:60px}.w4{right:46px;top:150px;}
+.w2::after{animation-delay:1.5s}.w3::after{animation-delay:.7s}
+@keyframes winfl{0%,100%{opacity:.5}50%{opacity:1}}
+/* conveyor */
+.convwrap{position:absolute;left:0;right:0;bottom:120px;height:200px;}
+.belt{position:absolute;left:-20px;right:-20px;bottom:0;height:54px;background:#191430;border-radius:14px;
+  box-shadow:inset 0 6px 0 rgba(255,255,255,.06);}
+.belt .dash{position:absolute;inset:20px 0 auto 0;height:8px;
+  background:repeating-linear-gradient(90deg,#57506E 0 40px,transparent 40px 80px);
+  animation:beltmove 1.5s linear infinite;}
+@keyframes beltmove{from{background-position:0 0}to{background-position:-80px 0}}
+.roller{position:absolute;bottom:-14px;width:30px;height:30px;background:#0E0B1E;border:5px solid #57506E;border-radius:50%;animation:roll 1.5s linear infinite;}
+@keyframes roll{to{transform:rotate(360deg)}}
+.roller::after{content:'';position:absolute;left:9px;top:1px;width:4px;height:7px;background:#8B7CFF;border-radius:2px;}
+/* boxes strip: 4 boxes spaced 220px; strip moves one full spacing per 1.5s → seamless */
+.boxes{position:absolute;bottom:50px;left:0;display:flex;gap:60px;animation:boxmove 6s linear infinite;}
+@keyframes boxmove{from{transform:translateX(-160px)}to{transform:translateX(-1040px)}}
+.box{width:160px;height:110px;background:linear-gradient(#E8B96B,#C98F3F);border-radius:10px;position:relative;
+  box-shadow:inset 0 -10px 0 rgba(0,0,0,.15),0 6px 14px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;text-align:center;}
+.box::before{content:'';position:absolute;top:0;left:50%;width:8px;margin-left:-4px;height:100%;background:rgba(120,70,20,.35);}
+.box span{position:relative;background:#FFF6E4;border-radius:8px;padding:8px 12px;font-weight:900;color:#7D4A15;font-size:20px;line-height:1.25;box-shadow:0 3px 8px rgba(0,0,0,.2);}
+/* stamper robot */
+.stamper{position:absolute;left:50%;margin-left:-40px;bottom:160px;width:80px;}
+.arm{width:26px;height:90px;background:#57506E;margin:0 auto;border-radius:8px;}
+.head{width:80px;height:56px;background:#8B7CFF;border-radius:14px;position:relative;margin-top:-6px;
+  animation:stamp 1.5s cubic-bezier(.6,-0.28,.35,1.4) infinite;box-shadow:0 6px 16px rgba(0,0,0,.4);}
+@keyframes stamp{0%,55%,100%{transform:translateY(0)}70%,80%{transform:translateY(58px)}}
+.head .eye{position:absolute;width:18px;height:18px;background:#fff;border-radius:50%;top:12px;animation:rblink 3s infinite;}
+.head .eye::after{content:'';position:absolute;width:8px;height:8px;background:#191430;border-radius:50%;left:5px;top:6px;}
+.eA{left:14px}.eB{left:48px}
+@keyframes rblink{0%,60%,66%,100%{transform:scaleY(1)}63%{transform:scaleY(.1)}}
+.head .mouth{position:absolute;left:28px;bottom:8px;width:24px;height:8px;border:3px solid #191430;border-top:none;border-radius:0 0 20px 20px;}
+/* steam puffs */
+.puff{position:absolute;width:22px;height:22px;background:rgba(255,255,255,.35);border-radius:50%;left:50%;bottom:250px;animation:puff 1.5s ease-out infinite;}
+.p2{animation-delay:.5s;margin-left:16px}.p3{animation-delay:1s;margin-left:-20px}
+@keyframes puff{0%{transform:translateY(0) scale(.4);opacity:.7}100%{transform:translateY(-46px) scale(1.4);opacity:0}}
+/* bottom ticker */
+.ticker{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);background:#FFD84D;color:#221D36;
+  font-weight:900;font-size:21px;letter-spacing:1px;padding:12px 26px;border-radius:40px;white-space:nowrap;
+  box-shadow:0 8px 22px rgba(0,0,0,.4);animation:tbob 1.5s ease-in-out infinite;}
+@keyframes tbob{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.035)}}
+</style></head><body>
+<div class="sign"><div class="t1">FRESH FROM THE FACTORY</div><div class="t2">SEE IT LIVE · HIPLEX 2026</div></div>
+<div class="logo"><img src="../mg-logo.png"></div>
+<div class="win w1"></div><div class="win w2"></div><div class="win w3"></div><div class="win w4"></div>
+<div class="convwrap">
+  <div class="stamper"><div class="arm"></div><div class="head"><div class="eye eA"></div><div class="eye eB"></div><div class="mouth"></div></div></div>
+  <div class="puff"></div><div class="puff p2"></div><div class="puff p3"></div>
+  <div class="boxes">
+    <div class="box"><span>STALL<br>C 05</span></div>
+    <div class="box"><span>STALL<br>C 06</span></div>
+    <div class="box"><span>HALL 4</span></div>
+    <div class="box"><span>7–10<br>AUG</span></div>
+    <div class="box"><span>STALL<br>C 05</span></div>
+    <div class="box"><span>STALL<br>C 06</span></div>
+    <div class="box"><span>HALL 4</span></div>
+    <div class="box"><span>7–10<br>AUG</span></div>
+  </div>
+  <div class="belt"><div class="dash"></div></div>
+  <div class="roller" style="left:70px"></div><div class="roller" style="left:220px"></div>
+  <div class="roller" style="left:380px"></div><div class="roller" style="left:530px"></div>
+</div>
+<div class="ticker">PACKED WITH SURPRISES · HITEX, HYDERABAD</div>
+</body></html>

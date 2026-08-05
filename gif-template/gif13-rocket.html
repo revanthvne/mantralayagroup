@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Mont';src:url('file:///tmp/Montserrat.ttf');font-weight:100 900;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:640px;height:640px;overflow:hidden;font-family:'Mont',sans-serif;
+  background:linear-gradient(#171233 0%,#2C1E52 55%,#5A2E63 100%);position:relative;color:#fff;}
+/* twinkling stars */
+.s{position:absolute;background:#fff;border-radius:50%;animation:tw 3s ease-in-out infinite;}
+@keyframes tw{0%,100%{opacity:.25}50%{opacity:1}}
+/* headline */
+.head{position:absolute;top:44px;left:0;right:0;text-align:center;font-weight:900;font-size:40px;line-height:1.12;
+  color:#FFE9A8;text-shadow:0 3px 0 rgba(0,0,0,.35);}
+.head span{color:#FF9C42;}
+.sub{position:absolute;top:150px;left:0;right:0;text-align:center;font-weight:700;font-size:20px;letter-spacing:3px;color:#C9BFF5;}
+/* flying mascot — figure-8: X 6s, Y 3s */
+.fly{position:absolute;left:50%;top:48%;animation:fx 6s ease-in-out infinite;}
+.flyy{animation:fy 3s ease-in-out infinite;}
+@keyframes fx{0%,100%{transform:translateX(-250px)}50%{transform:translateX(110px)}}
+@keyframes fy{0%,100%{transform:translateY(-85px)}50%{transform:translateY(5px)}}
+.tilt{animation:tl 3s ease-in-out infinite;}
+@keyframes tl{0%,100%{transform:rotate(8deg)}50%{transform:rotate(-10deg)}}
+/* rocket */
+.rocket{position:relative;width:150px;height:110px;}
+.body{position:absolute;left:24px;top:34px;width:110px;height:52px;background:linear-gradient(#F4F0FF,#C9C2E8);border-radius:40px;
+  box-shadow:inset 0 -8px 0 rgba(90,70,140,.25);}
+.nose{position:absolute;right:-16px;top:38px;width:0;height:0;border-top:22px solid transparent;border-bottom:22px solid transparent;border-left:34px solid #E85B4E;}
+.finT{position:absolute;left:14px;top:16px;width:34px;height:30px;background:#E85B4E;border-radius:10px 10px 0 0;transform:skewX(-18deg);}
+.finB{position:absolute;left:14px;bottom:8px;width:34px;height:30px;background:#E85B4E;border-radius:0 0 10px 10px;transform:skewX(18deg);}
+.win{position:absolute;left:70px;top:44px;width:30px;height:30px;background:#8FE0FF;border:5px solid #5A4E8C;border-radius:50%;}
+/* flame */
+.flame{position:absolute;left:-30px;top:40px;width:48px;height:40px;background:radial-gradient(circle at 70% 50%,#FFE9A8,#FF9C42 55%,#E85B4E 85%);
+  border-radius:50% 20% 20% 50%;animation:fl .3s ease-in-out infinite;}
+@keyframes fl{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.35)}}
+/* droplet mascot riding on top */
+.drop{position:absolute;left:52px;top:-38px;width:56px;height:66px;background:radial-gradient(circle at 34% 30%,#FF9C42,#E86A10 75%);
+  border-radius:50% 50% 55% 55%/62% 62% 45% 45%;}
+.drop::before{content:'';position:absolute;top:-14px;left:50%;margin-left:-9px;width:18px;height:22px;background:#E86A10;
+  border-radius:50% 50% 50% 50%/80% 80% 30% 30%;}
+.drop .eye{position:absolute;width:16px;height:16px;background:#fff;border-radius:50%;top:20px;animation:mblink 3s infinite;}
+.drop .eye::after{content:'';position:absolute;width:7px;height:7px;background:#231409;border-radius:50%;left:5px;top:5px;}
+.dL{left:9px}.dR{left:31px}
+@keyframes mblink{0%,70%,76%,100%{transform:scaleY(1)}73%{transform:scaleY(.1)}}
+.drop .grin{position:absolute;left:16px;top:42px;width:24px;height:12px;border:3.5px solid #231409;border-top:none;border-radius:0 0 22px 22px;}
+.arm{position:absolute;width:26px;height:9px;background:#E86A10;border-radius:6px;top:34px;}
+.aL{left:-18px;transform:rotate(35deg);}
+/* sparkles behind rocket */
+.sp{position:absolute;width:10px;height:10px;background:#FFE9A8;border-radius:50%;animation:spk 1s ease-out infinite;}
+.sp2{animation-delay:.33s}.sp3{animation-delay:.66s}
+@keyframes spk{0%{transform:translate(0,0) scale(1);opacity:.9}100%{transform:translate(-60px,10px) scale(.2);opacity:0}}
+/* stall card */
+.card{position:absolute;bottom:44px;left:50%;transform:translateX(-50%);background:#FFF6E4;color:#7D2A1D;border-radius:16px;
+  padding:16px 30px;text-align:center;box-shadow:0 10px 28px rgba(0,0,0,.45);animation:cardbob 3s ease-in-out infinite;}
+@keyframes cardbob{0%,100%{transform:translateX(-50%) translateY(0) rotate(-1deg)}50%{transform:translateX(-50%) translateY(-8px) rotate(1deg)}}
+.card .st{font-weight:900;font-size:23px;white-space:nowrap;}
+.card .dt{font-weight:700;font-size:17px;margin-top:4px;color:#B3222A;letter-spacing:1px;white-space:nowrap;}
+.logo{position:absolute;top:196px;right:48px;background:#fff;border-radius:12px;padding:7px 14px;box-shadow:0 8px 20px rgba(0,0,0,.4);}
+.logo img{height:40px;display:block;}
+</style></head><body>
+<script>
+for(let i=0;i<26;i++){const d=document.createElement('div');d.className='s';const s=2+Math.random()*3;
+d.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*640}px;top:${Math.random()*420}px;animation-delay:${(Math.random()*3).toFixed(2)}s`;
+document.body.appendChild(d);}
+</script>
+<div class="head">BLASTING OFF TO<br><span>HIPLEX 2026!</span></div>
+<div class="sub">CATCH US IF YOU CAN</div>
+<div class="fly"><div class="flyy"><div class="tilt">
+  <div class="rocket">
+    <div class="sp" style="left:-16px;top:46px"></div><div class="sp sp2" style="left:-10px;top:60px"></div><div class="sp sp3" style="left:-14px;top:34px"></div>
+    <div class="flame"></div>
+    <div class="finT"></div><div class="finB"></div>
+    <div class="body"></div><div class="nose"></div><div class="win"></div>
+    <div class="drop"><div class="eye dL"></div><div class="eye dR"></div><div class="grin"></div><div class="arm aL"></div></div>
+  </div>
+</div></div></div>
+<div class="logo"><img src="../mg-logo.png"></div>
+<div class="card"><div class="st">STALLS C 05 &amp; C 06 · HALL 4</div><div class="dt">7–10 AUG · HITEX, HYDERABAD</div></div>
+</body></html>

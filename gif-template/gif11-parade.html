@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Mont';src:url('file:///tmp/Montserrat.ttf');font-weight:100 900;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:640px;height:640px;overflow:hidden;font-family:'Mont',sans-serif;background:linear-gradient(#BDE3FF 0%,#E8F6FF 55%,#FDF3DC 100%);position:relative;}
+/* sun with symmetric rays (12 spokes → 30deg per 6s = seamless) */
+.sun{position:absolute;right:64px;top:58px;width:180px;height:180px;}
+.sun .core{position:absolute;inset:46px;background:#FFD84D;border-radius:50%;box-shadow:0 0 30px rgba(255,200,60,.8);}
+.sun .rays{position:absolute;inset:0;background:repeating-conic-gradient(rgba(255,216,77,.85) 0 15deg,transparent 15deg 30deg);border-radius:50%;animation:sunspin 6s linear infinite;}
+@keyframes sunspin{to{transform:rotate(30deg)}}
+/* clouds drift — full wrap in 6s */
+.cl{position:absolute;background:#fff;border-radius:60px;opacity:.9;}
+.cl::before,.cl::after{content:'';position:absolute;background:#fff;border-radius:50%;}
+.c1{width:120px;height:38px;top:90px;animation:cd 6s linear infinite;}
+.c1::before{width:52px;height:52px;left:18px;top:-22px;}
+.c1::after{width:38px;height:38px;left:60px;top:-14px;}
+.c2{width:90px;height:30px;top:180px;animation:cd 6s linear infinite -3s;}
+.c2::before{width:40px;height:40px;left:14px;top:-16px;}
+@keyframes cd{from{left:-140px}to{left:660px}}
+/* headline */
+.head{position:absolute;top:38px;left:40px;font-weight:900;font-size:34px;color:#B3222A;line-height:1.15;text-shadow:0 2px 0 #fff;}
+.head span{color:#E86A10;}
+/* ground */
+.ground{position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(#8FCB6B,#6FB24C);}
+.ground .stripe{position:absolute;top:26px;left:0;right:0;height:6px;background:rgba(255,255,255,.35);}
+/* parade group marches across (fully offscreen at both ends → seamless) */
+.parade{position:absolute;bottom:96px;left:0;animation:march 6s linear infinite;display:flex;align-items:flex-end;gap:26px;}
+@keyframes march{from{transform:translateX(-430px)}to{transform:translateX(1000px)}}
+.blob{position:relative;border-radius:48% 52% 46% 54%;animation:hop .5s ease-in-out infinite;}
+.blob.b1{width:92px;height:104px;background:radial-gradient(circle at 32% 28%,#FF9C42,#E86A10 70%);}
+.blob.b2{width:104px;height:118px;background:radial-gradient(circle at 32% 28%,#E85B4E,#B3222A 70%);animation-delay:.12s;}
+.blob.b3{width:66px;height:74px;background:radial-gradient(circle at 32% 28%,#FFE3A8,#F0B54A 70%);animation-delay:.24s;}
+@keyframes hop{0%,100%{transform:translateY(0) scaleX(1) scaleY(1)}30%{transform:translateY(-24px) scaleX(.96) scaleY(1.06)}60%{transform:translateY(0) scaleX(1.07) scaleY(.92)}}
+.eye{position:absolute;width:22px;height:22px;background:#fff;border-radius:50%;top:26%;}
+.eye::after{content:'';position:absolute;width:10px;height:10px;background:#231409;border-radius:50%;left:7px;top:7px;}
+.eL{left:18%}.eR{left:52%}
+.blob .eye{animation:blink 6s infinite;}
+@keyframes blink{0%,44%,48%,100%{transform:scaleY(1)}46%{transform:scaleY(.08)}}
+.smile{position:absolute;left:33%;top:56%;width:32px;height:16px;border:4px solid #231409;border-top:none;border-radius:0 0 30px 30px;}
+.b3 .smile{width:22px;height:11px;left:30%;}
+.b3 .eye{width:15px;height:15px;}.b3 .eye::after{width:7px;height:7px;left:4px;top:4px;}
+/* banner between blob1 & blob2 */
+.banner{position:absolute;bottom:118px;left:8px;width:250px;background:#FFF6E4;border:4px solid #B3222A;border-radius:12px;
+  padding:10px 6px;text-align:center;font-weight:900;color:#B3222A;font-size:22px;line-height:1.2;transform:rotate(-2deg);
+  box-shadow:0 6px 14px rgba(60,30,10,.25);animation:bansway .5s ease-in-out infinite;}
+@keyframes bansway{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(-.5deg)}}
+.banner small{display:block;font-size:13px;letter-spacing:2px;color:#E86A10;}
+.pole{position:absolute;bottom:40px;width:7px;height:120px;background:#8A5A2B;border-radius:4px;}
+.pL{left:16px}.pR{left:248px}
+/* flag on baby blob */
+.flag{position:absolute;bottom:78px;left:-4px;width:6px;height:78px;background:#8A5A2B;border-radius:3px;}
+.flag::after{content:'2026';position:absolute;top:2px;left:6px;background:#E86A10;color:#fff;font-weight:900;font-size:14px;padding:4px 8px;border-radius:4px;}
+/* bottom pill */
+.pill{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);background:#B3222A;color:#FFF6E4;font-weight:800;
+  font-size:22px;letter-spacing:1.5px;padding:12px 28px;border-radius:40px;white-space:nowrap;box-shadow:0 8px 20px rgba(120,30,20,.4);
+  animation:pillbob 1s ease-in-out infinite;}
+@keyframes pillbob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
+.logo{position:absolute;top:250px;right:56px;background:#fff;border-radius:12px;padding:8px 14px;box-shadow:0 6px 16px rgba(60,60,90,.2);}
+.logo img{height:44px;display:block;}
+</style></head><body>
+<div class="sun"><div class="rays"></div><div class="core"></div></div>
+<div class="cl c1"></div><div class="cl c2"></div>
+<div class="head">THE GRANULES ARE<br><span>MARCHING TO HIPLEX!</span></div>
+<div class="logo"><img src="../mg-logo.png"></div>
+<div class="ground"><div class="stripe"></div></div>
+<div class="parade">
+  <div class="blob b1"><div class="eye eL"></div><div class="eye eR"></div><div class="smile"></div><div class="pole pL"></div></div>
+  <div class="blob b2"><div class="eye eL"></div><div class="eye eR"></div><div class="smile"></div><div class="pole pR" style="left:auto;right:14px;"></div>
+    <div class="banner" style="left:-150px;">JOIN THE PARADE<small>HIPLEX 2026 · HITEX, HYD</small></div></div>
+  <div class="blob b3"><div class="eye eL"></div><div class="eye eR"></div><div class="smile"></div><div class="flag"></div></div>
+</div>
+<div class="pill">STALLS C 05 &amp; C 06 · HALL 4 · 7–10 AUG</div>
+</body></html>
