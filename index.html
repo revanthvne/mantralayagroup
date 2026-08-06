@@ -1526,6 +1526,109 @@
   </section>
 
   <!-- CONTACT -->
+  <!-- WHATSAPP ONBOARDING -->
+  <section class="wa-onboard-wrap" id="whatsapp-onboard">
+    <style>
+      .wa-onboard-wrap{padding:100px 0;background:linear-gradient(135deg,#FDF8F0 0%,#F7EFE2 100%);position:relative;overflow:hidden;}
+      .wa-onboard-wrap::before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;right:-140px;top:-140px;background:radial-gradient(circle,rgba(37,211,102,0.10),transparent 70%);}
+      .wa-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+      @media(max-width:900px){.wa-grid{grid-template-columns:1fr;}}
+      .wa-card{background:#fff;border-radius:20px;padding:36px 34px;box-shadow:0 20px 60px rgba(80,40,10,0.12);border-top:5px solid #25D366;}
+      .wa-card h3{font-size:1.35rem;margin-bottom:6px;color:#2B1B10;}
+      .wa-card .wa-sub{font-size:.92rem;color:#8A7A66;margin-bottom:22px;}
+      .wa-card label{display:block;font-size:.82rem;font-weight:700;color:#6E5A44;margin:14px 0 6px;letter-spacing:.4px;}
+      .wa-card input,.wa-card select,.wa-card textarea{width:100%;padding:13px 16px;border:1.5px solid #E6DCCB;border-radius:10px;font-family:inherit;font-size:.95rem;color:#2B1B10;background:#FDFBF7;outline:none;transition:border .2s;}
+      .wa-card input:focus,.wa-card select:focus,.wa-card textarea:focus{border-color:#25D366;}
+      .wa-card textarea{min-height:84px;resize:vertical;}
+      .wa-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+      @media(max-width:560px){.wa-row{grid-template-columns:1fr;}}
+      .wa-btn{margin-top:22px;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;font-weight:800;font-size:1rem;padding:15px 20px;border:none;border-radius:12px;cursor:pointer;transition:transform .15s,box-shadow .2s;box-shadow:0 10px 26px rgba(37,211,102,.35);}
+      .wa-btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(37,211,102,.45);}
+      .wa-btn i{font-size:1.3rem;}
+      .wa-note{font-size:.78rem;color:#A08F79;margin-top:12px;text-align:center;}
+      .wa-err{display:none;margin-top:14px;background:#FDECEC;color:#B3222A;border:1px solid #F2C4C4;border-radius:10px;padding:10px 14px;font-size:.85rem;}
+      .wa-steps{list-style:none;margin:26px 0 0;padding:0;}
+      .wa-steps li{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px;}
+      .wa-steps .n{flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#A80B0B,#F07800);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.9rem;}
+      .wa-steps p{margin:4px 0 0;color:#6E5A44;font-size:.92rem;line-height:1.55;}
+      .wa-steps h5{margin:6px 0 0;font-size:1rem;color:#2B1B10;}
+    </style>
+    <div class="container">
+      <div class="wa-grid">
+        <div class="fade-left">
+          <div class="section-label">Get Started</div>
+          <h2 class="section-title">Onboard as a Customer on WhatsApp</h2>
+          <p class="section-subtitle">Tell us what you need &mdash; we reply on WhatsApp</p>
+          <div class="section-line"></div>
+          <p class="section-desc">Share a few details and your product requirement. Your message opens directly in WhatsApp with our team, and we'll take it from there &mdash; pricing, availability, delivery and credit options.</p>
+          <ul class="wa-steps">
+            <li><div class="n">1</div><div><h5>Fill in your details</h5><p>Name, enterprise, email, contact number and what you're looking for.</p></div></li>
+            <li><div class="n">2</div><div><h5>Tap "Start on WhatsApp"</h5><p>Your enquiry opens in WhatsApp, pre-filled and ready to send.</p></div></li>
+            <li><div class="n">3</div><div><h5>We take it from there</h5><p>Our team responds with prices, stock and next steps &mdash; usually the same day.</p></div></li>
+          </ul>
+        </div>
+        <div class="wa-card fade-right">
+          <h3>Start your enquiry</h3>
+          <div class="wa-sub">Takes less than a minute &mdash; no account needed.</div>
+          <form id="waOnboardForm" novalidate>
+            <div class="wa-row">
+              <div><label for="waName">Your Name *</label><input id="waName" type="text" placeholder="Full name" required></div>
+              <div><label for="waFirm">Enterprise / Company *</label><input id="waFirm" type="text" placeholder="Business name" required></div>
+            </div>
+            <div class="wa-row">
+              <div><label for="waEmail">Email *</label><input id="waEmail" type="email" placeholder="you@company.com" required></div>
+              <div><label for="waPhone">Contact Number *</label><input id="waPhone" type="tel" placeholder="10-digit mobile" required></div>
+            </div>
+            <label for="waReq">Product Requirement *</label>
+            <select id="waReq" required>
+              <option value="">Select a product category…</option>
+              <option>Polypropylene (PP)</option>
+              <option>Polyethylene (LDPE / HDPE / LLDPE)</option>
+              <option>PVC Resin</option>
+              <option>Masterbatches</option>
+              <option>Pigments &amp; Colours</option>
+              <option>Woven / Non-woven Bags</option>
+              <option>Plastic Sutli &amp; Twine</option>
+              <option>Packaging Products &amp; Films</option>
+              <option>Milk Pouches</option>
+              <option>Credit Facility</option>
+              <option>Other / Multiple Products</option>
+            </select>
+            <label for="waMsg">Quantity / Details (optional)</label>
+            <textarea id="waMsg" placeholder="e.g. Need 5 MT PP raffia grade per month, delivery to Vijayawada"></textarea>
+            <button type="submit" class="wa-btn"><i class="ri-whatsapp-line"></i> Start on WhatsApp</button>
+            <div class="wa-err" id="waErr">Please fill your name, enterprise, a valid email, a valid contact number and pick a product.</div>
+            <div class="wa-note">Opens WhatsApp with your enquiry pre-filled &mdash; nothing is sent until you press Send.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById('waOnboardForm').addEventListener('submit',function(e){
+        e.preventDefault();
+        var name=document.getElementById('waName').value.trim(),
+            firm=document.getElementById('waFirm').value.trim(),
+            email=document.getElementById('waEmail').value.trim(),
+            phone=document.getElementById('waPhone').value.replace(/[^0-9+]/g,''),
+            req=document.getElementById('waReq').value,
+            msg=document.getElementById('waMsg').value.trim(),
+            err=document.getElementById('waErr');
+        var okEmail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+            okPhone=phone.replace(/\D/g,'').length>=10;
+        if(!name||!firm||!okEmail||!okPhone||!req){err.style.display='block';return;}
+        err.style.display='none';
+        var text='New customer enquiry — mantralayagroup.com\n\n'
+          +'*Name:* '+name+'\n'
+          +'*Enterprise:* '+firm+'\n'
+          +'*Email:* '+email+'\n'
+          +'*Contact:* '+phone+'\n'
+          +'*Requirement:* '+req
+          +(msg?'\n*Details:* '+msg:'');
+        window.open('https://wa.me/917095303303?text='+encodeURIComponent(text),'_blank','noopener');
+      });
+    </script>
+  </section>
+
   <section class="contact-wrap" id="contact">
     <div class="anim-shapes dark">
       <div class="shape circle" style="width:60px;height:60px;top:15%;right:6%;animation-duration:24s;"></div>
@@ -1614,6 +1717,7 @@
             <li><a href="#products">Products</a></li>
             <li><a href="#brochures">Brochures</a></li>
             <li><a href="#about">About Us</a></li>
+            <li><a href="#whatsapp-onboard">Get Started on WhatsApp</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
