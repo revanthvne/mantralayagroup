@@ -1818,13 +1818,7 @@
 
   <!-- MG ASSISTANT BOT -->
   <style>
-    .mgb-fab{position:fixed;bottom:24px;left:24px;z-index:11000;display:flex;align-items:center;gap:10px;
-      background:linear-gradient(135deg,#A80B0B,#F07800);color:#fff;border:none;border-radius:40px;
-      padding:14px 22px;font-family:inherit;font-weight:800;font-size:.95rem;cursor:pointer;
-      box-shadow:0 10px 30px rgba(168,11,11,.4);transition:transform .15s;}
-    .mgb-fab:hover{transform:translateY(-2px);}
-    .mgb-fab i{font-size:1.25rem;}
-    .mgb-panel{display:none;position:fixed;bottom:24px;left:24px;z-index:11500;width:min(370px,calc(100vw - 32px));
+    .mgb-panel{display:none;position:fixed;bottom:24px;right:24px;z-index:11500;width:min(370px,calc(100vw - 32px));
       max-height:min(600px,calc(100vh - 48px));background:#fff;border-radius:20px;overflow:hidden;
       box-shadow:0 24px 70px rgba(40,15,5,.35);flex-direction:column;font-family:inherit;}
     .mgb-head{background:linear-gradient(135deg,#A80B0B,#F07800);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:12px;}
@@ -1846,9 +1840,8 @@
     .mgb-inrow input{flex:1;padding:11px 14px;border:1.5px solid #E6DCCB;border-radius:10px;font-family:inherit;font-size:.9rem;outline:none;}
     .mgb-inrow input:focus{border-color:#F07800;}
     .mgb-send{background:linear-gradient(135deg,#A80B0B,#F07800);border:none;color:#fff;border-radius:10px;padding:0 16px;font-size:1.1rem;cursor:pointer;}
-    @media(max-width:640px){.mgb-fab{bottom:18px;left:16px;padding:12px 18px;}.mgb-panel{bottom:16px;left:16px;}}
+    @media(max-width:640px){.mgb-panel{bottom:16px;right:16px;}}
   </style>
-  <button class="mgb-fab" id="mgbFab"><i class="ri-chat-smile-2-line"></i> Chat with us</button>
   <div class="mgb-panel" id="mgbPanel">
     <div class="mgb-head">
       <img src="mg-logo.png" alt="MG">
@@ -1860,7 +1853,7 @@
   </div>
   <script>
   (function(){
-    var panel=document.getElementById('mgbPanel'),fab=document.getElementById('mgbFab'),
+    var panel=document.getElementById('mgbPanel'),
         msgs=document.getElementById('mgbMsgs'),inp=document.getElementById('mgbIn'),
         send=document.getElementById('mgbSend');
     var S={step:'idle',data:{}};
@@ -1925,9 +1918,13 @@
       inp.value='';}
     send.addEventListener('click',function(){handle(inp.value.trim());});
     inp.addEventListener('keydown',function(e){if(e.key==='Enter'){handle(inp.value.trim());}});
-    fab.addEventListener('click',function(){panel.style.display='flex';fab.style.display='none';
-      if(!msgs.children.length)menu();});
-    document.getElementById('mgbClose').addEventListener('click',function(){panel.style.display='none';fab.style.display='flex';});
+    document.addEventListener('click',function(e){
+      var f=e.target.closest&&e.target.closest('.whatsapp-float');
+      if(f){e.preventDefault();panel.style.display='flex';f.style.display='none';
+        if(!msgs.children.length)menu();}
+    },true);
+    document.getElementById('mgbClose').addEventListener('click',function(){panel.style.display='none';
+      var f=document.querySelector('.whatsapp-float');if(f)f.style.display='flex';});
   })();
   </script>
 
