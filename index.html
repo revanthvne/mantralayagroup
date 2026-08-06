@@ -1598,8 +1598,20 @@
             <textarea id="waMsg" placeholder="e.g. Need 5 MT PP raffia grade per month, delivery to Vijayawada"></textarea>
             <button type="submit" class="wa-btn"><i class="ri-whatsapp-line"></i> Start on WhatsApp</button>
             <div class="wa-err" id="waErr">Please fill your name, enterprise, a valid email, a valid contact number and pick a product.</div>
-            <div class="wa-note">Opens WhatsApp with your enquiry pre-filled &mdash; nothing is sent until you press Send.</div>
+            <div class="wa-note">You'll see a preview first &mdash; nothing opens or sends without your confirmation.</div>
           </form>
+        </div>
+      </div>
+    </div>
+    <!-- preview / confirm modal -->
+    <div id="waPreview" style="display:none;position:fixed;inset:0;background:rgba(20,10,5,.55);z-index:12000;align-items:center;justify-content:center;padding:20px;">
+      <div style="background:#fff;border-radius:18px;max-width:440px;width:100%;padding:26px 26px 22px;box-shadow:0 30px 80px rgba(0,0,0,.35);">
+        <h4 style="font-size:1.05rem;color:#2B1B10;margin:0 0 4px;">Review your enquiry</h4>
+        <p style="font-size:.82rem;color:#8A7A66;margin:0 0 14px;">This message will open in WhatsApp. You can still edit it there before sending.</p>
+        <pre id="waPrevText" style="white-space:pre-wrap;font-family:inherit;font-size:.88rem;line-height:1.6;background:#E8F8EE;border:1px solid #BFE8CE;border-radius:12px 12px 12px 2px;padding:14px 16px;color:#1E3A2A;max-height:240px;overflow:auto;margin:0 0 16px;"></pre>
+        <div style="display:flex;gap:10px;">
+          <button id="waPrevBack" style="flex:1;padding:12px;border:1.5px solid #E6DCCB;background:#fff;border-radius:10px;font-family:inherit;font-weight:700;color:#6E5A44;cursor:pointer;">Go Back &amp; Edit</button>
+          <button id="waPrevGo" style="flex:1.4;padding:12px;border:none;background:#25D366;border-radius:10px;font-family:inherit;font-weight:800;color:#fff;cursor:pointer;">Open WhatsApp <i class="ri-whatsapp-line"></i></button>
         </div>
       </div>
     </div>
@@ -1617,19 +1629,6 @@
             okPhone=phone.replace(/\D/g,'').length>=10;
         if(!name||!firm||!okEmail||!okPhone||!req){err.style.display='block';return;}
         err.style.display='none';
-        // save a copy for admin (email via FormSubmit) — fire and forget
-        try{
-          fetch('https://formsubmit.co/ajax/info@mantralayagroup.com',{
-            method:'POST',
-            headers:{'Content-Type':'application/json','Accept':'application/json'},
-            body:JSON.stringify({
-              _subject:'New WhatsApp onboarding enquiry — mantralayagroup.com',
-              _template:'table',_captcha:'false',
-              Name:name,Enterprise:firm,Email:email,Contact:phone,
-              Requirement:req,Details:msg||'—',Source:'WhatsApp onboarding form'
-            })
-          }).catch(function(){});
-        }catch(_e){}
         var text='New customer enquiry — mantralayagroup.com\n\n'
           +'*Name:* '+name+'\n'
           +'*Enterprise:* '+firm+'\n'
@@ -1637,7 +1636,32 @@
           +'*Contact:* '+phone+'\n'
           +'*Requirement:* '+req
           +(msg?'\n*Details:* '+msg:'');
-        window.open('https://wa.me/917095303303?text='+encodeURIComponent(text),'_blank','noopener');
+        // preview & confirm before opening WhatsApp
+        window.mgSaveEnquiry=function(){
+          try{
+            fetch('https://formsubmit.co/ajax/info@mantralayagroup.com',{
+              method:'POST',
+              headers:{'Content-Type':'application/json','Accept':'application/json'},
+              body:JSON.stringify({
+                _subject:'New WhatsApp onboarding enquiry — mantralayagroup.com',
+                _template:'table',_captcha:'false',
+                Name:name,Enterprise:firm,Email:email,Contact:phone,
+                Requirement:req,Details:msg||'—',Source:'WhatsApp onboarding form'
+              })
+            }).catch(function(){});
+          }catch(_e){}
+        };
+        document.getElementById('waPrevText').textContent=text;
+        document.getElementById('waPreview').style.display='flex';
+      });
+      document.getElementById('waPrevGo').addEventListener('click',function(){
+        window.mgSaveEnquiry&&window.mgSaveEnquiry();
+        var t=document.getElementById('waPrevText').textContent;
+        document.getElementById('waPreview').style.display='none';
+        window.open('https://wa.me/917095303303?text='+encodeURIComponent(t),'_blank','noopener');
+      });
+      document.getElementById('waPrevBack').addEventListener('click',function(){
+        document.getElementById('waPreview').style.display='none';
       });
     </script>
   </section>
@@ -1791,6 +1815,121 @@
       </div>
     </div>
   </div>
+
+  <!-- MG ASSISTANT BOT -->
+  <style>
+    .mgb-fab{position:fixed;bottom:24px;left:24px;z-index:11000;display:flex;align-items:center;gap:10px;
+      background:linear-gradient(135deg,#A80B0B,#F07800);color:#fff;border:none;border-radius:40px;
+      padding:14px 22px;font-family:inherit;font-weight:800;font-size:.95rem;cursor:pointer;
+      box-shadow:0 10px 30px rgba(168,11,11,.4);transition:transform .15s;}
+    .mgb-fab:hover{transform:translateY(-2px);}
+    .mgb-fab i{font-size:1.25rem;}
+    .mgb-panel{display:none;position:fixed;bottom:24px;left:24px;z-index:11500;width:min(370px,calc(100vw - 32px));
+      max-height:min(600px,calc(100vh - 48px));background:#fff;border-radius:20px;overflow:hidden;
+      box-shadow:0 24px 70px rgba(40,15,5,.35);flex-direction:column;font-family:inherit;}
+    .mgb-head{background:linear-gradient(135deg,#A80B0B,#F07800);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:12px;}
+    .mgb-head img{height:34px;background:#fff;border-radius:8px;padding:3px 6px;}
+    .mgb-head .t{flex:1;line-height:1.25;}
+    .mgb-head .t b{display:block;font-size:.98rem;}
+    .mgb-head .t span{font-size:.74rem;opacity:.9;}
+    .mgb-close{background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;padding:4px;}
+    .mgb-msgs{flex:1;overflow-y:auto;padding:16px 14px;background:#FDF8F0;min-height:220px;}
+    .mgb-m{max-width:82%;margin-bottom:10px;padding:10px 14px;border-radius:14px;font-size:.88rem;line-height:1.5;white-space:pre-wrap;word-break:break-word;}
+    .mgb-bot{background:#fff;border:1px solid #EDE2CF;color:#3A2C1C;border-radius:14px 14px 14px 3px;}
+    .mgb-user{background:#E8F8EE;border:1px solid #BFE8CE;color:#1E3A2A;margin-left:auto;border-radius:14px 14px 3px 14px;}
+    .mgb-chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 12px;}
+    .mgb-chip{background:#fff;border:1.5px solid #F07800;color:#B3430A;border-radius:20px;padding:7px 14px;
+      font-family:inherit;font-size:.82rem;font-weight:700;cursor:pointer;transition:background .15s;}
+    .mgb-chip:hover{background:#FFF1E2;}
+    .mgb-chip.green{border-color:#25D366;color:#128C4B;}
+    .mgb-inrow{display:flex;gap:8px;padding:12px;background:#fff;border-top:1px solid #EFE6D4;}
+    .mgb-inrow input{flex:1;padding:11px 14px;border:1.5px solid #E6DCCB;border-radius:10px;font-family:inherit;font-size:.9rem;outline:none;}
+    .mgb-inrow input:focus{border-color:#F07800;}
+    .mgb-send{background:linear-gradient(135deg,#A80B0B,#F07800);border:none;color:#fff;border-radius:10px;padding:0 16px;font-size:1.1rem;cursor:pointer;}
+    @media(max-width:640px){.mgb-fab{bottom:18px;left:16px;padding:12px 18px;}.mgb-panel{bottom:16px;left:16px;}}
+  </style>
+  <button class="mgb-fab" id="mgbFab"><i class="ri-chat-smile-2-line"></i> Chat with us</button>
+  <div class="mgb-panel" id="mgbPanel">
+    <div class="mgb-head">
+      <img src="mg-logo.png" alt="MG">
+      <div class="t"><b>Mantralaya Assistant</b><span>Typically replies instantly · connects you on WhatsApp</span></div>
+      <button class="mgb-close" id="mgbClose"><i class="ri-close-line"></i></button>
+    </div>
+    <div class="mgb-msgs" id="mgbMsgs"></div>
+    <div class="mgb-inrow"><input id="mgbIn" type="text" placeholder="Type your answer…" autocomplete="off"><button class="mgb-send" id="mgbSend"><i class="ri-send-plane-2-line"></i></button></div>
+  </div>
+  <script>
+  (function(){
+    var panel=document.getElementById('mgbPanel'),fab=document.getElementById('mgbFab'),
+        msgs=document.getElementById('mgbMsgs'),inp=document.getElementById('mgbIn'),
+        send=document.getElementById('mgbSend');
+    var S={step:'idle',data:{}};
+    var PRODUCTS=['Polypropylene (PP)','Polyethylene (PE)','PVC Resin','Masterbatches','Pigments & Colours','Bags / Sutli / Packaging','Credit Facility','Other'];
+    function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+    function bot(t,chips,cls){
+      var d=document.createElement('div');d.className='mgb-m mgb-bot';d.innerHTML=esc(t);msgs.appendChild(d);
+      if(chips){var c=document.createElement('div');c.className='mgb-chips';
+        chips.forEach(function(ch){var b=document.createElement('button');b.className='mgb-chip'+(ch.green?' green':'');
+          b.innerHTML=ch.icon?'<i class="'+ch.icon+'"></i> '+esc(ch.label):esc(ch.label);
+          b.onclick=function(){c.remove();ch.fn();};c.appendChild(b);});
+        msgs.appendChild(c);}
+      msgs.scrollTop=msgs.scrollHeight;}
+    function user(t){var d=document.createElement('div');d.className='mgb-m mgb-user';d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
+    function ask(step,q,chips){S.step=step;bot(q,chips);}
+    function menu(){
+      ask('menu','Hi! 👋 I\'m the Mantralaya assistant. What can I help you with today?',[
+        {label:'🛒 Product enquiry / prices',fn:function(){user('Product enquiry / prices');S.data.intent='Product enquiry';startCapture();}},
+        {label:'💳 Credit facility',fn:function(){user('Credit facility');S.data.intent='Credit facility';S.data.req='Credit Facility';bot('We help growing businesses with flexible credit on polymer purchases. Let me take a few details and connect you to our team.');capName();}},
+        {label:'📍 Visit us / HIPLEX 2026',fn:function(){user('Visit us / HIPLEX 2026');bot('Come meet us in person!\n\n🏢 Office: DBS House, SP Road, Opp. Paradise Metro, Secunderabad — 500 003\n\n🎪 HIPLEX 2026: Stalls C 05 & C 06, Hall 4, Hitex, Hyderabad · 7–10 Aug.\n\nAnything else?');again();}},
+        {label:'👤 Talk to a human',fn:function(){user('Talk to a human');bot('Of course! Reach us directly:\n\n📞 8977020177 / 8977020175\n📧 info@mantralayagroup.com\n💬 Or tap below to chat on WhatsApp right now.',[
+          {label:'Open WhatsApp chat',green:true,icon:'ri-whatsapp-line',fn:function(){window.open('https://wa.me/917095303303','_blank','noopener');again();}},
+          {label:'Back to menu',fn:menu}]);}}
+      ]);}
+    function again(){setTimeout(function(){bot('Is there anything else?',[
+      {label:'Back to menu',fn:menu},
+      {label:'No, I\'m done — thanks!',fn:function(){user('No, I\'m done — thanks!');bot('Happy to help! See you at HIPLEX 2026 — Stalls C 05 & C 06, Hall 4. 🧡');S.step='idle';}}]);},400);}
+    function startCapture(){bot('Great — I\'ll take a few quick details so our team can help you fast.');capName();}
+    function capName(){ask('name','What\'s your name?');}
+    function capFirm(){ask('firm','And your enterprise / company name?');}
+    function capEmail(){ask('email','Your email address?');}
+    function capPhone(){ask('phone','Your contact number? (10-digit mobile)');}
+    function capReq(){S.step='req';bot('Which product are you looking for?',PRODUCTS.map(function(p){return {label:p,fn:function(){user(p);S.data.req=p;capMsg();}};}));}
+    function capMsg(){ask('msg','Any quantity or details? (type it, or just say "skip")');}
+    function summary(){
+      var d=S.data;
+      var text='New customer enquiry — mantralayagroup.com (Assistant)\n\n*Name:* '+d.name+'\n*Enterprise:* '+d.firm+'\n*Email:* '+d.email+'\n*Contact:* '+d.phone+'\n*Requirement:* '+d.req+(d.msg?'\n*Details:* '+d.msg:'');
+      S.step='done';
+      bot('Perfect, here\'s your enquiry:\n\n'+text.replace(/\*/g,'')+'\n\nReady to send it to our team on WhatsApp?',[
+        {label:'Send on WhatsApp',green:true,icon:'ri-whatsapp-line',fn:function(){
+          try{fetch('https://formsubmit.co/ajax/info@mantralayagroup.com',{method:'POST',
+            headers:{'Content-Type':'application/json','Accept':'application/json'},
+            body:JSON.stringify({_subject:'New assistant-bot enquiry — mantralayagroup.com',_template:'table',_captcha:'false',
+              Name:d.name,Enterprise:d.firm,Email:d.email,Contact:d.phone,Requirement:d.req,Details:d.msg||'—',Source:'MG Assistant bot'})}).catch(function(){});}catch(_e){}
+          window.open('https://wa.me/917095303303?text='+encodeURIComponent(text),'_blank','noopener');
+          bot('Opening WhatsApp… press Send there and our team will reply shortly. ✅');again();}},
+        {label:'Start over',fn:function(){S.data={};menu();}}
+      ]);}
+    function handle(v){
+      if(!v)return;
+      if(S.step==='name'){user(v);S.data.name=v;capFirm();}
+      else if(S.step==='firm'){user(v);S.data.firm=v;capEmail();}
+      else if(S.step==='email'){
+        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){user(v);bot('Hmm, that doesn\'t look like an email — could you re-check it?');return;}
+        user(v);S.data.email=v;capPhone();}
+      else if(S.step==='phone'){
+        var p=v.replace(/[^0-9+]/g,'');
+        if(p.replace(/\D/g,'').length<10){user(v);bot('That number looks short — please share a 10-digit mobile number.');return;}
+        user(v);S.data.phone=p;capReq();}
+      else if(S.step==='msg'){user(v);S.data.msg=(/^skip$/i.test(v)?'':v);summary();}
+      else if(S.step==='idle'||S.step==='menu'){user(v);bot('Let me point you to the right place:');menu();}
+      inp.value='';}
+    send.addEventListener('click',function(){handle(inp.value.trim());});
+    inp.addEventListener('keydown',function(e){if(e.key==='Enter'){handle(inp.value.trim());}});
+    fab.addEventListener('click',function(){panel.style.display='flex';fab.style.display='none';
+      if(!msgs.children.length)menu();});
+    document.getElementById('mgbClose').addEventListener('click',function(){panel.style.display='none';fab.style.display='flex';});
+  })();
+  </script>
 
   <!-- WHATSAPP -->
   <a class="whatsapp-float" href="https://wa.me/917095303303" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
