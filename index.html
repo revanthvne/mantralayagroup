@@ -1617,6 +1617,19 @@
             okPhone=phone.replace(/\D/g,'').length>=10;
         if(!name||!firm||!okEmail||!okPhone||!req){err.style.display='block';return;}
         err.style.display='none';
+        // save a copy for admin (email via FormSubmit) — fire and forget
+        try{
+          fetch('https://formsubmit.co/ajax/info@mantralayagroup.com',{
+            method:'POST',
+            headers:{'Content-Type':'application/json','Accept':'application/json'},
+            body:JSON.stringify({
+              _subject:'New WhatsApp onboarding enquiry — mantralayagroup.com',
+              _template:'table',_captcha:'false',
+              Name:name,Enterprise:firm,Email:email,Contact:phone,
+              Requirement:req,Details:msg||'—',Source:'WhatsApp onboarding form'
+            })
+          }).catch(function(){});
+        }catch(_e){}
         var text='New customer enquiry — mantralayagroup.com\n\n'
           +'*Name:* '+name+'\n'
           +'*Enterprise:* '+firm+'\n'
